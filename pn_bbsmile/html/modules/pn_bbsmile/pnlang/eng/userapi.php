@@ -1,6 +1,6 @@
 <?php
 // ----------------------------------------------------------------------
-// POST-NUKE Content Management System
+// PostNuke Content Management System
 // Copyright (C) 2001 by the PostNuke Development Team.
 // http://www.postnuke.com/
 // ----------------------------------------------------------------------
@@ -16,7 +16,7 @@
 // of the License, or (at your option) any later version.
 //
 // This program is distributed in the hope that it will be useful,
-// but WIthOUT ANY WARRANTY; without even the implied warranty of
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //

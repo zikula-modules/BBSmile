@@ -1,6 +1,6 @@
 <?php
 // ----------------------------------------------------------------------
-// POST-NUKE Content Management System
+// PostNuke Content Management System
 // Copyright (C) 2001 by the PostNuke Development Team.
 // http://www.postnuke.com/
 // ----------------------------------------------------------------------
@@ -16,7 +16,7 @@
 // of the License, or (at your option) any later version.
 //
 // This program is distributed in the hope that it will be useful,
-// but WIthOUT ANY WARRANTY; without even the implied warranty of
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
@@ -27,12 +27,12 @@
 // ----------------------------------------------------------------------
 
 define('_PNBBSMILE_ADMIN_BTN_SUBMIT',          'Apply');
-define('_PNBBSMILE_ADMIN_CONFIGSAVED',         'Your settings are stored');
+define('_PNBBSMILE_ADMIN_CONFIGSAVED',         'bbsmile configuration updated');
 define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH',      'Enter the directory (relative), where the smilies are. No trailing slash and no backslashes!');
 define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH',     'Path to the smilies');
-define('_PNBBSMILE_ADMIN_NOACCESS',            'You do not have access for this module');
-define('_PNBBSMILE_ADMIN_TITLE',               'pn_bbsmile Administration');
-define('_PNBBSMILE_ADMIN_TITLE_CONFIG',        'Configure the Module');
-define('_PNBBSMILE_ADMIN_V1_HINT',             'Please note that the smile functions need to be activated for the specific module within administration - modules.');
+define('_PNBBSMILE_ADMIN_NOACCESS',            'You do not have access to this module');
+define('_PNBBSMILE_ADMIN_TITLE',               'BBsmile Administration');
+define('_PNBBSMILE_ADMIN_TITLE_CONFIG',        'Modify Configuration');
+define('_PNBBSMILE_ADMIN_V1_HINT',             'Please note that the smilie hook function need to be activated for the specific module within administration -> modules.');
 
 ?>

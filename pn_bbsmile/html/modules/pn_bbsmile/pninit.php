@@ -1,6 +1,6 @@
 <?php
 // ----------------------------------------------------------------------
-// POST-NUKE Content Management System
+// PostNuke Content Management System
 // Copyright (C) 2001 by the PostNuke Development Team.
 // http://www.postnuke.com/
 // ----------------------------------------------------------------------
@@ -16,7 +16,7 @@
 // of the License, or (at your option) any later version.
 //
 // This program is distributed in the hope that it will be useful,
-// but WIthOUT ANY WARRANTY; without even the implied warranty of
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
@@ -26,6 +26,15 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
+/**
+ * @package PostNuke_Utility_Modules
+ * @subpackage pn_bbsmile
+ * @license http://www.gnu.org/copyleft/gpl.html
+*/
+
+/**
+ * init module
+*/
 function pn_bbsmile_init() {
 
     // Set up module variables
@@ -48,11 +57,17 @@ function pn_bbsmile_init() {
     return true;
 }
 
+/**
+ * upgrade module
+*/
 function pn_bbsmile_upgrade($oldversion) {
 
     return true;
 }
 
+/**
+ * delete module
+*/
 function pn_bbsmile_delete() {
 
     // Remove module hooks
