@@ -1,4 +1,7 @@
-Version 1.11: October 25th 2005
+Version 1.12: December 19th 2004
+    - code cleanups
+    
+Version 1.11: October 25th 2004
 	- pnRendered admin panel
 
 Version 1.10: July 2nd 2003
