@@ -26,5 +26,5 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-define('_PNBBSMILE_ARGSERROR',                 '[pn_bbsmile] Internal error! Arguments missing!');
+define('_PNBBSMILE_ARGSERROR',                 '[pn_bbsmile] Interner Fehler! Parameter fehlen!');
 ?>

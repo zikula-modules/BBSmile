@@ -26,13 +26,13 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-define('_PNBBSMILE_ADMIN_BTN_SUBMIT',          'Apply');
-define('_PNBBSMILE_ADMIN_CONFIGSAVED',         'bbsmile configuration updated');
-define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH',      'Enter the directory (relative), where the smilies are. No trailing slash and no backslashes!');
-define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH',     'Path to the smilies');
-define('_PNBBSMILE_ADMIN_NOACCESS',            'You do not have access to this module');
-define('_PNBBSMILE_ADMIN_TITLE',               'BBsmile Administration');
-define('_PNBBSMILE_ADMIN_TITLE_CONFIG',        'Modify Configuration');
-define('_PNBBSMILE_ADMIN_V1_HINT',             'Please note that the smilie hook function need to be activated for the specific module within administration -> modules.');
+define('_PNBBSMILE_ADMIN_BTN_SUBMIT',          'Übretragen');
+define('_PNBBSMILE_ADMIN_CONFIGSAVED',         'pn_bbsmile Konfiguration geändert');
+define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH',      'Verzeichnis (relativ), das die Smiliegrafiken enthält. Ohne / am Ende und ohne Backslashes!');
+define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH',     'Pfad zu den Smiliegrafiken');
+define('_PNBBSMILE_ADMIN_NOACCESS',            'Keie Berechtigung für dieses Modul');
+define('_PNBBSMILE_ADMIN_TITLE',               'pn_bbsmile Administration');
+define('_PNBBSMILE_ADMIN_TITLE_CONFIG',        'Konfiguration ändern');
+define('_PNBBSMILE_ADMIN_V1_HINT',             'Bitte beachten: Der Smilie Hook muss für die Module, in denen die Funktion genutzt werden soll, in Administration->Module aktiviert werden.');
 
 ?>
