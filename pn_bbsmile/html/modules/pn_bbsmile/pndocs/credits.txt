@@ -1,0 +1,6 @@
+This work is based on bb_anywhere from Hinrich Donner <hd@tiro.de>.
+The idea was initially taken from BB coding.
+
+Authors
+	Hinrich Donner <hd@tiro.de>
+	larsneo <larsneo@postnuke.com>

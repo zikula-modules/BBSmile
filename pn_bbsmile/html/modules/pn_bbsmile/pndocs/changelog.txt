@@ -1,0 +1,9 @@
+Version 1.10: July 2nd 2003
+	- added alt-tags for better HTML compliance
+
+Version 1.00: January 17th 2003
+	- minor fix in smiles code (better compatibility to forum posts)
+
+Version 0.99: January 11th 2003
+	- initial release
+

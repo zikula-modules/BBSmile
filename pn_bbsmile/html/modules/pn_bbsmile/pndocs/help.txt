@@ -1,0 +1,2 @@
+It's ust a simple Hook for integration of smilies.
+Written for the pnforum but might be used everywhere ;)
