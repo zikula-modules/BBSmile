@@ -38,7 +38,7 @@ $modversion['coding']           = 'pndocs/coding.txt';
 $modversion['official']         = 0;
 $modversion['author']           = 'larsneo';
 $modversion['contact']          = 'http://www.pncommunity.de';
-$modversion['admin']            = 0;
+$modversion['admin']            = 1;
 $modversion['securityschema']   = array('pn_bbsmile::' => '::');
 
 ?>
