@@ -33,19 +33,40 @@
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
-$modversion['name']             = 'pn_bbsmile';
-$modversion['version']          = '1.12';
-$modversion['id'] 				= '163';
-$modversion['description']      = 'Smilie Hook';
-$modversion['credits']          = 'pndocs/credits.txt';
-$modversion['help']             = 'pndocs/help.txt';
-$modversion['changelog']        = 'pndocs/changelog.txt';
-$modversion['license']          = 'pndocs/license.txt';
-$modversion['coding']           = 'pndocs/coding.txt';
-$modversion['official']         = 0;
-$modversion['author']           = 'pnForum team';
-$modversion['contact']          = 'http://www.pnforum.de';
-$modversion['admin']            = 1;
-$modversion['securityschema']   = array('pn_bbsmile::' => '::');
+/**
+ * main funcion
+ * The main function is not used in the pn_bbsmile module, we just rediret to index.php
+ *
+ */
+function pn_bbsmile_user_main()
+{
+    pnRedirect('index.php');
+    return true;
+}
+
+/**
+ * bbsmile
+ * returns a html snippet with buttons for inserting bbsmiles into a text
+ *
+ */
+function pn_bbsmile_user_bbsmiles($args)
+{
+    extract($args);
+
+    // load language file
+    if(!pnModAPILoad('pn_bbsmile', 'user')) {
+        $smarty->trigger_error("loading pn_bbsmile api failed", e_error);
+        return;
+    } 
+
+    $pnr =& new pnRender('pn_bbsmile');
+    $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
+    
+    $file = "modules/pn_bbsmile/pnjavascript/dosmilie.js";
+    if(file_exists($file) && is_readable($file)) {
+        $pnr->assign('jsheader', "<script type=\"text/javascript\" src=\"$file\"></script>");
+    }    
+    return $pnr->fetch('pn_bbsmile_user_bbsmiles.html');
+}
 
 ?>

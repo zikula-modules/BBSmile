@@ -1,3 +1,5 @@
+    - moved all pn_bbsmile stuff from pnForum to the hook
+
 Version 1.12: December 19th 2004
     - code cleanups
     
