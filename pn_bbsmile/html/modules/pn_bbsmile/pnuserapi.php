@@ -68,25 +68,25 @@ function pn_bbsmile_transform($text)
 
     // make the smilies
     //
-    $result = str_replace(':-)',        "<img src=\"$imagepath/icon_smile.gif\" alt=\":-)\" />",        $result);
-    $result = str_replace(':cry:',      "<img src=\"$imagepath/icon_frown.gif\" alt=\":cry:\" />",      $result);
-    $result = str_replace(':-(',        "<img src=\"$imagepath/icon_frown.gif\" alt=\":-(\" />",        $result);
-    $result = str_replace(':-D',        "<img src=\"$imagepath/icon_biggrin.gif\" alt=\":-D\" />",      $result);
-    $result = str_replace(';-)',        "<img src=\"$imagepath/icon_wink.gif\" alt=\";-)\" />",         $result);
-    $result = str_replace(':wink:',     "<img src=\"$imagepath/icon_wink.gif\" alt=\":wink:\" />",      $result);
-    $result = str_replace(':-o',        "<img src=\"$imagepath/icon_eek.gif\" alt=\":-o\" />",          $result);
-    $result = str_replace(':-O',        "<img src=\"$imagepath/icon_eek.gif\" alt=\":-O\" />",          $result);
-    $result = str_replace('8-)',        "<img src=\"$imagepath/icon_cool.gif\" alt=\"(-)\" />",         $result);
-    $result = str_replace(':-?',        "<img src=\"$imagepath/icon_confused.gif\" alt=\":-?\" />",     $result);
-    $result = str_replace(':lol:',      "<img src=\"$imagepath/icon_lol.gif\" alt=\":lol:\" />",        $result);
-    $result = str_replace(':oops:',     "<img src=\"$imagepath/icon_redface.gif\" alt=\":oops:\" />",   $result);
-    $result = str_replace(':-p',        "<img src=\"$imagepath/icon_razz.gif\" alt=\":-p\" />",         $result);
-    $result = str_replace(':-P',        "<img src=\"$imagepath/icon_razz.gif\" alt=\":-P\" />",         $result);
-    $result = str_replace(':roll:',     "<img src=\"$imagepath/icon_rolleyes.gif\" alt=\":roll:\" />",  $result);
-    $result = str_replace(':-|',        "<img src=\"$imagepath/icon_mad.gif\" alt=\":-|\" />",          $result);
-    $result = str_replace(':-x',        "<img src=\"$imagepath/icon_mad.gif\" alt=\":-x\" />",          $result);
-    $result = str_replace(':evil:',     "<img src=\"$imagepath/icon26.gif\" alt=\":evil:\" />",         $result);
-    $result = str_replace(':devil:',    "<img src=\"$imagepath/icon26.gif\" alt=\":devil:\" />",        $result);
+    $result = str_replace(':-)',        "<img src=\"$imagepath/icon_smile.gif\" alt=\"Smilie\" />",        $result);
+    $result = str_replace(':cry:',      "<img src=\"$imagepath/icon_frown.gif\" alt=\"Smilie\" />",      $result);
+    $result = str_replace(':-(',        "<img src=\"$imagepath/icon_frown.gif\" alt=\"Smilie\" />",        $result);
+    $result = str_replace(':-D',        "<img src=\"$imagepath/icon_biggrin.gif\" alt=\"Smilie\" />",      $result);
+    $result = str_replace(';-)',        "<img src=\"$imagepath/icon_wink.gif\" alt=\"Smilie\" />",         $result);
+    $result = str_replace(':wink:',     "<img src=\"$imagepath/icon_wink.gif\" alt=\"Smilie\" />",      $result);
+    $result = str_replace(':-o',        "<img src=\"$imagepath/icon_eek.gif\" alt=\"Smilie\" />",          $result);
+    $result = str_replace(':-O',        "<img src=\"$imagepath/icon_eek.gif\" alt=\"Smilie\" />",          $result);
+    $result = str_replace('8-)',        "<img src=\"$imagepath/icon_cool.gif\" alt=\"Smilie\" />",         $result);
+    $result = str_replace(':-?',        "<img src=\"$imagepath/icon_confused.gif\" alt=\"Smilie\" />",     $result);
+    $result = str_replace(':lol:',      "<img src=\"$imagepath/icon_lol.gif\" alt=\"Smilie\" />",        $result);
+    $result = str_replace(':oops:',     "<img src=\"$imagepath/icon_redface.gif\" alt=\"Smilie\" />",   $result);
+    $result = str_replace(':-p',        "<img src=\"$imagepath/icon_razz.gif\" alt=\"Smilie\" />",         $result);
+    $result = str_replace(':-P',        "<img src=\"$imagepath/icon_razz.gif\" alt=\"Smilie\" />",         $result);
+    $result = str_replace(':roll:',     "<img src=\"$imagepath/icon_rolleyes.gif\" alt=\"Smilie\" />",  $result);
+    $result = str_replace(':-|',        "<img src=\"$imagepath/icon_mad.gif\" alt=\"Smilie\" />",          $result);
+    $result = str_replace(':-x',        "<img src=\"$imagepath/icon_mad.gif\" alt=\"Smilie\" />",          $result);
+    $result = str_replace(':evil:',     "<img src=\"$imagepath/icon26.gif\" alt=\"Smilie\" />",         $result);
+    $result = str_replace(':devil:',    "<img src=\"$imagepath/icon26.gif\" alt=\"Smilie\" />",        $result);
 
     return $result;
 }
