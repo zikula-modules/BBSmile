@@ -57,15 +57,16 @@ function pn_bbsmile_user_bbsmiles($args)
     if(!pnModAPILoad('pn_bbsmile', 'user')) {
         $smarty->trigger_error("loading pn_bbsmile api failed", e_error);
         return;
-    } 
+    }
 
     $pnr =& new pnRender('pn_bbsmile');
+    $pnr->caching = false;
     $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
-    
+
     $file = "modules/pn_bbsmile/pnjavascript/dosmilie.js";
     if(file_exists($file) && is_readable($file)) {
         $pnr->assign('jsheader', "<script type=\"text/javascript\" src=\"$file\"></script>");
-    }    
+    }
     return $pnr->fetch('pn_bbsmile_user_bbsmiles.html');
 }
 
