@@ -1,3 +1,6 @@
+Version 1.11: October 25th 2005
+	- pnRendered admin panel
+
 Version 1.10: July 2nd 2003
 	- added alt-tags for better HTML compliance
 
