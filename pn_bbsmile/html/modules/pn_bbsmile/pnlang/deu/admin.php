@@ -27,7 +27,7 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-define('_PNBBSMILE_ADMIN_BTN_SUBMIT',          'Übretragen');
+define('_PNBBSMILE_ADMIN_BTN_SUBMIT',          'Übertragen');
 define('_PNBBSMILE_ADMIN_CONFIGSAVED',         'pn_bbsmile Konfiguration geändert');
 define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH',      'Verzeichnis (relativ), das die Smiliegrafiken enthält. Ohne / am Ende und ohne Backslashes!');
 define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH',     'Pfad zu den Smiliegrafiken');
