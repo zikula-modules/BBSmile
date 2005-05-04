@@ -1,5 +1,4 @@
 <?php
-// $Id$
 // ----------------------------------------------------------------------
 // PostNuke Content Management System
 // Copyright (C) 2001 by the PostNuke Development Team.
@@ -27,5 +26,5 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-define('_PNBBSMILE_ARGSERROR',                 '[pn_bbsmile] Interner Fehler! Parameter fehlen!');
+define('_PNBBSMILE_ARGSERROR',                 '[pn_bbsmile] Internal error! Arguments missing!');
 ?>

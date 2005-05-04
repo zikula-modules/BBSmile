@@ -34,7 +34,7 @@
 */
 
 $modversion['name']             = 'pn_bbsmile';
-$modversion['version']          = '1.12';
+$modversion['version']          = '1.13';
 $modversion['id'] 				= '163';
 $modversion['description']      = 'Smilie Hook';
 $modversion['credits']          = 'pndocs/credits.txt';
