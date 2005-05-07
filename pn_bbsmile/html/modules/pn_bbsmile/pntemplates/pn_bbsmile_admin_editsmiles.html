@@ -1,0 +1,53 @@
+<div>
+<!--[include file="pn_bbsmile_admin_menu.html"]-->
+</div>
+<!--[* pndebug *]-->
+<br />
+<form class="form" action="<!--[pnmodurl modname="pn_bbsmile" type="admin" func="editsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="pn_bbsmile"]-->" />
+	<h2> <!--[pnml name="_PNBBSMILE_ADMIN_LABEL_SMILIETABLE"]--></h2>
+	<div style="font-size: 0.9em ;font-weight:bold;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_ALIAS_HINT"]--></div>
+    <br />
+	<table>
+		<thead>
+			<tr>
+				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_SMILIE"]--></th>
+				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_SHORT"]--></th>
+				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_FILENAME"]--></th>
+				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_ALT"]--></th>
+				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_ALIAS"]--></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[foreach from=$smilies key=key item=smilie]-->
+			<tr>
+				<td>
+					<img src="<!--[ if $smilie.type eq 0 ]--><!--[ $imagepath ]--><!--[ else ]--><!--[ $imagepathauto ]--><!--[ /if ]-->/<!--[$smilie.imgsrc]-->" alt="<!--[$smilie.alt]-->"/>
+					<input type="hidden" name="key[]" value="<!--[$key]-->" />
+					<input type="hidden" name="smilietype[]" value="<!--[$smilie.type]-->" />
+				</td>
+				<td>
+					<!--[$smilie.short]-->
+					<input type="hidden" name="short[]" value="<!--[$smilie.short]-->" />
+				</td>
+				<td>
+					<!--[$smilie.imgsrc]-->
+					<input type="hidden" name="imgsrc[]" value="<!--[$smilie.imgsrc]-->" />
+				</td>
+				<td>
+				    <input type="text" name="alt[]" value="<!--[$smilie.alt]-->" size="20" maxlength="40" />
+				</td>
+				<td>
+				    <input type="text" name="alias[]" value="<!--[$smilie.alias]-->" size="30" maxlength="40" />
+				</td>
+			</tr>
+			<!--[/foreach]-->
+		</tbody>
+	</table>
+	<br />
+	<div class="formrow">
+	<input name="submit" type="submit" value="<!--[pnml name="_PNBBSMILE_ADMIN_BTN_SUBMIT"]-->" />
+	</div>
+	<div style="clear:both"></div>
+</div>

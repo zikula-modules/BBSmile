@@ -1,0 +1,33 @@
+<!--[*  $Id$  *]-->
+<!--[include file="pn_bbsmile_admin_menu.html"]-->
+<h2><!--[pnml name=_PNBBSMILE_ADMIN_TITLE_CONFIG]--></h2>
+<br />
+<form class="form" action="<!--[pnmodurl modname="pn_bbsmile" type="admin" func="modifyconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="pn_bbsmile"]-->" />
+
+	<div class="formrow">
+	    <label for="pnbbsmile_imagepath"><!--[pnml name="_PNBBSMILE_ADMIN_LABEL_IMAGEPATH"]--></label>
+	    <input id="pnbbsmile_imagepath" type="text" name="imagepath" size="40" maxlength="255" value="<!--[$imagepath]-->" /><br />
+	    <!--[pnml name="_PNBBSMILE_ADMIN_HINT_IMAGEPATH"]-->
+	</div>
+	<br />
+	<hr />
+	<br />
+	<div class="formrow">
+	    <label for="pnbbsmile_activate_auto"><!--[pnml name="_PNBBSMILE_ADMIN_LABEL_ACTIVATE_AUTO"]--></label>
+	    <input id="pnbbsmile_activate_auto" type="checkbox" name="activate_auto" value="1" <!--[$activate_auto]--> /><br />
+	</div>
+	<br />
+	<div class="formrow">
+	    <label for="pnbbsmile_imagepath_auto"><!--[pnml name="_PNBBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO"]--></label>
+    	<input id="pnbbsmile_imagepath_auto" type="text" name="imagepath_auto" size="40" maxlength="255" value="<!--[$imagepath_auto]-->" /><br />
+	    <!--[pnml name="_PNBBSMILE_ADMIN_HINT_IMAGEPATH_AUTO"]-->
+	</div>
+	<br />
+	    <div class="formrow">
+	    <input name="submit" type="submit" value="<!--[pnml name="_PNBBSMILE_ADMIN_BTN_SUBMIT"]-->" />
+	</div>
+	<div style="clear:both"></div>
+</div>
+</form>

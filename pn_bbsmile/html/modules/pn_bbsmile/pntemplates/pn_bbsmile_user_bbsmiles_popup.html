@@ -1,0 +1,31 @@
+<!--[* add the javascript file  *]-->
+<!--[ add_additional_header header=$jsheader ]-->
+
+<script language="javascript" type="text/javascript">
+<!--
+function emoticon(text) {
+    text = ' ' + text + ' ';
+    if (opener.document.forms['post'].message.createTextRange && opener.document.forms['post'].message.caretPos) {
+        var caretPos = opener.document.forms['post'].message.caretPos;
+        caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+        opener.document.forms['post'].message.focus();
+    } else {
+    opener.document.forms['post'].message.value  += text;
+    opener.document.forms['post'].message.focus();
+    }
+}
+//-->
+</script>
+<h1><!--[sitename]--> Smilies</h1>
+<div>
+<!--[ pnbbsmile_smilie_list assign="smilies" ]-->
+<!--[ foreach item=smilie from=$smilies ]-->
+
+    <a href="javascript:addsmilies()" onclick="DoSmilie(' <!--[$smilie.short]--> ')" onkeypress="DoSmilie(' <!--[$smilie.short]--> ')" title='<!--[$smilie.alt]-->'><img src='<!--[ if $smilie.type eq 0 ]--><!--[ $imagepath ]--><!--[ else ]--><!--[ $imagepath_auto ]--><!--[ /if ]-->/<!--[$smilie.imgsrc]-->' style="border:none;margin-top:3px;margin-bottom:3px;margin-left:3px;" alt='Smilie <!--[$smilie.alt]-->' /></a>
+    <a onClick="emoticon('<!--[$smilie.short]-->')"><img src="<!--[$smilie.imgsrc]-->" border="0" alt="<!--[$smilie.replace]-->" title="<!--[$smilie.alt]-->" /></a>
+
+<!--[/foreach]-->
+</div>
+<div align="center">
+    <a href="javascript:window.close();" class="genmed"><!--[ pnml name='_CLOSEWINDOW' ]--></a>
+</div>
