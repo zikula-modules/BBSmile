@@ -60,14 +60,37 @@ function pn_bbsmile_user_bbsmiles($args)
     }
 
     $pnr =& new pnRender('pn_bbsmile');
-    $pnr->caching = false;
     $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
+    $pnr->assign('activate_auto', pnModGetVar('pn_bbsmile', 'activate_auto'));
+    $pnr->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
 
     $file = "modules/pn_bbsmile/pnjavascript/dosmilie.js";
     if(file_exists($file) && is_readable($file)) {
         $pnr->assign('jsheader', "<script type=\"text/javascript\" src=\"$file\"></script>");
     }
+    $url = pnModURL('pn_bbsmilie', 'user', 'popup', array());
+    $pnr->assign('url',$url);
     return $pnr->fetch('pn_bbsmile_user_bbsmiles.html');
+}
+
+function pn_bbsmile_user_popup($args)
+{
+    extract($args);
+
+    // load language file
+    if(!pnModAPILoad('pn_bbsmile', 'user')) {
+        return "loading pn_bbsmile api failed";
+    }
+
+    $pnr =& new pnRender('pn_bbsmile');
+    $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
+    $pnr->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
+
+    $file = "modules/pn_bbsmile/pnjavascript/dosmilie.js";
+    if(file_exists($file) && is_readable($file)) {
+        $pnr->assign('jsheader', "<script type=\"text/javascript\" src=\"$file\"></script>");
+    }
+    return $pnr->fetch('pn_bbsmile_user_bbsmiles_popup.html');
 }
 
 ?>

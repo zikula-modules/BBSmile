@@ -1,4 +1,5 @@
 <?php
+// $Id$
 // ----------------------------------------------------------------------
 // PostNuke Content Management System
 // Copyright (C) 2001 by the PostNuke Development Team.
@@ -26,5 +27,13 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-define('_PNBBSMILE_ARGSERROR',                 '[pn_bbsmile] Internal error! Arguments missing!');
+// include smilie alternative text defines
+@include_once('modules/pn_bbsmile/pnlang/deu/smilies.php');
+
+define('_PNBBSMILE_ARGSERROR',                 '[pn_bbsmile] Interner Fehler! Parameter fehlen!');
+define('_PNBBSMILE_MORESMILIES',               'Weitere Smilies');
+
+define('_PNBBSMILE_SHOW_SMILIES','Zeige Smilies');
+define('_PNBBSMILE_HIDE_SMILIES','Verstecke Smilies');
+
 ?>

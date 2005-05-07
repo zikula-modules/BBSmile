@@ -41,7 +41,13 @@ function pn_bbsmile_init() {
     // Set up module variables
     //
     // - where are the smilies stored
-    pnModSetVar('pn_bbsmile', 'smiliepath',    'images/smilies');
+    pnModSetVar('pn_bbsmile', 'smiliepath',      'modules/pn_bbsmile/pnimages/smilies');
+    pnModSetVar('pn_bbsmile', 'activate_auto',   '0');
+    pnModSetVar('pn_bbsmile', 'smiliepath_auto', 'modules/pn_bbsmile/pnimages/smilies_auto');
+
+    // Generate the smile array
+    pnModAPIFunc('pn_bbsmile','admin','updatesmilies',array());
+
 
     // Set up module hooks
     if (!pnModRegisterHook('item',
@@ -61,8 +67,17 @@ function pn_bbsmile_init() {
 /**
  * upgrade module
 */
-function pn_bbsmile_upgrade($oldversion) {
-
+function pn_bbsmile_upgrade($oldversion)
+{
+	switch($oldversion) {
+	    case '1.13':
+            pnModSetVar('pn_bbsmile', 'smiliepath',       'modules/pn_bbsmile/pnimages/smilies');
+	        pnModSetVar('pn_bbsmile', 'activate_auto',    '0');
+	        pnModSetVar('pn_bbsmile', 'smiliepath_auto',  'modules/pn_bbsmile/pnimages/smilies_auto');
+	        pnModAPIFunc('pn_bbsmile','admin','updatesmilies',array());
+        default:
+            break;
+    }
     return true;
 }
 
@@ -84,6 +99,9 @@ function pn_bbsmile_delete() {
 
     // Remove module variables
     pnModDelVar('pn_bbsmile', 'smiliepath');
+    pnModDelVar('pn_bbsmile', 'smiliepath_auto');
+    pnModDelVar('pn_bbsmile', 'smilie_array');
+    pnModDelVar('pn_bbsmile', 'activate_auto');
 
     // Deletion successful
     return true;

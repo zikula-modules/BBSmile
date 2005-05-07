@@ -1,18 +1,23 @@
 // $Id$
 
-// dummy function for href
-function addsmilies() {
-    return;
-}
-
-function DoSmilie(SmilieCode) {
+// new function
+function AddSmilie(textfieldname, SmilieCode) {
     var SmilieCode;
     var revisedMessage;
-    var post = document.getElementById("post");
-    var currentMessage = post.message.value;
+    var textfield = document.getElementById(textfieldname);
+    var currentMessage = textfield.message.value;
     revisedMessage = currentMessage+SmilieCode;
-    post.message.value=revisedMessage;
-    post.message.focus();
+    textfield.message.value=revisedMessage;
+    textfield.message.focus();
     return;
 }
 
+// old function wrapper
+function DoSmilie(SmilieCode) {
+    return AddSmilie('post', SmilieCode);
+}
+
+function ShowHide(id, visibility) {
+	obj = document.getElementById(id);
+	obj.style.display = visibility;
+}

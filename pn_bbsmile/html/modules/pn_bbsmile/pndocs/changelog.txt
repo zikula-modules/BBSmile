@@ -1,9 +1,17 @@
-Version 1.13: March 6th, 2005
+Version 1.14 AutoSmilie: 2005-04-29
+	- added a Module-Var, which indicates a directory
+	  All Files out of this directory (gif,jpg,pjep,png) are included automatically as
+	  Smilies in this hook
+	  Credits for the basic idea and work go to Bolbit (Thomas Pawlitzki, mail@2mas.de)
+	  This closes FR[ 1058440 ] add Smiles
+	  implemented FR [ 1135445 ] Generalise the hooks javascript
+
+Version 1.13:
     - moved all pn_bbsmile stuff from pnForum to the hook
 
 Version 1.12: December 19th 2004
     - code cleanups
-    
+
 Version 1.11: October 25th 2004
 	- pnRendered admin panel
 
@@ -15,4 +23,3 @@ Version 1.00: January 17th 2003
 
 Version 0.99: January 11th 2003
 	- initial release
-

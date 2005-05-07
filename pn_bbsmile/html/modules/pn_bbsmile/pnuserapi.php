@@ -36,7 +36,7 @@
 /**
  * the hook function
 */
-function pn_bbsmile_userapi_transform($args) 
+function pn_bbsmile_userapi_transform($args)
 {
     extract($args);
 
@@ -58,61 +58,51 @@ function pn_bbsmile_userapi_transform($args)
     return $result;
 }
 
-/**
- * the wrapper for a string var (simple up to now)
-*/
-function pn_bbsmile_transform($text) 
-{
-    $result = $text;
-
-    $imagepath = pnModGetVar('pn_bbsmile', 'smiliepath');
-
-    // make the smilies
-    //
-    $result = str_replace(':-)',        "<img src=\"$imagepath/icon_smile.gif\" alt=\"Smilie\" />",        $result);
-    $result = str_replace(':cry:',      "<img src=\"$imagepath/icon_frown.gif\" alt=\"Smilie\" />",      $result);
-    $result = str_replace(':-(',        "<img src=\"$imagepath/icon_frown.gif\" alt=\"Smilie\" />",        $result);
-    $result = str_replace(':-D',        "<img src=\"$imagepath/icon_biggrin.gif\" alt=\"Smilie\" />",      $result);
-    $result = str_replace(';-)',        "<img src=\"$imagepath/icon_wink.gif\" alt=\"Smilie\" />",         $result);
-    $result = str_replace(':wink:',     "<img src=\"$imagepath/icon_wink.gif\" alt=\"Smilie\" />",      $result);
-    $result = str_replace(':-o',        "<img src=\"$imagepath/icon_eek.gif\" alt=\"Smilie\" />",          $result);
-    $result = str_replace(':-O',        "<img src=\"$imagepath/icon_eek.gif\" alt=\"Smilie\" />",          $result);
-    $result = str_replace('8-)',        "<img src=\"$imagepath/icon_cool.gif\" alt=\"Smilie\" />",         $result);
-    $result = str_replace(':-?',        "<img src=\"$imagepath/icon_confused.gif\" alt=\"Smilie\" />",     $result);
-    $result = str_replace(':lol:',      "<img src=\"$imagepath/icon_lol.gif\" alt=\"Smilie\" />",        $result);
-    $result = str_replace(':oops:',     "<img src=\"$imagepath/icon_redface.gif\" alt=\"Smilie\" />",   $result);
-    $result = str_replace(':-p',        "<img src=\"$imagepath/icon_razz.gif\" alt=\"Smilie\" />",         $result);
-    $result = str_replace(':-P',        "<img src=\"$imagepath/icon_razz.gif\" alt=\"Smilie\" />",         $result);
-    $result = str_replace(':roll:',     "<img src=\"$imagepath/icon_rolleyes.gif\" alt=\"Smilie\" />",  $result);
-    $result = str_replace(':-|',        "<img src=\"$imagepath/icon_mad.gif\" alt=\"Smilie\" />",          $result);
-    $result = str_replace(':-x',        "<img src=\"$imagepath/icon_mad.gif\" alt=\"Smilie\" />",          $result);
-    $result = str_replace(':evil:',     "<img src=\"$imagepath/icon26.gif\" alt=\"Smilie\" />",         $result);
-    $result = str_replace(':devil:',    "<img src=\"$imagepath/icon26.gif\" alt=\"Smilie\" />",        $result);
-
-    return $result;
-}
-
-/**
- * get all smilies
+/*
+ * main transformation function
  */
-function pn_bbsmile_userapi_getall() 
+function pn_bbsmile_transform($text)
 {
-	$handle=opendir(pnModGetVar('pn_bbsmile', 'smiliepath'));
-	while ($file = readdir($handle)) {
-		$filelist[] = $file;
-	}
-	asort($filelist);
-	$a = 1;
-	$count = 1;
-	$icons = array();
-	while (list ($key, $file) = each ($filelist)) {
-		ereg('.gif|.jpg',$file);
-		if ($file != '.' && $file != '..' && $file != 'index.html'  && $file != 'CVS') {
-			$icons[] = array('imgsrc' => $file);
-		}
+    $smilies = unserialize(pnModGetVar('pn_bbsmile','smilie_array'));
 
-	}
-	return $icons;
+    if(is_array($smilies) && count($smilies)>0) {
+        $imagepath = pnModGetVar('pn_bbsmile', 'smiliepath');
+        $imagepath_auto = pnModGetVar('pn_bbsmile', 'smiliepath_auto');
+        $auto_active = pnModGetVar('pn_bbsmile','activate_auto');
+    	// pad it with a space so we can distinguish between FALSE and matching the 1st char (index 0).
+	    // This is important!<p align="center"></p>
+    	$text = ' ' . $text;
+        foreach ($smilies as $smilie) {
+            // check if alt is a define
+            $smilie['alt'] = (defined($smilie['alt'])) ? constant($smilie['alt']) : $smilie['alt'];
+
+            if($smilie['type'] == 0) {
+                $text = str_replace(' ' . $smilie['short'] . ' ', ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+            } else {
+                if($auto_active == 1) {
+                    $text = str_replace(' ' . $smilie['short'] . ' ', ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                }
+            }
+
+            if(!empty($smilie['alias'])) {
+                $aliases = explode(",", trim($smilie['alias']));
+                if(is_array($aliases) && count($aliases)>0) {
+                    foreach($aliases as $alias) {
+                        if($smilie['type'] == 0) {
+                            $text = str_replace(' ' . $alias . ' ', ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                        } else {
+                            if($auto_active == 1) {
+                                $text = str_replace(' ' . $alias . ' ', ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                            }
+                        }
+                    }
+                }
+            }
+        }  // foreach
+    	// Remove our padding from the string..
+	    $text = substr($text, 1);
+    }
+    return $text;
 }
 
 ?>

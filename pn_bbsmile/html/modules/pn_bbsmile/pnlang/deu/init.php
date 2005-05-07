@@ -1,4 +1,5 @@
 <?php
+// $Id$
 // ----------------------------------------------------------------------
 // PostNuke Content Management System
 // Copyright (C) 2001 by the PostNuke Development Team.
@@ -26,6 +27,6 @@
 // changes for pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-define('_PNBBSMILE_COULDNOTREGISTER',          'pn_bbsmile was NOT installed!');
-define('_PNBBSMILE_COULDNOTUNREGISTER',        'pn_bbsmile was NOT removed!');
+define('_PNBBSMILE_COULDNOTREGISTER',          'pn_bbsmile NICHT installiert!');
+define('_PNBBSMILE_COULDNOTUNREGISTER',        'pn_bbsmile NICHT entfernt!');
 ?>
