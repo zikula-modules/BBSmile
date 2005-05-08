@@ -2,7 +2,9 @@
 
 <!--[* add the javascript file  *]-->
 <!--[ add_additional_header header=$jsheader ]-->
-
+<noscript>
+    <strong><!--[ pnml name='_PNBBSMILE_NOSCRIPTWARNING' ]--></strong>
+</noscript>
 <!--[ pnbbsmile_smilie_list assign="smilies" ]-->
 <br />
 <div style="width:80%">
@@ -22,19 +24,14 @@
 <!--[if ( $activate_auto && $smilies|@count > 0 ) ]-->
 
 <div>
-	<!--[pnml name="_PNBBSMILE_MORESMILIES"]-->:&nbsp;
-	<a onMouseOver="javascript:ShowHide('more_smilies', 'inline')" href="javascript:ShowHide('more_smilies','inline')"><!--[pnml name="_PNBBSMILE_SHOW_SMILIES"]--></a> |
-	<a onMouseOver="javascript:ShowHide('more_smilies', 'none')" href="javascript:ShowHide('more_smilies','none')"><!--[pnml name="_PNBBSMILE_HIDE_SMILIES"]--></a>
+	<a onkeypress="javascript:ShowHide('more_smilies')" href="javascript:ShowHide('more_smilies')" title="<!--[pnml name="_PNBBSMILE_SHOWHIDE_SMILIES"]-->"><!--[pnml name="_PNBBSMILE_MORESMILIES"]--></a>
 </div>
 
-<div id="more_smilies" style="position: absolute; display:none; overflow:auto;height:250px;color: #00009C;  background-color: #FFFFCE;  border: none;">
+<div id="more_smilies" style="display:none; margin-bottom: 10px; width: 400px; height: 250px; overflow:auto; color: #00009C;  background-color: #FFFFCE;  border: none;">
     <fieldset>
         <legend style="font-weight: bold;font-size:smaller;">
             <!--[pnml name="_PNBBSMILE_MORESMILIES"]-->
         </legend>
-        <div style="text-align: center;">
-        	<a onMouseOver="javascript:ShowHide('more_smilies', 'none')" href="javascript:ShowHide('more_smilies','none')"><!--[pnml name="_PNBBSMILE_HIDE_SMILIES"]--></a>
-        </div>
         <table style="padding: 0px; margin: 0px; border-collapse: collapse;">
         	<tr>
                 <!--[ foreach name=smilie_loop item=smilie from=$smilies ]-->

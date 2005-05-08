@@ -77,10 +77,10 @@ function pn_bbsmile_transform($text)
             $smilie['alt'] = (defined($smilie['alt'])) ? constant($smilie['alt']) : $smilie['alt'];
 
             if($smilie['type'] == 0) {
-                $text = str_replace(' ' . $smilie['short'] . ' ', ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                $text = str_replace($smilie['short'], ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
             } else {
                 if($auto_active == 1) {
-                    $text = str_replace(' ' . $smilie['short'] . ' ', ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                    $text = str_replace($smilie['short'], ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
                 }
             }
 

@@ -30,10 +30,10 @@
 // include smilie alternative text defines
 @include_once('modules/pn_bbsmile/pnlang/deu/smilies.php');
 
+define('_PNBBSMILE_NOSCRIPTWARNING',           'Ihr Browser unterstützt kein Javascript oder Javascript ist deaktiviert. Einige Features dieser Seite werden daher nicht funktionieren.');
 define('_PNBBSMILE_ARGSERROR',                 '[pn_bbsmile] Interner Fehler! Parameter fehlen!');
 define('_PNBBSMILE_MORESMILIES',               'Weitere Smilies');
 
-define('_PNBBSMILE_SHOW_SMILIES','Zeige Smilies');
-define('_PNBBSMILE_HIDE_SMILIES','Verstecke Smilies');
+define('_PNBBSMILE_SHOWHIDE_SMILIES','Smilies ein-/ausblenden');
 
 ?>
