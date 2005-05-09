@@ -48,6 +48,7 @@ function pn_bbsmile_user_main()
  * bbsmile
  * returns a html snippet with buttons for inserting bbsmiles into a text
  *
+ *@params $args['textfieldid'] id of the textfield for inserting smilies
  */
 function pn_bbsmile_user_bbsmiles($args)
 {
@@ -63,6 +64,7 @@ function pn_bbsmile_user_bbsmiles($args)
     $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
     $pnr->assign('activate_auto', pnModGetVar('pn_bbsmile', 'activate_auto'));
     $pnr->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
+    $pnr->assign('textfieldid', $textfieldid);
 
     $file = "modules/pn_bbsmile/pnjavascript/dosmilie.js";
     if(file_exists($file) && is_readable($file)) {
@@ -70,6 +72,12 @@ function pn_bbsmile_user_bbsmiles($args)
     }
     $url = pnModURL('pn_bbsmilie', 'user', 'popup', array());
     $pnr->assign('url',$url);
+
+    $thismod = pnModGetName();
+    $templatefile = 'modules/pn_bbsmile/pntemplates/' . $thismod . '.html';
+    if(file_exists($templatefile) && is_readable($templatefile)) {
+        return $pnr->fetch($thismod . '.html');
+    }
     return $pnr->fetch('pn_bbsmile_user_bbsmiles.html');
 }
 

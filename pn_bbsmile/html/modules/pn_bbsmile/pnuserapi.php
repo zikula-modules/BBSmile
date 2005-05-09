@@ -105,4 +105,25 @@ function pn_bbsmile_transform($text)
     return $text;
 }
 
+/**
+ * get all old smilies- only needed by Messages module right now
+ */
+function pn_bbsmile_userapi_getall()
+{
+	$handle=opendir('images/smilies');
+	while ($file = readdir($handle)) {
+		$filelist[] = $file;
+	}
+	asort($filelist);
+	$icons = array();
+	while (list ($key, $file) = each ($filelist)) {
+		ereg('.gif|.jpg',$file);
+		if ($file != '.' && $file != '..' && $file != 'index.html'  && $file != 'CVS') {
+			$icons[] = array('imgsrc' => $file);
+		}
+
+	}
+	return $icons;
+}
+
 ?>
