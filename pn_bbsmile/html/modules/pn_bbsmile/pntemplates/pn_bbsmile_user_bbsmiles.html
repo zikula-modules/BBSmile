@@ -11,14 +11,10 @@
     <!--[* default smilies *]-->
     <!--[ foreach item=smilie from=$smilies ]-->
         <!--[ if $smilie.type eq 0 ]-->
-        <a href="javascript:AddSmilie('post', ' <!--[ $smilie.short ]--> ')" title='<!--[ $smilie.alt ]-->'><img src='<!--[ $imagepath ]-->/<!--[ $smilie.imgsrc ]-->' style="border:none;margin-top:3px;margin-bottom:3px;margin-left:3px;" alt='Smilie <!--[ $smilie.alt ]-->' /></a>
+        <a href="javascript:AddSmilie('post', ' <!--[ $smilie.short ]--> ')" title="<!--[ $smilie.short ]-->"><img src="<!--[ $imagepath ]-->/<!--[ $smilie.imgsrc ]-->" style="border:none;margin-top:3px;margin-bottom:3px;margin-left:3px;" alt='Smilie <!--[ $smilie.alt ]-->' /></a>
         <!--[ /if ]-->
     <!--[ /foreach ]-->
 </div>
-
-<!--[*
-<a href="<!--[pnmodurl modname="pn_bbsmile" type="user" func="popup"]-->" onclick="window.open('<!--[pnmodurl modname="pn_bbsmile" type="user" func="popup"]-->', '_phpbbsmilies', 'HEIGHT=400,resizable=yes,scrollbars=yes,WIDTH=350');return false;" target="_phpbbsmilies" class="nav"><!--[pnml name="_PNBBSMILE_MORESMILIES"]--></a>
-*]-->
 
 <!--[ pnbbsmile_smilie_list assign="smilies" ]-->
 <!--[if ( $activate_auto && $smilies|@count > 0 ) ]-->
@@ -36,7 +32,7 @@
         	<tr>
                 <!--[ foreach name=smilie_loop item=smilie from=$smilies ]-->
                     <td style="text-align: center;">
-        		        <a href="javascript:AddSmilie('post', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.alt]-->"><img src="<!--[ if $smilie.type eq 0 ]--><!--[ $imagepath ]--><!--[ else ]--><!--[$imagepath_auto]--><!--[ /if ]-->/<!--[$smilie.imgsrc]-->" alt="Smilie <!--[$smilie.alt]-->" /></a>
+        		        <a href="javascript:AddSmilie('post', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->"><img src="<!--[ if $smilie.type eq 0 ]--><!--[ $imagepath ]--><!--[ else ]--><!--[$imagepath_auto]--><!--[ /if ]-->/<!--[$smilie.imgsrc]-->" alt="Smilie <!--[$smilie.alt]-->" /></a>
                     </td>
         	    <!--[if ($smarty.foreach.smilie_loop.iteration is div by 5 ) ]-->
         	    </tr>

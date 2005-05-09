@@ -70,8 +70,6 @@ function pn_bbsmile_user_bbsmiles($args)
     if(file_exists($file) && is_readable($file)) {
         $pnr->assign('jsheader', "<script type=\"text/javascript\" src=\"$file\"></script>");
     }
-    $url = pnModURL('pn_bbsmilie', 'user', 'popup', array());
-    $pnr->assign('url',$url);
 
     $thismod = pnModGetName();
     $templatefile = 'modules/pn_bbsmile/pntemplates/' . $thismod . '.html';
@@ -81,6 +79,7 @@ function pn_bbsmile_user_bbsmiles($args)
     return $pnr->fetch('pn_bbsmile_user_bbsmiles.html');
 }
 
+/* THIS FUNCTION NEEDS SOME WORK - DO NOT USE IT ATM !! */
 function pn_bbsmile_user_popup($args)
 {
     extract($args);
