@@ -53,11 +53,11 @@ function pn_bbsmile_user_main()
 function pn_bbsmile_user_bbsmiles($args)
 {
     extract($args);
+    unset($args);
 
     // load language file
     if(!pnModAPILoad('pn_bbsmile', 'user')) {
-        $smarty->trigger_error("loading pn_bbsmile api failed", e_error);
-        return;
+        return "loading pn_bbsmile api failed";
     }
 
     $pnr =& new pnRender('pn_bbsmile');

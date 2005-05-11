@@ -75,6 +75,12 @@ function pn_bbsmile_admin_modifyconfig()
             $activate_auto = 'checked="checked"';
         $pnRender->assign('activate_auto', $activate_auto);
 
+        $remove_inactive_value = pnModGetVar('pn_bbsmile', 'remove_inactive');
+        $remove_inactive = "";
+        if ($remove_inactive_value)
+            $remove_inactive = 'checked="checked"';
+        $pnRender->assign('remove_inactive', $remove_inactive);
+
         // that's all folks
         return $pnRender->fetch('pn_bbsmile_admin_modifyconfig.html');
 
@@ -88,8 +94,12 @@ function pn_bbsmile_admin_modifyconfig()
         pnModSetVar('pn_bbsmile', 'smiliepath_auto', $imagepath_auto);
 
         $activate_auto = pnVarCleanFromInput('activate_auto');
-        if (!isset($activate_auto)) $activate_auto = 0;
+        if (empty($activate_auto)) $activate_auto = 0;
         pnModSetVar('pn_bbsmile','activate_auto',$activate_auto);
+
+        $remove_inactive = pnVarCleanFromInput('remove_inactive');
+        if (empty($remove_inactive)) $remove_inactive = 0;
+        pnModSetVar('pn_bbsmile', 'remove_inactive', $remove_inactive);
 
         pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_CONFIGSAVED);
         pnRedirect(pnModURL('pn_bbsmile', 'admin'));
@@ -161,22 +171,27 @@ function pn_bbsmile_admin_editsmilies() {
     } else { // submit is set
 
         // Get input
-        list($keys, $shorts, $imgsrcs, $alts, $aliases, $types )
-            = pnVarCleanFromInput('key', 'short', 'imgsrc', 'alt', 'alias', 'smilietype');
+        list($keys, $shorts, $imgsrcs, $alts, $aliases, $types, $active )
+            = pnVarCleanFromInput('key', 'short', 'imgsrc', 'alt', 'alias', 'smilietype','active');
 
         $smilies = array();
 
+	// Create an array with the input and deaktivate all smilies
         for($i = 0; $i < sizeof($keys); $i++) {
             $smilies[$keys[$i]] = array(
                 'type'   => $types[$i],
                 'short'  => $shorts[$i],
                 'imgsrc' => $imgsrcs[$i],
                 'alt'    => $alts[$i],
-                'alias'  => $aliases[$i]);
+                'alias'  => $aliases[$i],
+                'active'  => 0);
         }
+	// And now set the active flag for all selected smilies
+	for ($i = 0; $i < sizeof($active); $i++) {
+		$smilies[$active[$i]]['active'] = 1;
+	}
 
         pnModSetVar('pn_bbsmile','smilie_array',serialize($smilies));
-
         pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_EDITEDSMILIESSAVED);
         pnRedirect(pnModURL('pn_bbsmile', 'admin'));
     }

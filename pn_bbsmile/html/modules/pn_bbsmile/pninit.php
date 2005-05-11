@@ -43,6 +43,7 @@ function pn_bbsmile_init() {
     // - where are the smilies stored
     pnModSetVar('pn_bbsmile', 'smiliepath',      'modules/pn_bbsmile/pnimages/smilies');
     pnModSetVar('pn_bbsmile', 'activate_auto',   '0');
+    pnModSetVar('pn_bbsmile', 'remove_inactive', '1');
     pnModSetVar('pn_bbsmile', 'smiliepath_auto', 'modules/pn_bbsmile/pnimages/smilies_auto');
 
     // Generate the smile array
@@ -73,6 +74,7 @@ function pn_bbsmile_upgrade($oldversion)
 	    case '1.13':
             pnModSetVar('pn_bbsmile', 'smiliepath',       'modules/pn_bbsmile/pnimages/smilies');
 	        pnModSetVar('pn_bbsmile', 'activate_auto',    '0');
+            pnModSetVar('pn_bbsmile', 'remove_inactive',  '1');
 	        pnModSetVar('pn_bbsmile', 'smiliepath_auto',  'modules/pn_bbsmile/pnimages/smilies_auto');
 	        pnModAPIFunc('pn_bbsmile','admin','updatesmilies',array());
         default:
@@ -102,6 +104,7 @@ function pn_bbsmile_delete() {
     pnModDelVar('pn_bbsmile', 'smiliepath_auto');
     pnModDelVar('pn_bbsmile', 'smilie_array');
     pnModDelVar('pn_bbsmile', 'activate_auto');
+    pnModDelVar('pn_bbsmile', 'remove_inactive');
 
     // Deletion successful
     return true;

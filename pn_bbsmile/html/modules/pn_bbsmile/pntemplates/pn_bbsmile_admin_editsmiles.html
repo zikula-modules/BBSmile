@@ -16,7 +16,8 @@
 				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_SHORT"]--></th>
 				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_FILENAME"]--></th>
 				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_ALT"]--></th>
-				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_ALIAS"]--></th>
+ 				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_ALIAS"]--></th>
+ 				<th style="font-size: 12px;"><!--[pnml name="_PNBBSMILE_ADMIN_SMILIETABLE_ACTIVE"]--></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -41,6 +42,10 @@
 				<td>
 				    <input type="text" name="alias[]" value="<!--[$smilie.alias]-->" size="30" maxlength="40" />
 				</td>
+ 				<td>
+				    <input type="checkbox" name="active[]" value="<!--[$key]-->" <!--[ if $smilie.active eq 1 ]--> checked="checked" <!--[/if]--> />
+				</td>
+
 			</tr>
 			<!--[/foreach]-->
 		</tbody>

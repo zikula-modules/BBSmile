@@ -50,6 +50,7 @@ define('_PNBBSMILE_ADMIN_SMILIETABLE_FILENAME','filename');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_ALT','alterbative text');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_ALIAS','Aliases for this smilie');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_ALIAS_HINT','Aliase are seperted by ",". Don\'t uses spaces.');
+define('_PNBBSMILE_ADMIN_SMILIETABLE_ACTIVE', 'Active');
 define('_PNBBSMILE_ADMIN_TITLE_EDITSMILIES','Edit the defined smilies');
 define('_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED','The edited smilies has been saved.');
 
@@ -58,6 +59,6 @@ define('_PNBBSMILE_ADMIN_LABEL_READFROMFILESYSTEM','With confirmation all smilie
 define('_PNBBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM','Should the smilies be read out of the directory?');
 define('_PNBBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM','Smilies has been read out sucsessfully.');
 define('_PNBBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM','Read smilies from filesystem');
-
+define('_PNBBSMILE_ADMIN_LABEL_REMOVE_INACTIVE', 'Remove inactive smilie shortcuts');
 
 ?>

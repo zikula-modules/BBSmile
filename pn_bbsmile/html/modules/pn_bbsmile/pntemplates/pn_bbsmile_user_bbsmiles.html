@@ -5,18 +5,16 @@
 <noscript>
     <strong><!--[ pnml name='_PNBBSMILE_NOSCRIPTWARNING' ]--></strong>
 </noscript>
-<!--[ pnbbsmile_smilie_list assign="smilies" ]-->
+<!--[ pnbbsmile_smilie_list assign="smilies" type="standard" ]-->
 <br />
 <div style="width:80%">
     <!--[* default smilies *]-->
     <!--[ foreach item=smilie from=$smilies ]-->
-        <!--[ if $smilie.type eq 0 ]-->
         <a href="javascript:AddSmilie('post', ' <!--[ $smilie.short ]--> ')" title="<!--[ $smilie.short ]-->"><img src="<!--[ $imagepath ]-->/<!--[ $smilie.imgsrc ]-->" style="border:none;margin-top:3px;margin-bottom:3px;margin-left:3px;" alt='Smilie <!--[ $smilie.alt ]-->' /></a>
-        <!--[ /if ]-->
     <!--[ /foreach ]-->
 </div>
 
-<!--[ pnbbsmile_smilie_list assign="smilies" ]-->
+<!--[ pnbbsmile_smilie_list assign="smilies" type="auto"]-->
 <!--[if ( $activate_auto && $smilies|@count > 0 ) ]-->
 
 <div>
@@ -44,4 +42,3 @@
     </fieldset>
 </div>
 <!--[/if]-->
-

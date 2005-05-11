@@ -64,6 +64,7 @@ function pn_bbsmile_userapi_transform($args)
 function pn_bbsmile_transform($text)
 {
     $smilies = unserialize(pnModGetVar('pn_bbsmile','smilie_array'));
+    $remove_inactive = pnModGetVar('pn_bbsmile', 'remove_inactive');
 
     if(is_array($smilies) && count($smilies)>0) {
         $imagepath = pnModGetVar('pn_bbsmile', 'smiliepath');
@@ -73,35 +74,40 @@ function pn_bbsmile_transform($text)
 	    // This is important!<p align="center"></p>
     	$text = ' ' . $text;
         foreach ($smilies as $smilie) {
-            // check if alt is a define
-            $smilie['alt'] = (defined($smilie['alt'])) ? constant($smilie['alt']) : $smilie['alt'];
+            // check if smilie is active
+	        if ($smilie['active'] == 1) {
+                // check if alt is a define
+                $smilie['alt'] = (defined($smilie['alt'])) ? constant($smilie['alt']) : $smilie['alt'];
 
-            if($smilie['type'] == 0) {
-                $text = str_replace($smilie['short'], ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
-            } else {
-                if($auto_active == 1) {
-                    $text = str_replace($smilie['short'], ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                if($smilie['type'] == 0) {
+                    $text = str_replace($smilie['short'], ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                } else {
+                    if($auto_active == 1) {
+                        $text = str_replace($smilie['short'], ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                    }
                 }
-            }
 
-            if(!empty($smilie['alias'])) {
-                $aliases = explode(",", trim($smilie['alias']));
-                if(is_array($aliases) && count($aliases)>0) {
-                    foreach($aliases as $alias) {
-                        if($smilie['type'] == 0) {
-                            $text = str_replace(' ' . $alias . ' ', ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
-                        } else {
-                            if($auto_active == 1) {
-                                $text = str_replace(' ' . $alias . ' ', ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                if(!empty($smilie['alias'])) {
+                    $aliases = explode(",", trim($smilie['alias']));
+                    if(is_array($aliases) && count($aliases)>0) {
+                        foreach($aliases as $alias) {
+                            if($smilie['type'] == 0) {
+                                $text = str_replace(' ' . $alias . ' ', ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                            } else {
+                                if($auto_active == 1) {
+                                    $text = str_replace(' ' . $alias . ' ', ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                                }
                             }
                         }
                     }
                 }
+            } else {// End of if smilie is active
+                $text = str_replace($smilie['short'], '', $text);
             }
         }  // foreach
     	// Remove our padding from the string..
 	    $text = substr($text, 1);
-    }
+    } // End of if smilies is array and not empty
     return $text;
 }
 

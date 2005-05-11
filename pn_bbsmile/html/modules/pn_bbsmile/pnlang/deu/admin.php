@@ -50,6 +50,7 @@ define('_PNBBSMILE_ADMIN_SMILIETABLE_FILENAME','Dateiname');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_ALT','Alternativtext');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_ALIAS','Aliase zu dem Smilie');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_ALIAS_HINT','Aliase können mit "," getrennt werden. Allerdings OHNE Leerstellen.');
+define('_PNBBSMILE_ADMIN_SMILIETABLE_ACTIVE', 'Aktiv');
 define('_PNBBSMILE_ADMIN_TITLE_EDITSMILIES','Editiere die aktuell definierten Smilies');
 define('_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED','Die editierten Smilies wurden gespeichert');
 
@@ -58,6 +59,6 @@ define('_PNBBSMILE_ADMIN_LABEL_READFROMFILESYSTEM','Mit dem Bestätigen werden al
 define('_PNBBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM','Sollen die Smilies jetzt aktualisiert werden?');
 define('_PNBBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM','Smilies wurden neu eingelesen');
 define('_PNBBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM','Lese Smilies vom Filesystem');
-
+define('_PNBBSMILE_ADMIN_LABEL_REMOVE_INACTIVE', 'Inaktive Smiliekürzel entfernen');
 
 ?>
