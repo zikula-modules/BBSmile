@@ -92,10 +92,10 @@ function pn_bbsmile_transform($text)
                     if(is_array($aliases) && count($aliases)>0) {
                         foreach($aliases as $alias) {
                             if($smilie['type'] == 0) {
-                                $text = str_replace(' ' . $alias . ' ', ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                                $text = str_replace($alias, ' <img src="' . $imagepath . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
                             } else {
                                 if($auto_active == 1) {
-                                    $text = str_replace(' ' . $alias . ' ', ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
+                                    $text = str_replace($alias, ' <img src="' . $imagepath_auto . '/' . $smilie['imgsrc'] . '" alt="' . $smilie['alt'] . '" /> ', $text);
                                 }
                             }
                         }
