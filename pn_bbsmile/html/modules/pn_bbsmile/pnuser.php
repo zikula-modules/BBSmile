@@ -61,6 +61,7 @@ function pn_bbsmile_user_bbsmiles($args)
     }
 
     $pnr =& new pnRender('pn_bbsmile');
+    $pnr->caching = false;
     $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
     $pnr->assign('activate_auto', pnModGetVar('pn_bbsmile', 'activate_auto'));
     $pnr->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
@@ -90,6 +91,7 @@ function pn_bbsmile_user_popup($args)
     }
 
     $pnr =& new pnRender('pn_bbsmile');
+    $pnr->caching = false;
     $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
     $pnr->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
 
