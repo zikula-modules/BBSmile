@@ -63,6 +63,21 @@ function pn_bbsmile_userapi_transform($args)
  */
 function pn_bbsmile_transform($text)
 {
+    // check the user agent - if it is a bot, return immediately
+    $robotslist = array ( "ia_archiver",
+                          "googlebot",
+                          "mediapartners-google",
+                          "yahoo!",
+                          "msnbot",
+                          "jeeves",
+                          "lycos");
+    $useragent = pnServerGetVar('HTTP_USER_AGENT');
+    for($cnt=0; $cnt < count($robotslist); $cnt++) {
+        if(strpos(strtolower($useragent), $robotslist[$cnt]) !== false) {
+            return $text;
+        }
+    }
+
     $smilies = unserialize(pnModGetVar('pn_bbsmile','smilie_array'));
     $remove_inactive = pnModGetVar('pn_bbsmile', 'remove_inactive');
 
