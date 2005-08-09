@@ -9,8 +9,10 @@
 <br />
 <div style="width:80%">
     <!--[* default smilies *]-->
-    <!--[ foreach item=smilie from=$smilies ]-->
-        <a href="javascript:AddSmilie('post', ' <!--[ $smilie.short ]--> ')" title="<!--[ $smilie.short ]-->"><img src="<!--[ $imagepath ]-->/<!--[ $smilie.imgsrc ]-->" style="border:none;margin-top:3px;margin-bottom:3px;margin-left:3px;" alt='Smilie <!--[ $smilie.alt ]-->' /></a>
+    <!--[ foreach item=smilie from=$smilies key=num ]-->
+        <button type="button" name="smilie<!--[ $num ]-->" style="background: transparent; border:none;" onClick="AddSmilie('<!--[ $textfieldid ]-->', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->">
+        <img src="<!--[ $imagepath ]-->/<!--[ $smilie.imgsrc ]-->" style="margin: 1px;" alt='Smilie <!--[ $smilie.alt ]-->' />
+        </button>
     <!--[ /foreach ]-->
 </div>
 
@@ -28,9 +30,11 @@
         </legend>
         <table style="padding: 0px; margin: 0px; border-collapse: collapse;">
         	<tr>
-                <!--[ foreach name=smilie_loop item=smilie from=$smilies ]-->
+                <!--[ foreach name=smilie_loop item=smilie from=$smilies key=num]-->
                     <td style="text-align: center;">
-        		        <a href="javascript:AddSmilie('post', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->"><img src="<!--[ if $smilie.type eq 0 ]--><!--[ $imagepath ]--><!--[ else ]--><!--[$imagepath_auto]--><!--[ /if ]-->/<!--[$smilie.imgsrc]-->" alt="Smilie <!--[$smilie.alt]-->" /></a>
+                        <button type="button" name="smilie<!--[ $num ]-->" style="border:none;" onClick="AddSmilie('<!--[ $textfieldid ]-->', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->">
+        		        <img src="<!--[ if $smilie.type eq 0 ]--><!--[ $imagepath ]--><!--[ else ]--><!--[$imagepath_auto]--><!--[ /if ]-->/<!--[$smilie.imgsrc]-->" alt="Smilie <!--[$smilie.alt]-->" />
+                         </button>
                     </td>
         	    <!--[if ($smarty.foreach.smilie_loop.iteration is div by 5 ) ]-->
         	    </tr>

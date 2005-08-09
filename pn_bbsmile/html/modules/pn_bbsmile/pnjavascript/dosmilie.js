@@ -5,10 +5,16 @@ function AddSmilie(textfieldname, SmilieCode) {
     var SmilieCode;
     var revisedMessage;
     var textfield = document.getElementById(textfieldname);
-    var currentMessage = textfield.message.value;
+
+    if(textfield==null) {
+        alert('internal error: unknown textfieldname supplied');
+        return;
+    }
+
+    var currentMessage = textfield.value;
     revisedMessage = currentMessage+SmilieCode;
-    textfield.message.value=revisedMessage;
-    textfield.message.focus();
+    textfield.value=revisedMessage;
+    textfield.focus();
     return;
 }
 
