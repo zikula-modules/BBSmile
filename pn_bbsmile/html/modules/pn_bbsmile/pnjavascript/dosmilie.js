@@ -7,15 +7,49 @@ function AddSmilie(textfieldname, SmilieCode) {
     var textfield = document.getElementById(textfieldname);
 
     if(textfield==null) {
-        alert('internal error: unknown textfieldname supplied');
+        alert("internal error: unknown textfieldname '" + textfieldname + "'supplied");
         return;
     }
 
-    var currentMessage = textfield.value;
-    revisedMessage = currentMessage+SmilieCode;
-    textfield.value=revisedMessage;
+    //
+    // for Internet Explorer
+    //
+    if(typeof document.selection != 'undefined') {
+        textfield.focus();
+        var range = document.selection.createRange();
+        //var insText = range.text;
+
+        range.text = SmilieCode; //aTag + insText + eTag;
+        range = document.selection.createRange();
+        range.move('character', -SmilieCode.length);
+    }
+    //
+    // for Gecko based browsers
+    //
+    else if(typeof textfield.selectionStart != 'undefined')
+    {
+
+        var start = textfield.selectionStart;
+        var end = textfield.selectionEnd;
+        var insText = textfield.value.substring(start, end);
+
+        // insert Smilie
+        textfield.value = textfield.value.substr(0, start) + SmilieCode + textfield.value.substr(end);
+
+        // adjust cursorposition
+        textfield.selectionStart = start + SmilieCode.length;
+        textfield.selectionEnd = start + SmilieCode.length;
+    }
+    //
+    // for all other browsers
+    //
+    else
+    {
+        // insert at end
+        textfield.value = textfield.value + SmilieCode;
+    }
     textfield.focus();
-    return;
+
 }
 
 // old function wrapper
