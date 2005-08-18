@@ -5,6 +5,10 @@ Version 1.14 AutoSmilie: 2005-04-29
 	  Credits for the basic idea and work go to Bolbit (Thomas Pawlitzki, mail@2mas.de)
 	  This closes FR[ 1058440 ] add Smiles
 	  implemented FR [ 1135445 ] Generalise the hooks javascript
+	  smilies will be added at the cursor position now
+	  IMPORTANT: the textarea needs an id now which has to be passed to the pn_bbsmile module:
+	  <!--[ pnmodfunc modname=pn_bbsmile type=user func=bbsmiles textfieldid='mytextfieldid' ]-->
+	  shows the smilie selection
 
 Version 1.13:
     - moved all pn_bbsmile stuff from pnForum to the hook
