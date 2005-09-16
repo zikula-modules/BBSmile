@@ -45,10 +45,34 @@ function pn_bbsmile_user_main()
 }
 
 /**
+ * smilies (hook function)
+ *
+ * @param    $args['objectid']     ID of the item to display comments for
+ * @param    $args['extrainfo']    extrainfo
+ *
+ */
+function pn_bbsmile_user_smilies($args)
+{
+    extract($args);
+    unset($args);
+
+    // we do not need the objectid - we just want to display the smilies now
+
+    $displayhook =  pnModGetVar('pn_bbsmile', 'displayhook');
+    if($displayhook == 1) {
+        if(!isset($extrainfo) || !is_array($extrainfo) || empty($extrainfo) ) {
+            return _MODARGSERROR . ' (extrainfo)';
+        }
+        return pn_bbsmile_user_bbsmiles($extrainfo);
+    }
+    return '';
+}
+
+/**
  * bbsmile
  * returns a html snippet with buttons for inserting bbsmiles into a text
  *
- *@params $args['textfieldid'] id of the textfield for inserting smilies
+ * @param    $args['textfieldid']  id of the textfield for inserting smilies
  */
 function pn_bbsmile_user_bbsmiles($args)
 {
@@ -58,6 +82,10 @@ function pn_bbsmile_user_bbsmiles($args)
     // load language file
     if(!pnModAPILoad('pn_bbsmile', 'user')) {
         return "loading pn_bbsmile api failed";
+    }
+
+    if(!isset($textfieldid) || empty($textfieldid)) {
+        return _MODARGSERROR . ' (textfieldid)';
     }
 
     $pnr =& new pnRender('pn_bbsmile');

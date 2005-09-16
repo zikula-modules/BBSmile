@@ -51,15 +51,27 @@ function pn_bbsmile_init() {
 
 
     // Set up module hooks
+    // transform hook
     if (!pnModRegisterHook('item',
                            'transform',
                            'API',
                            'pn_bbsmile',
                            'user',
                            'transform')) {
-        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER);
+        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (transform hook)');
         return false;
     }
+    // display hook
+    if (!pnModRegisterHook('item',
+                           'display',
+                           'GUI',
+                           'pn_bbsmile',
+                           'user',
+                           'smilies')) {
+        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (display hook)');
+        return false;
+    }
+    pnModSetVar('pn_bbsmile', 'displayhook', '0');
 
     // Initialisation successful
     return true;
@@ -77,6 +89,19 @@ function pn_bbsmile_upgrade($oldversion)
             pnModSetVar('pn_bbsmile', 'remove_inactive',  '1');
 	        pnModSetVar('pn_bbsmile', 'smiliepath_auto',  'modules/pn_bbsmile/pnimages/smilies_auto');
 	        pnModAPIFunc('pn_bbsmile','admin','updatesmilies',array());
+        case '1.14':
+            // display hook
+            if (!pnModRegisterHook('item',
+                                   'display',
+                                   'GUI',
+                                   'pn_bbsmile',
+                                   'user',
+                                   'smilies')) {
+                pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (display hook)');
+                return false;
+            }
+            pnModSetVar('pn_bbsmile', 'displayhook', '0');
+
         default:
             break;
     }
@@ -95,7 +120,17 @@ function pn_bbsmile_delete() {
                              'pn_bbsmile',
                              'user',
                              'transform')) {
-        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTUNREGISTER);
+        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTUNREGISTER . ' (transform hook)');
+        return false;
+    }
+
+    if (!pnModUnregisterHook('item',
+                             'display',
+                             'GUI',
+                             'pn_bbsmile',
+                             'user',
+                             'bbsmiles')) {
+        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTUNREGISTER . ' (display hook)');
         return false;
     }
 
@@ -105,6 +140,7 @@ function pn_bbsmile_delete() {
     pnModDelVar('pn_bbsmile', 'smilie_array');
     pnModDelVar('pn_bbsmile', 'activate_auto');
     pnModDelVar('pn_bbsmile', 'remove_inactive');
+    pnModDelVar('pn_bbsmile', 'displayhook');
 
     // Deletion successful
     return true;

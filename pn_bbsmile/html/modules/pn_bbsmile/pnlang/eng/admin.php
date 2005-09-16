@@ -27,6 +27,8 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
+define('_PNBBSMILE_ADMIN_LABEL_ENABLE_DISPLAYHOOK', 'Enable displayhook');
+
 define('_PNBBSMILE_FORCERELOAD',               'Force reload of smilies, all data will be overwritten!');
 define('_PNBBSMILE_ADMIN_BTN_SUBMIT',          'Apply');
 define('_PNBBSMILE_ADMIN_BTN_CANCEL',          'Cancel');
