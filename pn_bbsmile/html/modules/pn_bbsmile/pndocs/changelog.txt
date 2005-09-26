@@ -2,6 +2,14 @@ Version 1.15:
     - showing smilies now as display hook:
       <!--[ pnmodcallhooks hookobject=item hookaction=display hookid=$topic.topic_id implode=false textfieldid=message ]-->
       <!--[ $hooks.pn_bbsmile ]-->
+      **********************************************
+      **                IMPORTANT!!!              **
+      **   You need to go the hooks settings      **
+      **   for all modules where this transform   **
+      **   hook is activated and submit this      **
+      **   page in order to activte the           **
+      **   display hooks too!!!                   **
+      **********************************************
 
 Version 1.14 AutoSmilie: 2005-04-29
 	- added a Module-Var, which indicates a directory

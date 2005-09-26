@@ -71,7 +71,7 @@ function pn_bbsmile_init() {
         pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (display hook)');
         return false;
     }
-    pnModSetVar('pn_bbsmile', 'displayhook', '0');
+    pnModSetVar('pn_bbsmile', 'displayhook', '1');
 
     // Initialisation successful
     return true;
@@ -100,7 +100,7 @@ function pn_bbsmile_upgrade($oldversion)
                 pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (display hook)');
                 return false;
             }
-            pnModSetVar('pn_bbsmile', 'displayhook', '0');
+            pnModSetVar('pn_bbsmile', 'displayhook', '1');
 
         default:
             break;
