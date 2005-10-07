@@ -95,7 +95,7 @@ function pn_bbsmile_upgrade($oldversion)
                                      'GUI',
                                      'pn_bbsmile',
                                      'user',
-                                     'bbsmiles')) {
+                                     'smilies')) {
                 pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTUNREGISTER . ' (display hook)');
                 return false;
             }
