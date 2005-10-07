@@ -61,18 +61,6 @@ function pn_bbsmile_init() {
         pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (transform hook)');
         return false;
     }
-    // display hook
-    if (!pnModRegisterHook('item',
-                           'display',
-                           'GUI',
-                           'pn_bbsmile',
-                           'user',
-                           'smilies')) {
-        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (display hook)');
-        return false;
-    }
-    pnModSetVar('pn_bbsmile', 'displayhook', '1');
-
     // Initialisation successful
     return true;
 }
@@ -101,7 +89,17 @@ function pn_bbsmile_upgrade($oldversion)
                 return false;
             }
             pnModSetVar('pn_bbsmile', 'displayhook', '1');
-
+        case '1.15':
+            if (!pnModUnregisterHook('item',
+                                     'display',
+                                     'GUI',
+                                     'pn_bbsmile',
+                                     'user',
+                                     'bbsmiles')) {
+                pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTUNREGISTER . ' (display hook)');
+                return false;
+            }
+            pnModDelVar('pn_bbsmile', 'displayhook');
         default:
             break;
     }
@@ -124,23 +122,12 @@ function pn_bbsmile_delete() {
         return false;
     }
 
-    if (!pnModUnregisterHook('item',
-                             'display',
-                             'GUI',
-                             'pn_bbsmile',
-                             'user',
-                             'bbsmiles')) {
-        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTUNREGISTER . ' (display hook)');
-        return false;
-    }
-
     // Remove module variables
     pnModDelVar('pn_bbsmile', 'smiliepath');
     pnModDelVar('pn_bbsmile', 'smiliepath_auto');
     pnModDelVar('pn_bbsmile', 'smilie_array');
     pnModDelVar('pn_bbsmile', 'activate_auto');
     pnModDelVar('pn_bbsmile', 'remove_inactive');
-    pnModDelVar('pn_bbsmile', 'displayhook');
 
     // Deletion successful
     return true;

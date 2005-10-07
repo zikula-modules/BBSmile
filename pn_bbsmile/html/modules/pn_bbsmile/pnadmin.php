@@ -75,12 +75,6 @@ function pn_bbsmile_admin_modifyconfig()
             $activate_auto = 'checked="checked"';
         $pnRender->assign('activate_auto', $activate_auto);
 
-        $displayhook_value = pnModGetVar('pn_bbsmile', 'displayhook');
-        $displayhook = "";
-        if ($displayhook_value)
-            $displayhook = 'checked="checked"';
-        $pnRender->assign('displayhook', $displayhook);
-
         $remove_inactive_value = pnModGetVar('pn_bbsmile', 'remove_inactive');
         $remove_inactive = "";
         if ($remove_inactive_value)
@@ -107,10 +101,6 @@ function pn_bbsmile_admin_modifyconfig()
         if (empty($remove_inactive)) $remove_inactive = 0;
         pnModSetVar('pn_bbsmile', 'remove_inactive', $remove_inactive);
 
-        $displayhook = pnVarCleanFromInput('displayhook');
-        if (empty($displayhook)) $displayhook = 0;
-        pnModSetVar('pn_bbsmile', 'displayhook', $displayhook);
-
         pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_CONFIGSAVED);
         pnRedirect(pnModURL('pn_bbsmile', 'admin'));
 
@@ -125,9 +115,6 @@ function pn_bbsmile_admin_readsmilies() {
         return pnVarPrepHTMLDisplay(_PNBBSMILE_ADMIN_NOACCESS);;
     }
 
-    if(!pnModAPILoad('pn_bbsmile', 'admin')) {
-        return _FAILEDTOLOAD;
-    }
     $submit = pnVarCleanFromInput('submit');
 
     if(!$submit) {

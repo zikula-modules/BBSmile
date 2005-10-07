@@ -47,11 +47,6 @@ function pn_bbsmile_adminapi_updatesmilies($args)
     extract($args);
     unset($args);
 
-    if(!pnModAPILoad('pn_bbsmile', 'user')) {
-        pnSessionSetVar('errormsg', _FAILEDTOLOAD);
-        return false;
-    }
-
     // Get the new array
     $new_smilies = pnModAPIFunc('pn_bbsmile', 'admin', 'load_smilies');
 
