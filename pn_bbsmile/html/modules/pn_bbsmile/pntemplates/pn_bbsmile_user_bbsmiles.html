@@ -20,10 +20,10 @@
 <!--[if ( $activate_auto && $smilies|@count > 0 ) ]-->
 
 <div>
-	<a onkeypress="javascript:ShowHide('more_smilies')" href="javascript:ShowHide('more_smilies')" title="<!--[pnml name="_PNBBSMILE_SHOWHIDE_SMILIES"]-->"><!--[pnml name="_PNBBSMILE_MORESMILIES"]--></a>
+	<a onkeypress="javascript:ShowHide('more_smilies_<!--[ $counter ]-->')" href="javascript:ShowHide('more_smilies_<!--[ $counter ]-->')" title="<!--[pnml name="_PNBBSMILE_SHOWHIDE_SMILIES"]-->"><!--[pnml name="_PNBBSMILE_MORESMILIES"]--></a>
 </div>
 
-<div id="more_smilies" style="display:none; margin-bottom: 10px; width: 400px; height: 250px; overflow:auto; color: #00009C;  background-color: #FFFFCE;  border: none;">
+<div id="more_smilies_<!--[ $counter ]-->" style="display:none; margin-bottom: 10px; width: 400px; height: 250px; overflow:auto; color: #00009C;  background-color: #FFFFCE;  border: none;">
     <fieldset>
         <legend style="font-weight: bold;font-size:smaller;">
             <!--[pnml name="_PNBBSMILE_MORESMILIES"]-->

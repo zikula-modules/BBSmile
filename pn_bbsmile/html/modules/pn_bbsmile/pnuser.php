@@ -59,8 +59,19 @@ function pn_bbsmile_user_bbsmiles($args)
         return _MODARGSERROR . ' (textfieldid)';
     }
 
+    // if we have more than one textarea we need to distinguish them, so we simply use
+    // a counter stored in a session var until we find a better solution
+    $counter = pnSessionGetVar('bbsmile_counter');
+    if($counter==false) {
+        $counter = 1;
+    } else {
+        $counter++;
+    }
+    pnSessionSetVar('bbsmile_counter', $counter);
+
     $pnr =& new pnRender('pn_bbsmile');
     $pnr->caching = false;
+    $pnr->assign('counter', $counter);
     $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
     $pnr->assign('activate_auto', pnModGetVar('pn_bbsmile', 'activate_auto'));
     $pnr->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
