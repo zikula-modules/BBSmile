@@ -123,11 +123,7 @@ function pn_bbsmile_delete() {
     }
 
     // Remove module variables
-    pnModDelVar('pn_bbsmile', 'smiliepath');
-    pnModDelVar('pn_bbsmile', 'smiliepath_auto');
-    pnModDelVar('pn_bbsmile', 'smilie_array');
-    pnModDelVar('pn_bbsmile', 'activate_auto');
-    pnModDelVar('pn_bbsmile', 'remove_inactive');
+    pnModDelVar('pn_bbsmile');
 
     // Deletion successful
     return true;
