@@ -27,5 +27,6 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Erreur interne ! Argument manquant !');
+include_once 'modules/pn_bbsmile/pnlang/fra/global.php';
+
 ?>

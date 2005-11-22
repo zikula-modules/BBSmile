@@ -27,14 +27,6 @@
 // changed to pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-// include smilie alternative text defines
-@include_once('modules/pn_bbsmile/pnlang/eng/smilies.php');
-
-define('_PNBBSMILE_NOSCRIPTWARNING',           'Your browser does not support javascript or you turned it off. This means that several features on this page will not work as intended');
-define('_PNBBSMILE_ARGSERROR',                 '[pn_bbsmile] Internal error! Arguments missing!');
-define('_PNBBSMILE_MORESMILIES',               'More Smilies');
-
-define('_PNBBSMILE_SHOWHIDE_SMILIES','show/hide smilies');
-
+include_once 'modules/pn_bbsmile/pnlang/eng/global.php';
 
 ?>
