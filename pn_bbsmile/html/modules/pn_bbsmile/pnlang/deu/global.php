@@ -82,7 +82,7 @@ define('_PNBBSMILE_MORESMILIES', 'Weitere Smilies');
 //
 // N
 //
-define('_PNBBSMILE_NOSCRIPTWARNING', 'Ihr Browser unterstützt kein Javascript oder Javascript ist deaktiviert. Einige Features dieser Seite werden daher nicht funktionieren.');
+define('_PNBBSMILE_NOSCRIPTWARNING', 'Ihr Browser unterstützt kein Javascript oder Javascript ist deaktiviert. Das BBSmile-Interface ist daher nicht verfügbar.');
 
 //
 // S
