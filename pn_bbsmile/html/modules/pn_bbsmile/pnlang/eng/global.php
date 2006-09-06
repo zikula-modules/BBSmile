@@ -37,7 +37,7 @@ define('_PNBBSMILE_ADMIN_BTN_CANCEL', 'Cancel');
 define('_PNBBSMILE_ADMIN_BTN_SUBMIT', 'Apply');
 define('_PNBBSMILE_ADMIN_CONFIGSAVED', 'pn_bbsmile configuration updated');
 define('_PNBBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM', 'Should the smilies be read out of the directory?');
-define('_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED', 'The edited smilies has been saved.');
+define('_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED', 'The edited smilies have been saved.');
 define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH', 'Enter the directory (relative), where the smilies are.No trailing slash and no backslashes!');
 define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH_AUTO', 'Enter the directory (relative), where the smilies are, which are included automatically. All files with the ending gif, jpg, jpeg or png are included out of this directory. No trailing slash and no backslashes!');
 define('_PNBBSMILE_ADMIN_LABEL_ACTIVATE_AUTO', 'Should the auto include of smilies be activated?');
