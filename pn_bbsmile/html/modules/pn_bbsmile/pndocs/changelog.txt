@@ -1,3 +1,4 @@
+Version 1.17
     - no new features, just internal cleanups:
     - some .762 changes
     - javscript changes
