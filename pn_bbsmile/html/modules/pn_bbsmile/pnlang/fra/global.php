@@ -30,6 +30,9 @@
 // include smilie alternative text defines
 @include_once('modules/pn_bbsmile/pnlang/fra/smilies.php');
 
+// new
+define('_PNBBSMILE_NOAUTOSMILIES', 'Extended Smilies not yet activated!');
+
 //
 // A
 //
@@ -40,7 +43,7 @@ define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH', 'Chemin vers les émoticons');
 define('_PNBBSMILE_ADMIN_NOACCESS', 'Vous n\'avez pas accès à ce module');
 define('_PNBBSMILE_ADMIN_TITLE', 'Administration de bbsmile ');
 define('_PNBBSMILE_ADMIN_TITLE_CONFIG', 'Modifier la configuration');
-define('_PNBBSMILE_ADMIN_V1_HINT', 'Notez que bbsmilies doit être activé pour être utilisé par un module spécifique par administration -> modules.');
+define('_PNBBSMILE_ADMIN_V1_HINT', 'Notez que bbsmilies doit être activé pour être utilisé par un module spécifique par <a href="index.php?name=Modules&type=admin&func=view">administration -> modules</a>.');
 define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Erreur interne ! Argument manquant !');
 
 //

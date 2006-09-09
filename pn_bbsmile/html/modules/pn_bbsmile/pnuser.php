@@ -71,21 +71,32 @@ function pn_bbsmile_user_bbsmiles($args)
 
     $pnr =& new pnRender('pn_bbsmile');
     $pnr->caching = false;
+    $pnr->add_core_data();
     $pnr->assign('counter', $counter);
+/*
     $pnr->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
     $pnr->assign('activate_auto', pnModGetVar('pn_bbsmile', 'activate_auto'));
     $pnr->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
+*/
     $pnr->assign('textfieldid', $textfieldid);
 
-    $file = "modules/pn_bbsmile/pnjavascript/dosmilie.js";
-    if(file_exists($file) && is_readable($file)) {
-        $pnr->assign('jsheader', "<script type=\"text/javascript\" src=\"$file\"></script>");
+    $headers[] = '<script type="text/javascript" src="modules/pn_bbsmile/pnjavascript/dosmilie.js"></script>';
+    $headers[] = '<link rel="stylesheet" type="text/css" href="modules/pn_bbsmile/pnstyle/style.css" />';
+
+    global $additional_header;
+    if(!is_array($additional_header)) {
+        $additional_header = array();
+    }
+    $values = array_flip($additional_header);
+    foreach($headers as $header) {
+        if(!array_key_exists($header, $values)) {
+            $additional_header[] = $header;
+        }
     }
 
-    $thismod = pnModGetName();
-    $templatefile = 'modules/pn_bbsmile/pntemplates/' . $thismod . '.html';
-    if(file_exists($templatefile) && is_readable($templatefile)) {
-        return $pnr->fetch($thismod . '.html');
+    $templatefile = pnVarPrepForOS(pnModGetName()) . '.html';
+    if($pnr->template_exists($templatefile)) {
+        return $pnr->fetch($templatefile);
     }
     return $pnr->fetch('pn_bbsmile_user_bbsmiles.html');
 }

@@ -50,11 +50,15 @@ function pn_bbsmile_admin_main()
 
     $pnRender =& new pnRender('pn_bbsmile');
     $pnRender->caching = false;
+    $pnRender->add_core_data();
     return $pnRender->fetch('pn_bbsmile_admin_main.html');
 }
 
-// show admin choices
-//
+/**
+ * modifyconfig
+ *
+ *
+ */
 function pn_bbsmile_admin_modifyconfig()
 {
     if (!pnSecAuthAction(0, 'pn_bbsmile::', '::', ACCESS_ADMIN)) {
@@ -64,25 +68,11 @@ function pn_bbsmile_admin_modifyconfig()
     $submit = pnVarCleanFromInput('submit');
     if(!$submit) {
 
-        $pnRender =& new pnRender('pn_bbsmile');
-        $pnRender->caching = false;
-        $pnRender->assign('imagepath', pnModGetVar('pn_bbsmile', 'smiliepath'));
-        $pnRender->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
-
-        $activate_auto_value = pnModGetVar('pn_bbsmile', 'activate_auto');
-        $activate_auto = "";
-        if ($activate_auto_value)
-            $activate_auto = 'checked="checked"';
-        $pnRender->assign('activate_auto', $activate_auto);
-
-        $remove_inactive_value = pnModGetVar('pn_bbsmile', 'remove_inactive');
-        $remove_inactive = "";
-        if ($remove_inactive_value)
-            $remove_inactive = 'checked="checked"';
-        $pnRender->assign('remove_inactive', $remove_inactive);
-
+        $pnr =& new pnRender('pn_bbsmile');
+        $pnr->caching = false;
+        $pnr->add_core_data();
         // that's all folks
-        return $pnRender->fetch('pn_bbsmile_admin_modifyconfig.html');
+        return $pnr->fetch('pn_bbsmile_admin_modifyconfig.html');
 
     } else { // submit is set
 
@@ -107,8 +97,11 @@ function pn_bbsmile_admin_modifyconfig()
     }
 }
 
-// This function shows the confitm dialog, where the user can synchronize
-// the smilies stored in the filesystem with the smilies stored in the modVar.
+/**
+ * readsmilies
+ *
+ *
+ */
 function pn_bbsmile_admin_readsmilies() {
 
     if (!pnSecAuthAction(0, 'pn_bbsmile::', '::', ACCESS_ADMIN)) {
@@ -119,10 +112,10 @@ function pn_bbsmile_admin_readsmilies() {
 
     if(!$submit) {
 
-        $pnRender =& new pnRender('pn_bbsmile');
-        $pnRender->caching = false;
-        $pnRender->assign('imagepath_auto', pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
-        return $pnRender->fetch('pn_bbsmile_admin_readsmilies.html');
+        $pnr =& new pnRender('pn_bbsmile');
+        $pnr->caching = false;
+        $pnr->add_core_data();
+        return $pnr->fetch('pn_bbsmile_admin_readsmilies.html');
 
     } else { // submit is set
 
@@ -137,10 +130,13 @@ function pn_bbsmile_admin_readsmilies() {
         return true;
 
     }
-
 }
 
-// This function displays the list of all smilies out of the modVar for a edit view
+/**
+ * editsmilies
+ *
+ *
+ */
 function pn_bbsmile_admin_editsmilies() {
 
     if (!pnSecAuthAction(0, 'pn_bbsmile::', '::', ACCESS_ADMIN)) {
@@ -151,14 +147,9 @@ function pn_bbsmile_admin_editsmilies() {
 
     if(!$submit) {
 
-        $pnr =& new pnRender('pn_bbsmile');
-        $pnRender->caching = false;
-
-        $imagepath = pnModGetVar('pn_bbsmile','smiliepath');
-        $pnr->assign('imagepath',$imagepath);
-
-        $imagepath_auto = pnModGetVar('pn_bbsmile','smiliepath_auto');
-        $pnr->assign('imagepathauto',$imagepath_auto);
+        $pnr = new pnRender('pn_bbsmile');
+        $pnr->caching = false;
+        $pnr->add_core_data();
 
         $smilies = unserialize(pnModGetVar('pn_bbsmile','smilie_array'));
         $pnr->assign('smilies',$smilies);
@@ -173,7 +164,7 @@ function pn_bbsmile_admin_editsmilies() {
 
         $smilies = array();
 
-	// Create an array with the input and deaktivate all smilies
+	    // Create an array with the input and deaktivate all smilies
         for($i = 0; $i < sizeof($keys); $i++) {
             $smilies[$keys[$i]] = array(
                 'type'   => $types[$i],
@@ -183,16 +174,15 @@ function pn_bbsmile_admin_editsmilies() {
                 'alias'  => $aliases[$i],
                 'active'  => 0);
         }
-	// And now set the active flag for all selected smilies
-	for ($i = 0; $i < sizeof($active); $i++) {
-		$smilies[$active[$i]]['active'] = 1;
-	}
+	    // And now set the active flag for all selected smilies
+	    for ($i = 0; $i < sizeof($active); $i++) {
+	    	$smilies[$active[$i]]['active'] = 1;
+	    }
 
         pnModSetVar('pn_bbsmile','smilie_array',serialize($smilies));
         pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_EDITEDSMILIESSAVED);
         pnRedirect(pnModURL('pn_bbsmile', 'admin'));
     }
-
 }
 
 ?>

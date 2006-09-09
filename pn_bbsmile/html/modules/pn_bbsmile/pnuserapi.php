@@ -86,7 +86,7 @@ function pn_bbsmile_transform($text)
         $imagepath_auto = pnModGetVar('pn_bbsmile', 'smiliepath_auto');
         $auto_active = pnModGetVar('pn_bbsmile','activate_auto');
     	// pad it with a space so we can distinguish between FALSE and matching the 1st char (index 0).
-	    // This is important!<p align="center"></p>
+	    // This is important!
     	$text = ' ' . $text;
         foreach ($smilies as $smilie) {
             // check if smilie is active
@@ -139,7 +139,7 @@ function pn_bbsmile_userapi_getall()
 	$icons = array();
 	while (list ($key, $file) = each ($filelist)) {
 		ereg('.gif|.jpg',$file);
-		if ($file != '.' && $file != '..' && $file != 'index.html'  && $file != 'CVS') {
+		if ($file != '.' && $file != '..' && $file != 'index.html' && $file != '.svn' && $file != 'CVS') {
 			$icons[] = array('imgsrc' => $file);
 		}
 

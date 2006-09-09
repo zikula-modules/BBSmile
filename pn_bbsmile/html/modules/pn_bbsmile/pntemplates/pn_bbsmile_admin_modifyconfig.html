@@ -8,24 +8,24 @@
 
     <div class="formrow">
         <label for="pnbbsmile_imagepath"><!--[pnml name="_PNBBSMILE_ADMIN_LABEL_IMAGEPATH"]--></label>
-        <input id="pnbbsmile_imagepath" type="text" name="imagepath" size="40" maxlength="255" value="<!--[$imagepath]-->" /><br />
+        <input id="pnbbsmile_imagepath" type="text" name="imagepath" size="40" maxlength="255" value="<!--[$pncore.pn_bbsmile.smiliepath|pnvarprepfordisplay]-->" /><br />
         <!--[pnml name="_PNBBSMILE_ADMIN_HINT_IMAGEPATH"]-->
     </div>
     <br />
     <div class="formrow">
         <label for="pnbbsmile_activate_auto"><!--[pnml name="_PNBBSMILE_ADMIN_LABEL_ACTIVATE_AUTO"]--></label>
-        <input id="pnbbsmile_activate_auto" type="checkbox" name="activate_auto" value="1" <!--[$activate_auto]--> /><br />
+        <input id="pnbbsmile_activate_auto" type="checkbox" name="activate_auto" value="1" <!--[if $pncore.pn_bbsmile.activate_auto eq 1]-->checked="checked"<!--[ /if ]--> /><br />
     </div>
     <br />
     <div class="formrow">
         <label for="pnbbsmile_imagepath_auto"><!--[pnml name="_PNBBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO"]--></label>
-        <input id="pnbbsmile_imagepath_auto" type="text" name="imagepath_auto" size="40" maxlength="255" value="<!--[$imagepath_auto]-->" /><br />
+        <input id="pnbbsmile_imagepath_auto" type="text" name="imagepath_auto" size="40" maxlength="255" value="<!--[$pncore.pn_bbsmile.smiliepath_auto|pnvarprepfordisplay]-->" /><br />
         <!--[pnml name="_PNBBSMILE_ADMIN_HINT_IMAGEPATH_AUTO"]-->
     </div>
     <br />
     <div class="formrow">
         <label for="pnbbsmile_remove_inactive"><!--[pnml name="_PNBBSMILE_ADMIN_LABEL_REMOVE_INACTIVE"]--></label>
-        <input id="pnbbsmile_remove_inactive" type="checkbox" name="remove_inactive" value="1" <!--[$remove_inactive]--> /><br />
+        <input id="pnbbsmile_remove_inactive" type="checkbox" name="remove_inactive" value="1" <!--[ if $pncore.pn_bbsmile.remove_inactive eq 1 ]-->checked="checked"<!--[ /if ]--> /><br />
     </div>
     <br />
     <div class="formrow">

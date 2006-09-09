@@ -60,7 +60,7 @@ define('_PNBBSMILE_ADMIN_TITLE', 'pn_bbsmile Administration');
 define('_PNBBSMILE_ADMIN_TITLE_CONFIG', 'Modify Configuration');
 define('_PNBBSMILE_ADMIN_TITLE_EDITSMILIES', 'Edit the defined smilies');
 define('_PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM', 'Read smilies out of the directory');
-define('_PNBBSMILE_ADMIN_V1_HINT', 'Please note that the smilie hook function need to be activated for the specific module within administration -> modules.');
+define('_PNBBSMILE_ADMIN_V1_HINT', 'Please note that the smilie hook function need to be activated for the specific module <a href="index.php?name=Modules&type=admin&func=view">here</a>.');
 define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Internal error! Arguments missing!');
 
 //
@@ -82,6 +82,7 @@ define('_PNBBSMILE_MORESMILIES', 'More Smilies');
 //
 // N
 //
+define('_PNBBSMILE_NOAUTOSMILIES', 'Extended Smilies not yet activated!');
 define('_PNBBSMILE_NOSCRIPTWARNING', 'Your browser does not support javascript or you turned it off. The pn_bbsmile interface has been disabled.');
 
 //

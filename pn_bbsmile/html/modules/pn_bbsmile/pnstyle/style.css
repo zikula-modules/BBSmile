@@ -1,0 +1,40 @@
+/*  $Id$  */
+
+.bb_standardsmilies {
+    margin-top: 1em;
+    width: 300px;
+}
+
+img.bb_smilie {
+    margin: 0 2px;
+}
+
+.bb_showhidesmilies {
+    margin: 5px 0;
+}
+    
+.bb_moresmilies {
+    margin-bottom: 10px; 
+    width: 300px; 
+    height: 190px; 
+    overflow: auto; 
+    color: #00009C;  
+    background: transparent;  
+    border: none;
+}
+
+table.bb_moresmilies {
+    padding: 0; 
+    margin: 0; 
+    border-collapse: collapse;
+}
+
+td.bb_smilie_cell {
+    text-align: center;  
+    vertical-align: middle; 
+    margin: 0 4px;
+}
+
+th.bb_tablehead {
+    font-size: 1em;
+}

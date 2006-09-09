@@ -51,6 +51,7 @@ function smarty_function_pnbbsmile_smilie_list($params, &$smarty)
 
 	// Asign the smilies to smarty
 	$smarty->assign($assign, $smilies);
+	$smarty->assign($assign . '_count', count($smilies));
 	return;
 }
 

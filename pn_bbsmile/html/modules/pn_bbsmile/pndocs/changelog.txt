@@ -1,3 +1,9 @@
+    - no new features, just internal cleanups:
+    - some .762 changes
+    - javscript changes
+    - layout changes
+    - inline styles moved to style.css
+
 Version 1.16
     - minimum requirement now PN .760+
     - removed displayhook due to compatibility problems

@@ -46,7 +46,7 @@ define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO', 'Pfad zu den automatisch eingebu
 define('_PNBBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'Mit dem Bestätigen werden alle Smilies aus dem unten genannten Verzeichnis eingelesen. Smilies, deren Bilder aus dem Verzeichnis gelöscht wurden, werden ebenfalls gelöscht. Änderung von schon bestehenden Smilies bleiben erhalten.');
 define('_PNBBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM', 'Lese Smilies vom Filesystem');
 define('_PNBBSMILE_ADMIN_LABEL_REMOVE_INACTIVE', 'Inaktive Smiliekürzel entfernen');
-define('_PNBBSMILE_ADMIN_LABEL_SMILIETABLE', 'Momentan definierten Smilies');
+define('_PNBBSMILE_ADMIN_LABEL_SMILIETABLE', 'Definierte Smilies');
 define('_PNBBSMILE_ADMIN_NOACCESS', 'Keine Berechtigung für dieses Modul');
 define('_PNBBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM', 'Smilies wurden neu eingelesen');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_ACTIVE', 'Aktiv');
@@ -60,7 +60,7 @@ define('_PNBBSMILE_ADMIN_TITLE', 'pn_bbsmile Administration');
 define('_PNBBSMILE_ADMIN_TITLE_CONFIG', 'Konfiguration ändern');
 define('_PNBBSMILE_ADMIN_TITLE_EDITSMILIES', 'Editiere die aktuell definierten Smilies');
 define('_PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM', 'Lese Smilies aus dem Ordner neu ein');
-define('_PNBBSMILE_ADMIN_V1_HINT', 'Bitte beachten: Der Smilie Hook muss für die Module, in denen die Funktion genutzt werden soll, in Administration->Module aktiviert werden.');
+define('_PNBBSMILE_ADMIN_V1_HINT', 'Bitte beachten: Der pn_bbsmile-Hook muss für die Module, in denen die Funktion genutzt werden soll, <a href="index.php?name=Modules&type=admin&func=view">hier</a> erst aktiviert werden.');
 define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Interner Fehler! Parameter fehlen!');
 
 //
@@ -82,6 +82,7 @@ define('_PNBBSMILE_MORESMILIES', 'Weitere Smilies');
 //
 // N
 //
+define('_PNBBSMILE_NOAUTOSMILIES', 'Erweiterte Smilies sind noch nicht aktiviert!');
 define('_PNBBSMILE_NOSCRIPTWARNING', 'Ihr Browser unterstützt kein Javascript oder Javascript ist deaktiviert. Das BBSmile-Interface ist daher nicht verfügbar.');
 
 //

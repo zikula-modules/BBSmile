@@ -1,14 +1,14 @@
 <!--[*  $Id$  *]-->
 <!--[admincategorymenu]-->
-<h2 style="width:99%; background-color:<!--[pnthemegetvar name="bgcolor2"]-->; text-align:center; padding:4px;">
-    <!--[pnml name='_PNBBSMILE_ADMIN_TITLE']-->
-</h2>
-<h3>
-    <!--[pnml name=_PNBBSMILE_ADMIN_V1_HINT]-->
-</h3>
+<h2><!--[pnml name='_PNBBSMILE_ADMIN_TITLE']--></h2>
+<p><!--[pnml name='_PNBBSMILE_ADMIN_V1_HINT' html=1]--></p>
 <br />
 <div class="pn-menu">
 [<a href="<!--[ pnmodurl modname=pn_bbsmile type=admin func=modifyconfig ]-->"><!--[ pnml name='_PNBBSMILE_ADMIN_TITLE_CONFIG' ]--></a>]&nbsp;
+<!--[ if $pncore.pn_bbsmile.activate_auto eq 1 ]-->
 [<a href="<!--[ pnmodurl modname=pn_bbsmile type=admin func=readsmilies ]-->"><!--[ pnml name='_PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM' ]--></a>]&nbsp;
 [<a href="<!--[ pnmodurl modname=pn_bbsmile type=admin func=editsmilies ]-->"><!--[ pnml name='_PNBBSMILE_ADMIN_TITLE_EDITSMILIES' ]--></a>]
+<!--[ else ]-->
+<!--[ pnml name="_PNBBSMILE_NOAUTOSMILIES" ]-->
+<!--[ /if ]-->
 </div>
