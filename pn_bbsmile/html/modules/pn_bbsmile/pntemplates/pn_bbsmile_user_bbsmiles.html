@@ -7,25 +7,14 @@
 </noscript>
 
 <!--[ pnbbsmile_smilie_list assign="smilies" type="standard" ]-->
-<table class="bb_standardsmilies">
+<div class="bb_standardsmilies">
     <!--[* default smilies *]-->
-    <tr>
-        <!--[ foreach item=smilie from=$smilies ]-->
-        <td>
-            <a href="javascript:void(0);" onclick="AddSmilie('<!--[ $textfieldid ]-->', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->">
-            <img class="bb_smilie" src="<!--[ $pncore.pn_bbsmile.smiliepath ]-->/<!--[ $smilie.imgsrc ]-->" alt='Smilie <!--[ $smilie.alt ]-->' />
-            </a>
-        </td>
-        <!--[ /foreach ]-->
-    </tr>
-        <!--[ foreach item=smilie from=$smilies ]-->
-        <td>
-            <!--[ $smilie.short ]-->
-        </td>
-        <!--[ /foreach ]-->
-    <tr>
-    </tr>
-</table>
+    <!--[ foreach item=smilie from=$smilies ]-->
+    <a href="javascript:void(0);" onclick="AddSmilie('<!--[ $textfieldid ]-->', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->">
+    <img class="bb_smilie" src="<!--[ $pncore.pn_bbsmile.smiliepath ]-->/<!--[ $smilie.imgsrc ]-->" alt='Smilie <!--[ $smilie.alt ]-->' />
+    </a>
+    <!--[ /foreach ]-->
+</div>
 
 <!--[ if $pncore.pn_bbsmile.activate_auto  ]-->
     <!--[ pnbbsmile_smilie_list assign="autosmilies" type="auto" ]-->
@@ -41,7 +30,7 @@
                 <td class="bb_smilie_cell">
                     <a href="javascript:void(0);" onclick="AddSmilie('<!--[ $textfieldid ]-->', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->">
                     <img src="<!--[$pncore.pn_bbsmile.smiliepath_auto]-->/<!--[$smilie.imgsrc]-->" alt="Smilie <!--[$smilie.alt]-->" />
-                    </a><br /><!--[ $smilie.short ]-->
+                    </a>
                 </td>
             <!--[/foreach]-->
             </tr>
