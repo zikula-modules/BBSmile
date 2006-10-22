@@ -22,7 +22,7 @@ function emoticon(text) {
 <!--[ foreach item=smilie from=$smilies ]-->
 
     <a href="javascript:addsmilies()" onclick="DoSmilie(' <!--[$smilie.short]--> ')" onkeypress="DoSmilie(' <!--[$smilie.short]--> ')" title='<!--[$smilie.alt]-->'><img src='<!--[ if $smilie.type eq 0 ]--><!--[ $imagepath ]--><!--[ else ]--><!--[ $imagepath_auto ]--><!--[ /if ]-->/<!--[$smilie.imgsrc]-->' style="border:none;margin-top:3px;margin-bottom:3px;margin-left:3px;" alt='Smilie <!--[$smilie.alt]-->' /></a>
-    <a onClick="emoticon('<!--[$smilie.short]-->')"><img src="<!--[$smilie.imgsrc]-->" border="0" alt="<!--[$smilie.replace]-->" title="<!--[$smilie.alt]-->" /></a>
+    <a onclick="emoticon('<!--[$smilie.short]-->')"><img src="<!--[$smilie.imgsrc]-->" border="0" alt="<!--[$smilie.replace]-->" title="<!--[$smilie.alt]-->" /></a>
 
 <!--[/foreach]-->
 </div>
