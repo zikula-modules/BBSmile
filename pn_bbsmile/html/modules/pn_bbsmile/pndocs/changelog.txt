@@ -1,3 +1,5 @@
+    - fixed [#3411] XHTML Validation errors
+
 Version 1.17
     - no new features, just internal cleanups:
     - some .762 changes
