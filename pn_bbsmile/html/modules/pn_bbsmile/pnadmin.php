@@ -126,8 +126,7 @@ function pn_bbsmile_admin_readsmilies() {
         pnModAPIFunc('pn_bbsmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
 
         pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM);
-        pnRedirect(pnModURL('pn_bbsmile', 'admin'));
-        return true;
+        return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
 
     }
 }
@@ -181,7 +180,7 @@ function pn_bbsmile_admin_editsmilies() {
 
         pnModSetVar('pn_bbsmile','smilie_array',serialize($smilies));
         pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_EDITEDSMILIESSAVED);
-        pnRedirect(pnModURL('pn_bbsmile', 'admin'));
+        return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
     }
 }
 
