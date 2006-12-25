@@ -92,7 +92,7 @@ function pn_bbsmile_admin_modifyconfig()
         pnModSetVar('pn_bbsmile', 'remove_inactive', $remove_inactive);
 
         pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_CONFIGSAVED);
-        pnRedirect(pnModURL('pn_bbsmile', 'admin'));
+        return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
 
     }
 }
