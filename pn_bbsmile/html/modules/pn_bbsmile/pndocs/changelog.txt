@@ -1,3 +1,5 @@
+Version 1.18
+    - PostNuke .8 fixes
     - fixed [#3411] XHTML Validation errors
 
 Version 1.17
