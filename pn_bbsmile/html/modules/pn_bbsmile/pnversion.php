@@ -1,14 +1,6 @@
 <?php
 // $Id$
 // ----------------------------------------------------------------------
-// PostNuke Content Management System
-// Copyright (C) 2001 by the PostNuke Development Team.
-// http://www.postnuke.com/
-// ----------------------------------------------------------------------
-// Based on:
-// PHP-NUKE Web Portal System - http://phpnuke.org/
-// Thatware - http://thatware.org/
-// ----------------------------------------------------------------------
 // LICENSE
 //
 // This program is free software; you can redistribute it and/or
@@ -34,7 +26,7 @@
 */
 
 $modversion['name']             = 'pn_bbsmile';
-$modversion['version']          = '1.18';
+$modversion['version']          = '2.0';
 $modversion['id']               = '163';
 $modversion['description']      = 'Smilie Hook (Autoincluded)';
 $modversion['credits']          = 'pndocs/credits.txt';

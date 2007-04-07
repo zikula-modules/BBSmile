@@ -1,14 +1,6 @@
 <?php
 // $Id$
 // ----------------------------------------------------------------------
-// PostNuke Content Management System
-// Copyright (C) 2001 by the PostNuke Development Team.
-// http://www.postnuke.com/
-// ----------------------------------------------------------------------
-// Based on:
-// PHP-NUKE Web Portal System - http://phpnuke.org/
-// Thatware - http://thatware.org/
-// ----------------------------------------------------------------------
 // LICENSE
 //
 // This program is free software; you can redistribute it and/or
@@ -38,21 +30,18 @@
 */
 function pn_bbsmile_userapi_transform($args)
 {
-    extract($args);
-
     // Argument check
-    if ((!isset($objectid)) ||
-        (!isset($extrainfo))) {
-        pnSessionSetVar('errormsg', _PNBBSMILE_ARGSERROR);
-        return;
+    if ((!isset($args['objectid'])) ||
+        (!isset($args['extrainfo']))) {
+        return LogUtil::registerError(_PNBBSMILE_ARGSERROR);
     }
 
-    if (is_array($extrainfo)) {
-        foreach ($extrainfo as $text) {
+    if (is_array($args['extrainfo'])) {
+        foreach ($args['extrainfo'] as $text) {
             $result[] = pn_bbsmile_transform($text);
         }
     } else {
-        $result = pn_bbsmile_transform($text);
+        $result = pn_bbsmile_transform($args['text']);
     }
 
     return $result;
@@ -82,8 +71,8 @@ function pn_bbsmile_transform($text)
     $remove_inactive = pnModGetVar('pn_bbsmile', 'remove_inactive');
 
     if(is_array($smilies) && count($smilies)>0) {
-        $imagepath = pnModGetVar('pn_bbsmile', 'smiliepath');
-        $imagepath_auto = pnModGetVar('pn_bbsmile', 'smiliepath_auto');
+        $imagepath = DataUtil::formatForOS(pnModGetVar('pn_bbsmile', 'smiliepath'));
+        $imagepath_auto = DataUtil::formatForOS(pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
         $auto_active = pnModGetVar('pn_bbsmile','activate_auto');
     	// pad it with a space so we can distinguish between FALSE and matching the 1st char (index 0).
 	    // This is important!

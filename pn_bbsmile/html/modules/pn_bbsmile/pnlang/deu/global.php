@@ -30,6 +30,8 @@
 // include smilie alternative text defines
 @include_once('modules/pn_bbsmile/pnlang/deu/smilies.php');
 
+define('_PNBBSMILE_GOTOHOMEPAGE', 'gehe zur pn_bbsmile-Projektseite im NOC');
+
 //
 // A
 //

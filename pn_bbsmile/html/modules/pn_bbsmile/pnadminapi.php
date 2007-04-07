@@ -1,14 +1,6 @@
 <?php
 // $Id$
 // ----------------------------------------------------------------------
-// PostNuke Content Management System
-// Copyright (C) 2001 by the PostNuke Development Team.
-// http://www.postnuke.com/
-// ----------------------------------------------------------------------
-// Based on:
-// PHP-NUKE Web Portal System - http://phpnuke.org/
-// Thatware - http://thatware.org/
-// ----------------------------------------------------------------------
 // LICENSE
 //
 // This program is free software; you can redistribute it and/or
@@ -44,9 +36,6 @@
  */
 function pn_bbsmile_adminapi_updatesmilies($args)
 {
-    extract($args);
-    unset($args);
-
     // Get the new array
     $new_smilies = pnModAPIFunc('pn_bbsmile', 'admin', 'load_smilies');
 
@@ -60,7 +49,7 @@ function pn_bbsmile_adminapi_updatesmilies($args)
     // If it is included then save the old definition
     // Else save the new definition
     foreach($new_smilies as $key => $new_smilie) {
-        if($forcereload == true) {
+        if($args['forcereload'] == true) {
             $smilies[$key] = $new_smilie;
         } else {
             if (array_key_exists($key, $old_smilies)) {
@@ -181,7 +170,7 @@ function pn_bbsmile_adminapi_load_smilies()
                          'active'  => '1'));
 
     if(pnModGetVar('pn_bbsmile', 'activate_auto') == 1) {
-        $smiliepath_auto = pnModGetVar('pn_bbsmile', 'smiliepath_auto');
+        $smiliepath_auto = DataUtil::formatForOS(pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
         $handle=opendir($smiliepath_auto);
         if($handle<>false) {
             while ($file = readdir($handle)) {
@@ -200,6 +189,28 @@ function pn_bbsmile_adminapi_load_smilies()
         }
     }
     return $icons;
+}
+
+/**
+ * get available admin panel links
+ *
+ * @author Mark West
+ * @return array array of admin links
+ */
+function pn_bbsmile_adminapi_getlinks()
+{
+    $links = array();
+    if (SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
+        if(pnModGetVar('pn_bbsmile', 'activate_auto') == 1) {
+            $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'readsmilies'), 'text' => _PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM);
+            $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _PNBBSMILE_ADMIN_TITLE_EDITSMILIES);
+        } else {
+            $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'readsmilies'), 'text' => _PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM, 'title' => _PNBBSMILE_NOAUTOSMILIES, 'disabled' => true);
+            $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _PNBBSMILE_ADMIN_TITLE_EDITSMILIES, 'title' => _PNBBSMILE_NOAUTOSMILIES, 'disabled' => true);
+        }
+        $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'modifyconfig'), 'text' => _PNBBSMILE_ADMIN_TITLE_CONFIG);
+    }
+    return $links;
 }
 
 ?>

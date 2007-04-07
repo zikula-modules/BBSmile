@@ -1,14 +1,6 @@
 <?php
 // $Id$
 // ----------------------------------------------------------------------
-// PostNuke Content Management System
-// Copyright (C) 2001 by the PostNuke Development Team.
-// http://www.postnuke.com/
-// ----------------------------------------------------------------------
-// Based on:
-// PHP-NUKE Web Portal System - http://phpnuke.org/
-// Thatware - http://thatware.org/
-// ----------------------------------------------------------------------
 // LICENSE
 //
 // This program is free software; you can redistribute it and/or
@@ -44,14 +36,13 @@
  */
 function pn_bbsmile_admin_main()
 {
-    if (!pnSecAuthAction(0, 'pn_bbsmile::', '::', ACCESS_ADMIN)) {
-        return pnVarPrepHTMLDisplay(_PNBBSMILE_ADMIN_NOACCESS);
+    if (!SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
+        return LogUtil::registerPermissionError(_PNBBSMILE_ADMIN_NOACCESS);
     }
 
-    $pnRender =& new pnRender('pn_bbsmile');
-    $pnRender->caching = false;
-    $pnRender->add_core_data();
-    return $pnRender->fetch('pn_bbsmile_admin_main.html');
+    $pnr = new pnRender('pn_bbsmile', false);
+    $pnr->add_core_data();
+    return $pnr->fetch('pn_bbsmile_admin_main.html');
 }
 
 /**
@@ -61,15 +52,14 @@ function pn_bbsmile_admin_main()
  */
 function pn_bbsmile_admin_modifyconfig()
 {
-    if (!pnSecAuthAction(0, 'pn_bbsmile::', '::', ACCESS_ADMIN)) {
-        return pnVarPrepHTMLDisplay(_PNBBSMILE_ADMIN_NOACCESS);;
+    if (!SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
+        return LogUtil::registerPermissionError(_PNBBSMILE_ADMIN_NOACCESS);
     }
 
-    $submit = pnVarCleanFromInput('submit');
+    $submit = FormUtil::getPassedValue('submit', null, 'GETPOST');
     if(!$submit) {
 
-        $pnr =& new pnRender('pn_bbsmile');
-        $pnr->caching = false;
+        $pnr = new pnRender('pn_bbsmile', false);
         $pnr->add_core_data();
         // that's all folks
         return $pnr->fetch('pn_bbsmile_admin_modifyconfig.html');
@@ -77,23 +67,20 @@ function pn_bbsmile_admin_modifyconfig()
     } else { // submit is set
 
         // save vars
-        $imagepath = pnVarCleanFromInput('imagepath');
-        pnModSetVar('pn_bbsmile', 'smiliepath', $imagepath);
+        $smiliepath = FormUtil::getPAssedValue('imagepath', 'modules/pn_bbsmile/pnimages/smilies', 'POST');
+        pnModSetVar('pn_bbsmile', 'smiliepath', $smiliepath);
 
-        $imagepath_auto = pnVarCleanFromInput('imagepath_auto');
-        pnModSetVar('pn_bbsmile', 'smiliepath_auto', $imagepath_auto);
+        $smiliepath_auto = FormUtil::getPAssedValue('imagepath_auto', 'modules/pn_bbsmile/pnimages/smilies_auto', 'POST');
+        pnModSetVar('pn_bbsmile', 'smiliepath_auto', $smiliepath_auto);
 
-        $activate_auto = pnVarCleanFromInput('activate_auto');
-        if (empty($activate_auto)) $activate_auto = 0;
+        $activate_auto = FormUtil::getPassedValue('activate_auto', 0, 'POST');
         pnModSetVar('pn_bbsmile','activate_auto',$activate_auto);
 
-        $remove_inactive = pnVarCleanFromInput('remove_inactive');
-        if (empty($remove_inactive)) $remove_inactive = 0;
+        $remove_inactive = FormUtil::getPassedValue('remove_inactive', 0, 'POST');
         pnModSetVar('pn_bbsmile', 'remove_inactive', $remove_inactive);
 
-        pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_CONFIGSAVED);
+        LogUtil::registerStatus(_PNBBSMILE_ADMIN_CONFIGSAVED);
         return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
-
     }
 }
 
@@ -104,28 +91,27 @@ function pn_bbsmile_admin_modifyconfig()
  */
 function pn_bbsmile_admin_readsmilies() {
 
-    if (!pnSecAuthAction(0, 'pn_bbsmile::', '::', ACCESS_ADMIN)) {
-        return pnVarPrepHTMLDisplay(_PNBBSMILE_ADMIN_NOACCESS);;
+    if (!SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
+        return LogUtil::registerPermissionError(_PNBBSMILE_ADMIN_NOACCESS);
     }
 
-    $submit = pnVarCleanFromInput('submit');
+    $submit = FormUtil::getPassedValue('submit', null, 'POST');
 
     if(!$submit) {
 
-        $pnr =& new pnRender('pn_bbsmile');
-        $pnr->caching = false;
+        $pnr = new pnRender('pn_bbsmile', false);
         $pnr->add_core_data();
         return $pnr->fetch('pn_bbsmile_admin_readsmilies.html');
 
     } else { // submit is set
 
         // Update the Smilies
-        $forcereload = pnVarCleanFromInput('forcereload');
+        $forcereload = FormUtil::getPassedValue('forcereload', 0, 'POST');
         $forcereload = ($forcereload==1) ? true : false;
         // @see adminapi.php#pn_bbsmile_adminapi_updatesmilies()
         pnModAPIFunc('pn_bbsmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
 
-        pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM);
+        LogUtil::registerStatus(_PNBBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM);
         return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
 
     }
@@ -138,16 +124,15 @@ function pn_bbsmile_admin_readsmilies() {
  */
 function pn_bbsmile_admin_editsmilies() {
 
-    if (!pnSecAuthAction(0, 'pn_bbsmile::', '::', ACCESS_ADMIN)) {
-        return pnVarPrepHTMLDisplay(_PNBBSMILE_ADMIN_NOACCESS);;
+    if (!SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
+        return LogUtil::registerPermissionError(_PNBBSMILE_ADMIN_NOACCESS);
     }
 
-    $submit = pnVarCleanFromInput('submit');
+    $submit = FormUtil::getPassedValue('submit', null, 'POST');
 
     if(!$submit) {
 
-        $pnr = new pnRender('pn_bbsmile');
-        $pnr->caching = false;
+        $pnr = new pnRender('pn_bbsmile', false);
         $pnr->add_core_data();
 
         $smilies = unserialize(pnModGetVar('pn_bbsmile','smilie_array'));
@@ -158,8 +143,13 @@ function pn_bbsmile_admin_editsmilies() {
     } else { // submit is set
 
         // Get input
-        list($keys, $shorts, $imgsrcs, $alts, $aliases, $types, $active )
-            = pnVarCleanFromInput('key', 'short', 'imgsrc', 'alt', 'alias', 'smilietype','active');
+        $keys    = FormUtil::getPassedValue('key', array(), 'POST');
+        $shorts  = FormUtil::getPassedValue('short', array(), 'POST');
+        $imgsrcs = FormUtil::getPassedValue('imgsrc', array(), 'POST');
+        $alts    = FormUtil::getPassedValue('alt', array(), 'POST');
+        $aliases = FormUtil::getPassedValue('alias', array(), 'POST');
+        $types   = FormUtil::getPassedValue('smilietype', array(), 'POST');
+        $active  = FormUtil::getPassedValue('active', array(), 'POST');
 
         $smilies = array();
 
@@ -179,7 +169,8 @@ function pn_bbsmile_admin_editsmilies() {
 	    }
 
         pnModSetVar('pn_bbsmile','smilie_array',serialize($smilies));
-        pnSessionSetVar('statusmsg', _PNBBSMILE_ADMIN_EDITEDSMILIESSAVED);
+
+        LogUtil::registerStatus(_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED);
         return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
     }
 }

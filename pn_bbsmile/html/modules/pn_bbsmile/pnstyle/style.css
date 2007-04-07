@@ -1,5 +1,57 @@
 /*  $Id$  */
 
+/**
+ * admin panel
+ *
+ */
+#pnbbsmileadmin {
+    margin: 1em 0;
+}
+
+#pnbbsmileadmin p.footer {
+    margin-top: 2em; 
+    text-align:center;
+    font-size: 90%;
+}
+
+#pn_bbsmile label {
+    padding: 3px 0;
+}
+
+#pn_bbsmile dl dt {
+    display: block;
+    float: left;
+    text-align: right;
+    width: 40%;
+    padding: 0;
+    margin: 0.5em;
+    line-height: 2em;
+}
+
+#pn_bbsmile dl dd {
+    display: block;
+    float: left;
+    text-align: left;
+    width: 40%;
+    margin: 0.5em;
+    padding: 0;
+    line-height: 2em;
+}
+
+/**
+ * user interface
+ *
+ */
+
+.noscript {
+    background: #fff6bf url(../pnimages/exclamation.png) center no-repeat;
+    background-position: 15px 50%; /* x-pos y-pos */
+    text-align: left;
+    padding: 5px 20px 5px 45px;
+    border-top: 2px solid #ffd324;
+    border-bottom: 2px solid #ffd324;
+}
+
 .bb_standardsmilies {
     margin-top: 1em;
     width: 300px;
@@ -38,3 +90,28 @@ td.bb_smilie_cell {
 th.bb_tablehead {
     font-size: 1em;
 }
+
+/*
+ * clearfix solution
+ */
+
+.pn_bbsmile_clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.pn_bbsmile_clearfix {display: inline-table;}
+
+/* Hides from IE-mac \*/
+* html .pn_bbsmile_clearfix {height: 1%;}
+.pn_bbsmile_clearfix {display: block;}
+/* End hide from IE-mac */
+
+/* Overflow-Methode zum Clearen der Float-Umgebungen */
+.pn_bbsmile_floatbox { 
+    overflow:hidden; 
+}
+

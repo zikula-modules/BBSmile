@@ -1,14 +1,6 @@
 <?php
 // $Id$
 // ----------------------------------------------------------------------
-// PostNuke Content Management System
-// Copyright (C) 2001 by the PostNuke Development Team.
-// http://www.postnuke.com/
-// ----------------------------------------------------------------------
-// Based on:
-// PHP-NUKE Web Portal System - http://phpnuke.org/
-// Thatware - http://thatware.org/
-// ----------------------------------------------------------------------
 // LICENSE
 //
 // This program is free software; you can redistribute it and/or
@@ -47,7 +39,7 @@ function pn_bbsmile_init() {
     pnModSetVar('pn_bbsmile', 'smiliepath_auto', 'modules/pn_bbsmile/pnimages/smilies_auto');
 
     // Generate the smile array
-    pnModAPIFunc('pn_bbsmile','admin','updatesmilies',array());
+    pnModAPIFunc('pn_bbsmile','admin','updatesmilies',array(), true);
 
 
     // Set up module hooks
@@ -58,8 +50,7 @@ function pn_bbsmile_init() {
                            'pn_bbsmile',
                            'user',
                            'transform')) {
-        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (transform hook)');
-        return false;
+        return LogUtil::registerError(_PNBBSMILE_COULDNOTREGISTER . ' (transform hook)');
     }
     // Initialisation successful
     return true;
@@ -100,6 +91,8 @@ function pn_bbsmile_upgrade($oldversion)
                 return false;
             }
             pnModDelVar('pn_bbsmile', 'displayhook');
+        case '2.0':
+            // .8 only version
         default:
             break;
     }
@@ -118,8 +111,7 @@ function pn_bbsmile_delete() {
                              'pn_bbsmile',
                              'user',
                              'transform')) {
-        pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTUNREGISTER . ' (transform hook)');
-        return false;
+        return LogUtil::registerError(_PNBBSMILE_COULDNOTUNREGISTER . ' (transform hook)');
     }
 
     // Remove module variables
