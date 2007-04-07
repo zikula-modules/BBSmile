@@ -64,6 +64,7 @@ function pn_bbsmile_user_bbsmiles($args)
 
     PageUtil::addVar('javascript', 'javascript/ajax/prototype.js');
     PageUtil::addVar('javascript', 'modules/pn_bbsmile/pnjavascript/dosmilie.js');
+    PageUtil::addVar('javascript', 'modules/pn_bbsmile/pnjavascript/control_modal.js');
     PageUtil::addVar('stylesheet', ThemeUtil::getModuleStylesheet('pn_bbsmile'));
     
     $templatefile = pnVarPrepForOS(pnModGetName()) . '.html';

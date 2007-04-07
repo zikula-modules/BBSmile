@@ -4,6 +4,12 @@ Event.observe(window, 'load', function() {
         document.getElementsByClassName('pn_bbsmile_smilies').each(function(el) {
             el.removeClassName('pn_bbsmile_smilies');
         });
+        if($('smiliemodal')) {
+            new Control.Modal($('smiliemodal'), {
+                beforeLoad: function() { $('loadsmilieindicator').toggleClassName('hidden'); },
+                afterLoad: function() { $('loadsmilieindicator').toggleClassName('hidden'); }
+                });
+        }
     });
     
     
@@ -12,6 +18,8 @@ function AddSmilie(textfieldname, SmilieCode) {
     var SmilieCode;
     var revisedMessage;
     var textfield = $(textfieldname);
+
+    Control.Modal.close()
 
     if(textfield==null) {
         alert("internal error: unknown textfieldname '" + textfieldname + "'supplied");
