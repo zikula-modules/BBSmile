@@ -1,5 +1,5 @@
 Version 2.0
-    - .8 only version, will not run with .654 or older!
+    - .8 only version, will not run with .764 or older!
     
 Version 1.22
     - internal version
