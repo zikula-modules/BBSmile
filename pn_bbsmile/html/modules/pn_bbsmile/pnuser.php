@@ -62,8 +62,9 @@ function pn_bbsmile_user_bbsmiles($args)
     $pnr->assign('counter', $counter);
     $pnr->assign('textfieldid', $args['textfieldid']);
 
+    PageUtil::addVar('javascript', 'javascript/ajax/prototype.js');
     PageUtil::addVar('javascript', 'modules/pn_bbsmile/pnjavascript/dosmilie.js');
-    PageUtil::addVar('stylesheet', ThemeUtil:getModuleStylesheet('pn_bsmile'));
+    PageUtil::addVar('stylesheet', ThemeUtil::getModuleStylesheet('pn_bbsmile'));
     
     $templatefile = pnVarPrepForOS(pnModGetName()) . '.html';
     if($pnr->template_exists($templatefile)) {

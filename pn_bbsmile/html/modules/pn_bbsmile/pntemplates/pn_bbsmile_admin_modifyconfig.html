@@ -2,6 +2,34 @@
 <!--[include file="pn_bbsmile_admin_header.html"]-->
 
 <h2><!--[pnml name=_PNBBSMILE_ADMIN_TITLE_CONFIG]--></h2>
+
+
+<!--[ pnform ]-->
+<div>
+    <div class="pn_bbsmile_floatbox">
+        <!--[ pnformvalidationsummary ]-->
+        <dl class="pn_bbsmile_clearfix">
+            <dt><!--[ pnformlabel for="smiliepath" text='_PNBBSMILE_ADMIN_LABEL_IMAGEPATH' ]--></dt>
+            <dd><!--[ pnformtextinput size="40" maxLength="255" id="smiliepath" text=$pncore.pn_bbsmile.smiliepath ]--></dd>
+            
+            <dt><!--[ pnformlabel for="activate_auto" text='_PNBBSMILE_ADMIN_LABEL_ACTIVATE_AUTO' ]--></dt>
+            <dd><!--[ pnformcheckbox id="activate_auto" checked=$pncore.pn_bbsmile.activate_auto ]--></dd>
+            
+            <dt><!--[ pnformlabel for="smiliepath_auto" text='_PNBBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO' ]--></dt>
+            <dd><!--[ pnformtextinput size="40" maxLength="255" id="smiliepath_auto" text=$pncore.pn_bbsmile.smiliepath_auto ]--></dd>
+            
+            <dt><!--[ pnformlabel for="remove_inactive" text='_PNBBSMILE_ADMIN_LABEL_REMOVE_INACTIVE' ]--></dt>
+            <dd><!--[ pnformcheckbox id="remove_inactive" checked=$pncore.pn_bbsmile.remove_inactive ]--></dd>
+        </dl>
+    </div>
+    <p>
+      <!--[pnformbutton id="submit" commandName="submit" text="_PNBBSMILE_ADMIN_BTN_SUBMIT"]-->
+    </p>
+</div>
+<!--[ /pnform ]-->
+
+
+<!--[*
 <form class="pn-adminform" action="<!--[pnmodurl modname="pn_bbsmile" type="admin" func="modifyconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
 <div>
 <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="pn_bbsmile"]-->" />
@@ -28,5 +56,5 @@
     </div>
 </div>
 </form>
-
+*]-->
 <!--[include file="pn_bbsmile_admin_footer.html"]-->

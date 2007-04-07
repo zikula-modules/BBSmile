@@ -1,10 +1,17 @@
 // $Id$
 
+Event.observe(window, 'load', function() {
+        document.getElementsByClassName('pn_bbsmile_smilies').each(function(el) {
+            el.removeClassName('pn_bbsmile_smilies');
+        });
+    });
+    
+    
 // new function
 function AddSmilie(textfieldname, SmilieCode) {
     var SmilieCode;
     var revisedMessage;
-    var textfield = document.getElementById(textfieldname);
+    var textfield = $(textfieldname);
 
     if(textfield==null) {
         alert("internal error: unknown textfieldname '" + textfieldname + "'supplied");
@@ -52,6 +59,16 @@ function AddSmilie(textfieldname, SmilieCode) {
 
 }
 
+function togglesmilies(theid)
+{
+    if($(theid)) {
+        $(theid).toggleClassName('hidden');
+    }
+}
+//
+// old and deprecated functions, not longer maintained!
+//
+//
 // old function wrapper
 function DoSmilie(SmilieCode) {
     return AddSmilie('post', SmilieCode);

@@ -31,6 +31,7 @@
 @include_once('modules/pn_bbsmile/pnlang/deu/smilies.php');
 
 define('_PNBBSMILE_GOTOHOMEPAGE', 'gehe zur pn_bbsmile-Projektseite im NOC');
+define('_PNBBSMILE_ILLEGALSMILIEPATH', 'Der angegebene Pfad existiert nicht oder kann nicht gelesen werden.');
 
 //
 // A
@@ -42,7 +43,7 @@ define('_PNBBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM', 'Sollen die Smilies jetzt 
 define('_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED', 'Die editierten Smilies wurden gespeichert');
 define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH', 'Verzeichnis (relativ), das die Smiliegrafiken enthält. Ohne / am Ende und ohne Backslashes!');
 define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH_AUTO', 'Verzeichnis (relativ), das die automatisch eingebundenen Smiliegrafiken enthält. Alle Dateien, die die Endung gif,jpg,jpeg oder png haben, werden aus diesem verzeichnis automatisch hinzugefügt. Ohne / am Ende und ohne Backslashes!');
-define('_PNBBSMILE_ADMIN_LABEL_ACTIVATE_AUTO', 'Soll das automatische Einbinden für Smilies aktiviert werden?');
+define('_PNBBSMILE_ADMIN_LABEL_ACTIVATE_AUTO', 'Automatisches Einbinden von Smilies aktivieren');
 define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH', 'Pfad zu den Smiliegrafiken');
 define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO', 'Pfad zu den automatisch eingebundenen Smiliegrafiken');
 define('_PNBBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'Mit dem Bestätigen werden alle Smilies aus dem unten genannten Verzeichnis eingelesen. Smilies, deren Bilder aus dem Verzeichnis gelöscht wurden, werden ebenfalls gelöscht. Änderung von schon bestehenden Smilies bleiben erhalten.');

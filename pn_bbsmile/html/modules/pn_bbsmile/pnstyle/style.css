@@ -14,11 +14,11 @@
     font-size: 90%;
 }
 
-#pn_bbsmile label {
+#pnbbsmileadmin label {
     padding: 3px 0;
 }
 
-#pn_bbsmile dl dt {
+#pnbbsmileadmin dl dt {
     display: block;
     float: left;
     text-align: right;
@@ -28,7 +28,7 @@
     line-height: 2em;
 }
 
-#pn_bbsmile dl dd {
+#pnbbsmileadmin dl dd {
     display: block;
     float: left;
     text-align: left;
@@ -52,6 +52,10 @@
     border-bottom: 2px solid #ffd324;
 }
 
+.pn_bbsmile_smilies {
+    display: none;
+}
+    
 .bb_standardsmilies {
     margin-top: 1em;
     width: 300px;
@@ -89,6 +93,14 @@ td.bb_smilie_cell {
 
 th.bb_tablehead {
     font-size: 1em;
+}
+
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: inline;
 }
 
 /*

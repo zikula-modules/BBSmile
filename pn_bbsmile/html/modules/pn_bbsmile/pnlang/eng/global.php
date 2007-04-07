@@ -31,7 +31,7 @@
 @include_once('modules/pn_bbsmile/pnlang/eng/smilies.php');
 
 define('_PNBBSMILE_GOTOHOMEPAGE', 'visit the pn_bbsmile-project on NOC');
-
+define('_PNBBSMILE_ILLEGALSMILIEPATH', 'The path does not exists or the system cannot read it.');
 //
 // A
 //
@@ -42,7 +42,7 @@ define('_PNBBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM', 'Should the smilies be rea
 define('_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED', 'The edited smilies have been saved.');
 define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH', 'Enter the directory (relative), where the smilies are.No trailing slash and no backslashes!');
 define('_PNBBSMILE_ADMIN_HINT_IMAGEPATH_AUTO', 'Enter the directory (relative), where the smilies are, which are included automatically. All files with the ending gif, jpg, jpeg or png are included out of this directory. No trailing slash and no backslashes!');
-define('_PNBBSMILE_ADMIN_LABEL_ACTIVATE_AUTO', 'Should the auto include of smilies be activated?');
+define('_PNBBSMILE_ADMIN_LABEL_ACTIVATE_AUTO', 'Activate auto smilies');
 define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH', 'Path to the smilies');
 define('_PNBBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO', 'Path to the automatically included smilies');
 define('_PNBBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'With confirmation all smilies out of the directory are read. Smilies without a image in the directory will be deleted. Changes on smilie information will be kept.');
