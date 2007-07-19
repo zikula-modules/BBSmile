@@ -40,7 +40,7 @@ function pn_bbsmile_adminapi_updatesmilies($args)
     $new_smilies = pnModAPIFunc('pn_bbsmile', 'admin', 'load_smilies');
 
     // Get the old array
-    $old_smilies = unserialize(pnModGetVar('pn_bbsmile','smilie_array'));
+    $old_smilies = pnModGetVar('pn_bbsmile','smilie_array');
 
     //Combine old array and new array
     // First create a new array
@@ -63,7 +63,7 @@ function pn_bbsmile_adminapi_updatesmilies($args)
     }
 
     // Save the array
-    pnModSetVar('pn_bbsmile','smilie_array', serialize($smilies));
+    pnModSetVar('pn_bbsmile','smilie_array', $smilies);
 
     // Return success
     return true;

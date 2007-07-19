@@ -116,7 +116,7 @@ function pn_bbsmile_admin_editsmilies() {
         $pnr = new pnRender('pn_bbsmile', false);
         $pnr->add_core_data();
 
-        $smilies = unserialize(pnModGetVar('pn_bbsmile','smilie_array'));
+        $smilies = pnModGetVar('pn_bbsmile','smilie_array');
         $pnr->assign('smilies',$smilies);
 
         return $pnr->fetch('pn_bbsmile_admin_editsmiles.html');
@@ -149,7 +149,7 @@ function pn_bbsmile_admin_editsmilies() {
 	    	$smilies[$active[$i]]['active'] = 1;
 	    }
 
-        pnModSetVar('pn_bbsmile','smilie_array',serialize($smilies));
+        pnModSetVar('pn_bbsmile','smilie_array', $smilies);
 
         LogUtil::registerStatus(_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED);
         return pnRedirect(pnModURL('pn_bbsmile', 'admin'));

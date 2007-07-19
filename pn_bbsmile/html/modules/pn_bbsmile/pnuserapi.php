@@ -67,7 +67,7 @@ function pn_bbsmile_transform($text)
         }
     }
 
-    $smilies = unserialize(pnModGetVar('pn_bbsmile','smilie_array'));
+    $smilies = pnModGetVar('pn_bbsmile','smilie_array');
     $remove_inactive = pnModGetVar('pn_bbsmile', 'remove_inactive');
 
     if(is_array($smilies) && count($smilies)>0) {
