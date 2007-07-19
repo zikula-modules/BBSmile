@@ -42,6 +42,14 @@ function pn_bbsmile_admin_main()
 
     $pnr = new pnRender('pn_bbsmile', false);
     $pnr->add_core_data();
+    $hmods = pnModAPIFunc('modules', 'admin', 'gethookedmodules', array('hookmodname' => 'pn_bbsmile'));
+    foreach($hmods as $hmod => $dummy) {
+        $modid = pnModGetIDFromName($hmod);
+        $moddata = pnModGetInfo($modid);
+        $moddata['id'] = $modid;
+        $hookedmodules[] = $moddata;
+    }
+    $pnr->assign('hookedmodules', $hookedmodules);
     return $pnr->fetch('pn_bbsmile_admin_main.html');
 }
 

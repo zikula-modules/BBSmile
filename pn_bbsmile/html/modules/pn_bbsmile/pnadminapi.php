@@ -201,6 +201,7 @@ function pn_bbsmile_adminapi_getlinks()
 {
     $links = array();
     if (SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
+        $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'main'), 'text' => _PNBBSMILE_ADMIN_START);
         if(pnModGetVar('pn_bbsmile', 'activate_auto') == 1) {
             $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'readsmilies'), 'text' => _PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM);
             $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _PNBBSMILE_ADMIN_TITLE_EDITSMILIES);

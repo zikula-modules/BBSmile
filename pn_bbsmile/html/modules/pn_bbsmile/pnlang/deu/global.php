@@ -32,6 +32,10 @@
 
 define('_PNBBSMILE_GOTOHOMEPAGE', 'gehe zur pn_bbsmile-Projektseite im NOC');
 define('_PNBBSMILE_ILLEGALSMILIEPATH', 'Der angegebene Pfad existiert nicht oder kann nicht gelesen werden.');
+define('_PNBBSMILE_ADMIN_START', 'Start');
+define('_PNBBSMILE_ISHOOKEDWITH', 'pn_bbsmile wird mit folgenden Modulen verwendet');
+define('_PNBBSMILE_NOTHOOKED', '** pn_bbsmile wird zur Zeit von keinem Modul verwendet **');
+define('_PNBBSMILE_ADDHOOK', 'pn_bbsmile für weitere Module aktivieren');
 
 //
 // A
@@ -63,7 +67,6 @@ define('_PNBBSMILE_ADMIN_TITLE', 'pn_bbsmile Administration');
 define('_PNBBSMILE_ADMIN_TITLE_CONFIG', 'Konfiguration ändern');
 define('_PNBBSMILE_ADMIN_TITLE_EDITSMILIES', 'Editiere die aktuell definierten Smilies');
 define('_PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM', 'Lese Smilies aus dem Ordner neu ein');
-define('_PNBBSMILE_ADMIN_V1_HINT', 'Bitte beachten: Der pn_bbsmile-Hook muss für die Module, in denen die Funktion genutzt werden soll, <a href="index.php?name=Modules&type=admin&func=view">hier</a> erst aktiviert werden.');
 define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Interner Fehler! Parameter fehlen!');
 
 //

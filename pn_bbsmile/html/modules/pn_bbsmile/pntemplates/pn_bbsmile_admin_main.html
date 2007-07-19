@@ -1,6 +1,13 @@
 <!--[*  $Id$  *]-->
 <!--[include file="pn_bbsmile_admin_header.html"]-->
 
-&nbsp;
-
+<strong><!--[ pnml name="_PNBBSMILE_ISHOOKEDWITH"]-->:</strong>
+<ul>
+    <!--[ foreach item=mod from=$hookedmodules ]-->
+    <li><a href="<!--[ pnmodurl modname=modules type=admin func=hooks id=$mod.id ]-->" title="<!--[ $mod.description ]-->"><!--[ $mod.displayname ]--></a></li>
+    <!--[ foreachelse ]-->
+    <li style="list-style-type: none;"><!--[ pnml name="_PNBBSMILE_NOTHOOKED" ]--></li>
+    <!--[ /foreach ]-->
+</ul>
+<p><a href="<!--[ pnmodurl modname=modules type=admin func=main ]-->" title="<!--[ pnml name="_PNBBSMILE_ADDHOOK" ]-->"><!--[ pnml name="_PNBBSMILE_ADDHOOK" ]--></a></p>
 <!--[include file="pn_bbsmile_admin_footer.html"]-->

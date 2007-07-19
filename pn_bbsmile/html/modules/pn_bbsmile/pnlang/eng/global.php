@@ -32,6 +32,11 @@
 
 define('_PNBBSMILE_GOTOHOMEPAGE', 'visit the pn_bbsmile-project on NOC');
 define('_PNBBSMILE_ILLEGALSMILIEPATH', 'The path does not exists or the system cannot read it.');
+define('_PNBBSMILE_ADMIN_START', 'Start');
+define('_PNBBSMILE_ISHOOKEDWITH', 'Actually pn_bbsmile is used with the following modules');
+define('_PNBBSMILE_NOTHOOKED', '** pn_bbsmile is not used with any module **');
+define('_PNBBSMILE_ADDHOOK', 'Activate pn_bbsmile for more modules');
+
 //
 // A
 //
@@ -62,7 +67,6 @@ define('_PNBBSMILE_ADMIN_TITLE', 'pn_bbsmile Administration');
 define('_PNBBSMILE_ADMIN_TITLE_CONFIG', 'Modify Configuration');
 define('_PNBBSMILE_ADMIN_TITLE_EDITSMILIES', 'Edit the defined smilies');
 define('_PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM', 'Read smilies out of the directory');
-define('_PNBBSMILE_ADMIN_V1_HINT', 'Please note that the smilie hook function need to be activated for the specific module <a href="index.php?name=Modules&type=admin&func=view">here</a>.');
 define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Internal error! Arguments missing!');
 
 //
