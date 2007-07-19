@@ -33,15 +33,17 @@ class pn_bbsmile_admin_modifyconfighandler
     function handleCommand(&$pnRender, &$args)
     {
         // Security check
-        if (!SecurityUtil::checkPermission('pn_Bbsmile::', '::', ACCESS_ADMIN)) {
+        if (!SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError(pnModURL('pn_bbsmile', 'admin', 'main'));
         }  
         if ($args['commandName'] == 'submit') {
             if (!$pnRender->pnFormIsValid()) {
                 return false;
             }
+
+            $ok = true;
             $data = $pnRender->pnFormGetValues();
-            
+
             $ossmiliepath = DataUtil::formatForOS($data['smiliepath']);
             if(!file_exists($ossmiliepath) || !is_readable($ossmiliepath)) {
                 $ifield = & $pnRender->pnFormGetPluginById('smiliepath');
