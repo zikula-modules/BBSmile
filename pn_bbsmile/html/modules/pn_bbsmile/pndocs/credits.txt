@@ -3,6 +3,7 @@ Credits for version since 1.13:
 (c) Frank Schummertz 2005ff
 autosmilies extension by Thomas Pawlitzki
 
+control_modal.js by Ryan Johnson <ryan@livepipe.net>
 
 Credits for versions up to 1.12:
 --------------------------------

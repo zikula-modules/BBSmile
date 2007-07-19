@@ -1,7 +1,7 @@
 Version 2.0
     - .8 only version, will not run with .764 or older!
     
-Version 1.22
+Version 1.22  - last version for .764 or older versions of PostNuke
     - internal version
 
 Version 1.18
