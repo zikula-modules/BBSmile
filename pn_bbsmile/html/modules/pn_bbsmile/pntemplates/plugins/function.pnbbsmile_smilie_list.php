@@ -22,7 +22,7 @@ function smarty_function_pnbbsmile_smilie_list($params, &$smarty)
 	$smilies = array();
 
 	// Gett all Smilies
-	$all_smilies = unserialize(pnModGetVar('pn_bbsmile', 'smilie_array'));
+	$all_smilies = pnModGetVar('pn_bbsmile', 'smilie_array');
 
 	foreach ($all_smilies as $key => $smilie) {
 		// Check if the typ od the smilie is the wanted type
