@@ -40,7 +40,7 @@ function pn_bbsmile_admin_main()
         return LogUtil::registerPermissionError(_PNBBSMILE_ADMIN_NOACCESS);
     }
 
-    $pnr = new pnRender('pn_bbsmile', false);
+    $pnr = pnRender::getInstance('pn_bbsmile', false);
     $pnr->add_core_data();
     $hmods = pnModAPIFunc('modules', 'admin', 'gethookedmodules', array('hookmodname' => 'pn_bbsmile'));
     foreach($hmods as $hmod => $dummy) {
@@ -88,7 +88,7 @@ function pn_bbsmile_admin_readsmilies() {
 
     if(!$submit) {
 
-        $pnr = new pnRender('pn_bbsmile', false);
+        $pnr = pnRender::getInstance('pn_bbsmile', false);
         $pnr->add_core_data();
         return $pnr->fetch('pn_bbsmile_admin_readsmilies.html');
 
@@ -121,7 +121,7 @@ function pn_bbsmile_admin_editsmilies() {
 
     if(!$submit) {
 
-        $pnr = new pnRender('pn_bbsmile', false);
+        $pnr = pnRender::getInstance('pn_bbsmile', false);
         $pnr->add_core_data();
 
         $smilies = pnModGetVar('pn_bbsmile','smilie_array');

@@ -57,7 +57,7 @@ function pn_bbsmile_user_bbsmiles($args)
     }
     SessionUtil::setVar('bbsmile_counter', $counter);
 
-    $pnr = new pnRender('pn_bbsmile', false);
+    $pnr = pnRender::getInstance('pn_bbsmile', false);
     $pnr->add_core_data();
     $pnr->assign('counter', $counter);
     $pnr->assign('textfieldid', $args['textfieldid']);
