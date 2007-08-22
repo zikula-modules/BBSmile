@@ -27,6 +27,4 @@
 // changes for pn_bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-include_once 'modules/pn_bbsmile/pnlang/deu/global.php';
-
-?>
+Loader::includeOnce('modules/pn_bbsmile/pnlang/deu/global.php');

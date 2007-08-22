@@ -52,4 +52,3 @@ define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Erreur interne ! Argument manquant 
 define('_PNBBSMILE_COULDNOTREGISTER', 'pn_bbsmile n\a pas été installé !');
 define('_PNBBSMILE_COULDNOTUNREGISTER', 'pn_bbsmile n\'a pas été supprimé !');
 
-?>
