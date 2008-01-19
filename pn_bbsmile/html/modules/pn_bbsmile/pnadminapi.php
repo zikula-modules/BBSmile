@@ -213,5 +213,3 @@ function pn_bbsmile_adminapi_getlinks()
     }
     return $links;
 }
-
-?>

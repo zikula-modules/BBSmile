@@ -135,5 +135,3 @@ function pn_bbsmile_userapi_getall()
 	}
 	return $icons;
 }
-
-?>

@@ -28,18 +28,12 @@
 // ----------------------------------------------------------------------
 
 // include smilie alternative text defines
-@include_once('modules/pn_bbsmile/pnlang/eng/smilies.php');
-
-define('_PNBBSMILE_GOTOHOMEPAGE', 'visit the pn_bbsmile-project on NOC');
-define('_PNBBSMILE_ILLEGALSMILIEPATH', 'The path does not exists or the system cannot read it.');
-define('_PNBBSMILE_ADMIN_START', 'Start');
-define('_PNBBSMILE_ISHOOKEDWITH', 'Actually pn_bbsmile is used with the following modules');
-define('_PNBBSMILE_NOTHOOKED', '** pn_bbsmile is not used with any module **');
-define('_PNBBSMILE_ADDHOOK', 'Activate pn_bbsmile for more modules');
+Loader::includeOnce('modules/pn_bbsmile/pnlang/eng/smilies.php');
 
 //
 // A
 //
+define('_PNBBSMILE_ADDHOOK', 'Activate pn_bbsmile for more modules');
 define('_PNBBSMILE_ADMIN_BTN_CANCEL', 'Cancel');
 define('_PNBBSMILE_ADMIN_BTN_SUBMIT', 'Apply');
 define('_PNBBSMILE_ADMIN_CONFIGSAVED', 'pn_bbsmile configuration updated');
@@ -63,6 +57,7 @@ define('_PNBBSMILE_ADMIN_SMILIETABLE_ALT', 'alternative text');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_FILENAME', 'Filename');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_SHORT', 'Shortcut/Trigger');
 define('_PNBBSMILE_ADMIN_SMILIETABLE_SMILIE', 'Smilie');
+define('_PNBBSMILE_ADMIN_START', 'Start');
 define('_PNBBSMILE_ADMIN_TITLE', 'pn_bbsmile Administration');
 define('_PNBBSMILE_ADMIN_TITLE_CONFIG', 'Modify Configuration');
 define('_PNBBSMILE_ADMIN_TITLE_EDITSMILIES', 'Edit the defined smilies');
@@ -81,6 +76,17 @@ define('_PNBBSMILE_COULDNOTUNREGISTER', 'pn_bbsmile was NOT removed!');
 define('_PNBBSMILE_FORCERELOAD', 'Force reload of smilies, all data will be overwritten!');
 
 //
+// G
+//
+define('_PNBBSMILE_GOTOHOMEPAGE', 'visit the pn_bbsmile-project on NOC');
+
+//
+// I
+//
+define('_PNBBSMILE_ILLEGALSMILIEPATH', 'The path does not exists or the system cannot read it.');
+define('_PNBBSMILE_ISHOOKEDWITH', 'Actually pn_bbsmile is used with the following modules');
+
+//
 // M
 //
 define('_PNBBSMILE_MORESMILIES', 'More Smilies');
@@ -90,10 +96,9 @@ define('_PNBBSMILE_MORESMILIES', 'More Smilies');
 //
 define('_PNBBSMILE_NOAUTOSMILIES', 'Extended Smilies not yet activated!');
 define('_PNBBSMILE_NOSCRIPTWARNING', 'Your browser does not support javascript or you turned it off. The pn_bbsmile interface has been disabled.');
+define('_PNBBSMILE_NOTHOOKED', '** pn_bbsmile is not used with any module **');
 
 //
 // S
 //
 define('_PNBBSMILE_SHOWHIDE_SMILIES', 'show/hide smilies');
-
-?>

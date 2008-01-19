@@ -76,8 +76,7 @@ function pn_bbsmile_upgrade($oldversion)
                                    'pn_bbsmile',
                                    'user',
                                    'smilies')) {
-                pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTREGISTER . ' (display hook)');
-                return false;
+                return LogUtil::registerError(_PNBBSMILE_COULDNOTREGISTER . ' (display hook)');
             }
             pnModSetVar('pn_bbsmile', 'displayhook', '1');
         case '1.15':
@@ -87,8 +86,7 @@ function pn_bbsmile_upgrade($oldversion)
                                      'pn_bbsmile',
                                      'user',
                                      'smilies')) {
-                pnSessionSetVar('errormsg', _PNBBSMILE_COULDNOTUNREGISTER . ' (display hook)');
-                return false;
+                return LogUtil::registerError(_PNBBSMILE_COULDNOTUNREGISTER . ' (display hook)');
             }
             pnModDelVar('pn_bbsmile', 'displayhook');
         case '2.0':
@@ -120,5 +118,3 @@ function pn_bbsmile_delete() {
     // Deletion successful
     return true;
 }
-
-?>

@@ -59,10 +59,6 @@ function smarty_modifier_pnbbsmile($string)
 	$extrainfo = array($string);
 
     $return = "";
-    if(pnModAPILoad('pn_bbsmile', 'user')) {
-        list($return) = pnModAPIFunc('pn_bbsmile', 'user', 'transform', array('objectid' => '', 'extrainfo' => $extrainfo));
-    }
+    list($return) = pnModAPIFunc('pn_bbsmile', 'user', 'transform', array('objectid' => '', 'extrainfo' => $extrainfo));
     return $return;                      
 }
-
-?>

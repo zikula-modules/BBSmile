@@ -40,8 +40,7 @@ function pn_bbsmile_admin_main()
         return LogUtil::registerPermissionError(_PNBBSMILE_ADMIN_NOACCESS);
     }
 
-    $pnr = pnRender::getInstance('pn_bbsmile', false);
-    $pnr->add_core_data();
+    $pnr = pnRender::getInstance('pn_bbsmile', false, null, true);
     $hmods = pnModAPIFunc('modules', 'admin', 'gethookedmodules', array('hookmodname' => 'pn_bbsmile'));
     foreach($hmods as $hmod => $dummy) {
         $modid = pnModGetIDFromName($hmod);
@@ -87,23 +86,16 @@ function pn_bbsmile_admin_readsmilies() {
     $submit = FormUtil::getPassedValue('submit', null, 'POST');
 
     if(!$submit) {
-
-        $pnr = pnRender::getInstance('pn_bbsmile', false);
-        $pnr->add_core_data();
+        $pnr = pnRender::getInstance('pn_bbsmile', false, null, true);
         return $pnr->fetch('pn_bbsmile_admin_readsmilies.html');
-
-    } else { // submit is set
-
-        // Update the Smilies
-        $forcereload = FormUtil::getPassedValue('forcereload', 0, 'POST');
-        $forcereload = ($forcereload==1) ? true : false;
-        // @see adminapi.php#pn_bbsmile_adminapi_updatesmilies()
-        pnModAPIFunc('pn_bbsmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
-
-        LogUtil::registerStatus(_PNBBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM);
-        return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
-
     }
+    // submit is set - update the Smilies
+    $forcereload = FormUtil::getPassedValue('forcereload', 0, 'POST');
+    $forcereload = ($forcereload==1) ? true : false;
+    // @see adminapi.php#pn_bbsmile_adminapi_updatesmilies()
+    pnModAPIFunc('pn_bbsmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
+    LogUtil::registerStatus(_PNBBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM);
+    return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
 }
 
 /**
@@ -120,48 +112,40 @@ function pn_bbsmile_admin_editsmilies() {
     $submit = FormUtil::getPassedValue('submit', null, 'POST');
 
     if(!$submit) {
-
-        $pnr = pnRender::getInstance('pn_bbsmile', false);
-        $pnr->add_core_data();
-
+        $pnr = pnRender::getInstance('pn_bbsmile', false, null, true);
         $smilies = pnModGetVar('pn_bbsmile','smilie_array');
         $pnr->assign('smilies',$smilies);
-
         return $pnr->fetch('pn_bbsmile_admin_editsmiles.html');
-
-    } else { // submit is set
-
-        // Get input
-        $keys    = FormUtil::getPassedValue('key', array(), 'POST');
-        $shorts  = FormUtil::getPassedValue('short', array(), 'POST');
-        $imgsrcs = FormUtil::getPassedValue('imgsrc', array(), 'POST');
-        $alts    = FormUtil::getPassedValue('alt', array(), 'POST');
-        $aliases = FormUtil::getPassedValue('alias', array(), 'POST');
-        $types   = FormUtil::getPassedValue('smilietype', array(), 'POST');
-        $active  = FormUtil::getPassedValue('active', array(), 'POST');
-
-        $smilies = array();
-
-	    // Create an array with the input and deaktivate all smilies
-        for($i = 0; $i < sizeof($keys); $i++) {
-            $smilies[$keys[$i]] = array(
-                'type'   => $types[$i],
-                'short'  => $shorts[$i],
-                'imgsrc' => $imgsrcs[$i],
-                'alt'    => $alts[$i],
-                'alias'  => $aliases[$i],
-                'active'  => 0);
-        }
-	    // And now set the active flag for all selected smilies
-	    for ($i = 0; $i < sizeof($active); $i++) {
-	    	$smilies[$active[$i]]['active'] = 1;
-	    }
-
-        pnModSetVar('pn_bbsmile','smilie_array', $smilies);
-
-        LogUtil::registerStatus(_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED);
-        return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
     }
-}
+    // submit is set
+    // Get input
+    $keys    = FormUtil::getPassedValue('key', array(), 'POST');
+    $shorts  = FormUtil::getPassedValue('short', array(), 'POST');
+    $imgsrcs = FormUtil::getPassedValue('imgsrc', array(), 'POST');
+    $alts    = FormUtil::getPassedValue('alt', array(), 'POST');
+    $aliases = FormUtil::getPassedValue('alias', array(), 'POST');
+    $types   = FormUtil::getPassedValue('smilietype', array(), 'POST');
+    $active  = FormUtil::getPassedValue('active', array(), 'POST');
 
-?>
+    $smilies = array();
+
+    // Create an array with the input and deaktivate all smilies
+    for($i = 0; $i < sizeof($keys); $i++) {
+        $smilies[$keys[$i]] = array(
+            'type'   => $types[$i],
+            'short'  => $shorts[$i],
+            'imgsrc' => $imgsrcs[$i],
+            'alt'    => $alts[$i],
+            'alias'  => $aliases[$i],
+            'active'  => 0);
+    }
+    // And now set the active flag for all selected smilies
+    for ($i = 0; $i < sizeof($active); $i++) {
+  	    $smilies[$active[$i]]['active'] = 1;
+    }
+
+   pnModSetVar('pn_bbsmile','smilie_array', $smilies);
+
+   LogUtil::registerStatus(_PNBBSMILE_ADMIN_EDITEDSMILIESSAVED);
+   return pnRedirect(pnModURL('pn_bbsmile', 'admin'));
+}

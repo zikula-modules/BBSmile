@@ -35,9 +35,7 @@ $modversion['changelog']        = 'pndocs/changelog.txt';
 $modversion['license']          = 'pndocs/license.txt';
 $modversion['coding']           = 'pndocs/coding.txt';
 $modversion['official']         = 0;
-$modversion['author']           = 'pnForum team';
+$modversion['author']           = 'Frank Schummertz, pnForum team';
 $modversion['contact']          = 'http://www.pnforum.de';
 $modversion['admin']            = 1;
 $modversion['securityschema']   = array('pn_bbsmile::' => '::');
-
-?>

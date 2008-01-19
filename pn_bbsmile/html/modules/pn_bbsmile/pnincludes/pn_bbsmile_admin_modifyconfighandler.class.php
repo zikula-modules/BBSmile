@@ -73,5 +73,3 @@ class pn_bbsmile_admin_modifyconfighandler
     }
 
 }
-
-?>

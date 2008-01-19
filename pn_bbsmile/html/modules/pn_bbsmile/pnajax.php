@@ -33,12 +33,9 @@ function pn_bbsmile_ajax_loadsmilies()
 {
     $textfieldid = FormUtil::getPassedValue('textfieldid', null, 'GET');
     
-    $pnr = new pnRender('pn_bbsmile', false);
-    $pnr->add_core_data();
+    $pnr = pnRender::getInstance('pn_bbsmile', false, null, true);
     $pnr->assign('counter', SessionUtil::getVar('counter'));
     $pnr->assign('textfieldid', $textfieldid);
     $pnr->display('pn_bbsmile_ajax_bbsmiles.html');
     pnShutDown();
 }
-
-?>

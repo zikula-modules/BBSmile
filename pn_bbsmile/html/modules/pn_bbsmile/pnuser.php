@@ -32,7 +32,7 @@
  */
 function pn_bbsmile_user_main()
 {
-    return pnRedirect('index.php');
+    return pnRedirect(pnConfigGetVar('entrypoint', 'index.php'));
 }
 
 /**
@@ -49,16 +49,11 @@ function pn_bbsmile_user_bbsmiles($args)
 
     // if we have more than one textarea we need to distinguish them, so we simply use
     // a counter stored in a session var until we find a better solution
-    $counter = SessionUtil::getVar('bbsmile_counter');
-    if($counter==false) {
-        $counter = 1;
-    } else {
-        $counter++;
-    }
+    $counter = SessionUtil::getVar('bbsmile_counter', 0);
+    $counter++;
     SessionUtil::setVar('bbsmile_counter', $counter);
 
-    $pnr = pnRender::getInstance('pn_bbsmile', false);
-    $pnr->add_core_data();
+    $pnr = pnRender::getInstance('pn_bbsmile', false, null, true);
     $pnr->assign('counter', $counter);
     $pnr->assign('textfieldid', $args['textfieldid']);
 
@@ -73,5 +68,3 @@ function pn_bbsmile_user_bbsmiles($args)
     }
     return $pnr->fetch('pn_bbsmile_user_bbsmiles.html');
 }
-
-?>
