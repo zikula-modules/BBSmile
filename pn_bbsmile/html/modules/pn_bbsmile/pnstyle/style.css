@@ -128,17 +128,6 @@ img.bb_smilie {
     height: 350px;
 }
 
-#modal_container.test {
-    background-color:#900;
-    color:#fff;
-    padding:30px;
-    text-align:center
-}
-
 #modal_overlay {
     background-color:#000;
-}
-
-#modal_overlay.test {
-    background-color:#fff;
 }

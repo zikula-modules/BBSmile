@@ -81,7 +81,6 @@ Object.extend(Control.Modal,{
 	},
 	attachEvents: function(){
 		Event.observe(window,'load',Control.Modal.load);
-		Event.observe(window,'unload',Event.unloadCache,false);
 	},
 	center: function(element){
 		if(!element._absolutized){
