@@ -67,6 +67,7 @@ define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Interner Fehler! Parameter fehlen!'
 //
 // C
 //
+define('_PNBBSMILE_CLICKOUTSIDETOCLOSE', 'Auﬂerhalb dieses Fenster klicken zum Schliessen');
 define('_PNBBSMILE_COULDNOTREGISTER', 'pn_bbsmile NICHT installiert!');
 define('_PNBBSMILE_COULDNOTUNREGISTER', 'pn_bbsmile NICHT entfernt!');
 

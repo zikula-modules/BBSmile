@@ -5,10 +5,7 @@ Event.observe(window, 'load', function() {
             el.removeClassName('pn_bbsmile_smilies');
         });
         if($('smiliemodal')) {
-            new Control.Modal($('smiliemodal'), {
-                beforeLoad: function() { $('loadsmilieindicator').toggleClassName('hidden'); },
-                afterLoad: function() { $('loadsmilieindicator').toggleClassName('hidden'); }
-                });
+            new Control.Modal($('smiliemodal'), {});
         }
     });
     

@@ -67,6 +67,7 @@ define('_PNBBSMILE_ARGSERROR', '[pn_bbsmile] Internal error! Arguments missing!'
 //
 // C
 //
+define('_PNBBSMILE_CLICKOUTSIDETOCLOSE', 'Click outside this window to close it');
 define('_PNBBSMILE_COULDNOTREGISTER', 'pn_bbsmile was NOT installed!');
 define('_PNBBSMILE_COULDNOTUNREGISTER', 'pn_bbsmile was NOT removed!');
 

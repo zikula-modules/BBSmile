@@ -12,11 +12,10 @@
  */
 function smarty_function_pnbbsmile_smilie_list($params, &$smarty)
 {
-	extract($params);
-	unset($params);
-
 	// some initialization stuff
-	$assign = (!empty($assign)) ? $assign : 'smilies';
+	$assign = (isset($params['assign']) && !empty($params['assign'])) ? $params['assign'] : 'smilies';
+	$type   = (isset($params['type']) && !empty($params['type'])) ? $params['type'] : '';
+
 	$all_smilies = array();
 	$active_smilies = array();
 	$smilies = array();
@@ -31,15 +30,18 @@ function smarty_function_pnbbsmile_smilie_list($params, &$smarty)
 		}
 	}
 	// if there is no type then return all active smilies
-	if (!isset($type) || $type == "") {
+	if ($type == '') {
 		$smilies = $active_smilies;
-	}
-	// Get only the smilies with the wanted type
-	else {
+	} else {
+	    // Get only the smilies with the wanted type
 		// map words to number
-		if ($type == "standard") $type = 0;
-		else if ($type == "auto") $type = 1;
-
+		if ($type == 'standard') {
+		    $type = 0;
+		} else {
+		    // eg. $type == "auto" or all other values
+		    $type = 1;
+        }
+            
 		foreach ($active_smilies as $key => $smilie) {
 			// Check if the typ od the smilie is the wanted type and if the smilie is active
 			if ($smilie['type'] == $type && $smilie['active'] == 1) {
