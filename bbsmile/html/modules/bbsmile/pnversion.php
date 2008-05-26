@@ -16,17 +16,18 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Hinrich Donner
-// changed to pn_bbsmile: larsneo
+// changed to bbsmile: larsneo
 // ----------------------------------------------------------------------
 
 /**
  * @package PostNuke_Utility_Modules
- * @subpackage pn_bbsmile
+ * @subpackage bbsmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
-$modversion['name']             = 'pn_bbsmile';
-$modversion['version']          = '2.0';
+$modversion['name']             = 'bbsmile';
+$modversion['oldnames']         = array('pn_bbsmile');
+$modversion['version']          = '2.1';
 $modversion['id']               = '163';
 $modversion['description']      = 'Smilie Hook (Autoincluded)';
 $modversion['credits']          = 'pndocs/credits.txt';
@@ -38,4 +39,4 @@ $modversion['official']         = 0;
 $modversion['author']           = 'Frank Schummertz, pnForum team';
 $modversion['contact']          = 'http://www.pnforum.de';
 $modversion['admin']            = 1;
-$modversion['securityschema']   = array('pn_bbsmile::' => '::');
+$modversion['securityschema']   = array('bbsmile::' => '::');

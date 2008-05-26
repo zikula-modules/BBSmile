@@ -1,4 +1,13 @@
-Version 2.0
+Version 2.1 
+===============================================================================
+IMPORTANT NOTICE:
+==================================================================================
+The permission component changed in v2.0 from pn_bbsmile to bbsmile, please update
+your permission rules!!!
+==================================================================================
+    - renamed to bbsmile to get rid of the pn_ prefix.
+
+Version 2.0 (not released)
     - .8 only version, will not run with .764 or older!
     
 Version 1.22  - last version for .764 or older versions of PostNuke

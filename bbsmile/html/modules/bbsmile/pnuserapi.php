@@ -16,32 +16,32 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Hinrich Donner
-// changed to pn_bbsmile: larsneo
+// changed to bbsmile: larsneo
 // ----------------------------------------------------------------------
 
 /**
  * @package PostNuke_Utility_Modules
- * @subpackage pn_bbsmile
+ * @subpackage bbsmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
 /**
  * the hook function
 */
-function pn_bbsmile_userapi_transform($args)
+function bbsmile_userapi_transform($args)
 {
     // Argument check
     if ((!isset($args['objectid'])) ||
         (!isset($args['extrainfo']))) {
-        return LogUtil::registerError(_PNBBSMILE_ARGSERROR);
+        return LogUtil::registerError(_BBSMILE_ARGSERROR);
     }
 
     if (is_array($args['extrainfo'])) {
         foreach ($args['extrainfo'] as $text) {
-            $result[] = pn_bbsmile_transform($text);
+            $result[] = bbsmile_transform($text);
         }
     } else {
-        $result = pn_bbsmile_transform($args['text']);
+        $result = bbsmile_transform($args['text']);
     }
 
     return $result;
@@ -50,7 +50,7 @@ function pn_bbsmile_userapi_transform($args)
 /*
  * main transformation function
  */
-function pn_bbsmile_transform($text)
+function bbsmile_transform($text)
 {
     // check the user agent - if it is a bot, return immediately
     $robotslist = array ( "ia_archiver",
@@ -67,13 +67,13 @@ function pn_bbsmile_transform($text)
         }
     }
 
-    $smilies = pnModGetVar('pn_bbsmile','smilie_array');
-    $remove_inactive = pnModGetVar('pn_bbsmile', 'remove_inactive');
+    $smilies = pnModGetVar('bbsmile','smilie_array');
+    $remove_inactive = pnModGetVar('bbsmile', 'remove_inactive');
 
     if(is_array($smilies) && count($smilies)>0) {
-        $imagepath = DataUtil::formatForOS(pnModGetVar('pn_bbsmile', 'smiliepath'));
-        $imagepath_auto = DataUtil::formatForOS(pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
-        $auto_active = pnModGetVar('pn_bbsmile','activate_auto');
+        $imagepath = DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath'));
+        $imagepath_auto = DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath_auto'));
+        $auto_active = pnModGetVar('bbsmile','activate_auto');
     	// pad it with a space so we can distinguish between FALSE and matching the 1st char (index 0).
 	    // This is important!
     	$text = ' ' . $text;
@@ -118,7 +118,7 @@ function pn_bbsmile_transform($text)
 /**
  * get all old smilies- only needed by Messages module right now
  */
-function pn_bbsmile_userapi_getall()
+function bbsmile_userapi_getall()
 {
 	$handle=opendir('images/smilies');
 	while ($file = readdir($handle)) {

@@ -20,7 +20,7 @@
 
 /**
  * @package PostNuke_Utility_Modules
- * @subpackage pn_bbsmile
+ * @subpackage bbsmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
@@ -29,14 +29,14 @@
  * returns a html snippet for selecting autosmilies
  *
  */
-function pn_bbsmile_ajax_loadsmilies()
+function bbsmile_ajax_loadsmilies()
 {
     $textfieldid = FormUtil::getPassedValue('textfieldid', null, 'GET');
     
-    $pnr = pnRender::getInstance('pn_bbsmile', false, null, true);
+    $pnr = pnRender::getInstance('bbsmile', false, null, true);
     $pnr->assign('counter', SessionUtil::getVar('counter'));
     $pnr->assign('textfieldid', $textfieldid);
-    $out = $pnr->fetch('pn_bbsmile_ajax_bbsmiles.html');
+    $out = $pnr->fetch('bbsmile_ajax_bbsmiles.html');
     echo DataUtil::convertToUTF8($out);
     pnShutDown();
 }

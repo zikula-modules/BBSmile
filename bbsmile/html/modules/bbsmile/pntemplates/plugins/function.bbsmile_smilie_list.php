@@ -10,7 +10,7 @@
  *@param params['type'] if a type is set then only smilies of this type are returned.
  *@return void
  */
-function smarty_function_pnbbsmile_smilie_list($params, &$smarty)
+function smarty_function_BBSMILE_smilie_list($params, &$smarty)
 {
 	// some initialization stuff
 	$assign = (isset($params['assign']) && !empty($params['assign'])) ? $params['assign'] : 'smilies';
@@ -21,7 +21,7 @@ function smarty_function_pnbbsmile_smilie_list($params, &$smarty)
 	$smilies = array();
 
 	// Gett all Smilies
-	$all_smilies = pnModGetVar('pn_bbsmile', 'smilie_array');
+	$all_smilies = pnModGetVar('bbsmile', 'smilie_array');
 
 	foreach ($all_smilies as $key => $smilie) {
 		// Check if the typ od the smilie is the wanted type

@@ -1,8 +1,8 @@
 <!--[* $Id: pn_bbsmile_user_bbsmiles.html 71 2007-04-07 10:40:35Z landseer $ *]-->
 
-<!--[ pnbbsmile_smilie_list assign="autosmilies" type="auto" ]-->
+<!--[ bbsmile_smilie_list assign="autosmilies" type="auto" ]-->
 <!--[ if $autosmilies_count > 0 ]-->
-<p><!--[pnml name="_PNBBSMILE_CLICKOUTSIDETOCLOSE"]--></p>
+<p><!--[pnml name="_BBSMILE_CLICKOUTSIDETOCLOSE"]--></p>
 <table>
     <tr>
     <!--[ assign var="col" value="0" ]-->
@@ -12,7 +12,7 @@
         <!--[ /if ]-->
         <td>
             <a href="javascript:void(0);" onclick="AddSmilie('<!--[ $textfieldid ]-->', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->">
-            <img src="<!--[$pncore.pn_bbsmile.smiliepath_auto]-->/<!--[$smilie.imgsrc]-->" alt="Smilie <!--[$smilie.alt]-->" />
+            <img src="<!--[$pncore.bbsmile.smiliepath_auto]-->/<!--[$smilie.imgsrc]-->" alt="Smilie <!--[$smilie.alt]-->" />
             </a>            
          </td> 
         <!--[ assign var="col" value="`$col+1`" ]-->

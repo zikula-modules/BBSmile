@@ -1,8 +1,8 @@
 // $Id$
 
 Event.observe(window, 'load', function() {
-        document.getElementsByClassName('pn_bbsmile_smilies').each(function(el) {
-            el.removeClassName('pn_bbsmile_smilies');
+        document.getElementsByClassName('bbsmile_smilies').each(function(el) {
+            el.removeClassName('bbsmile_smilies');
         });
         if($('smiliemodal')) {
             new Control.Modal($('smiliemodal'), {});

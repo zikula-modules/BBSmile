@@ -16,21 +16,21 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Hinrich Donner
-// changed to pn_bbsmile: larsneo
+// changed to bbsmile: larsneo
 // ----------------------------------------------------------------------
 
 /**
  * @package PostNuke_Utility_Modules
- * @subpackage pn_bbsmile
+ * @subpackage bbsmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
 /**
  * main funcion
- * The main function is not used in the pn_bbsmile module, we just rediret to index.php
+ * The main function is not used in the bbsmile module, we just rediret to index.php
  *
  */
-function pn_bbsmile_user_main()
+function bbsmile_user_main()
 {
     return pnRedirect(pnConfigGetVar('entrypoint', 'index.php'));
 }
@@ -41,7 +41,7 @@ function pn_bbsmile_user_main()
  *
  * @param    $args['textfieldid']  id of the textfield for inserting smilies
  */
-function pn_bbsmile_user_bbsmiles($args)
+function bbsmile_user_bbsmiles($args)
 {
     if(!isset($args['textfieldid']) || empty($args['textfieldid'])) {
         return LogUtil::registerError(_MODARGSERROR . ' (textfieldid)');
@@ -53,18 +53,18 @@ function pn_bbsmile_user_bbsmiles($args)
     $counter++;
     SessionUtil::setVar('bbsmile_counter', $counter);
 
-    $pnr = pnRender::getInstance('pn_bbsmile', false, null, true);
+    $pnr = pnRender::getInstance('bbsmile', false, null, true);
     $pnr->assign('counter', $counter);
     $pnr->assign('textfieldid', $args['textfieldid']);
 
     PageUtil::addVar('javascript', 'javascript/ajax/prototype.js');
-    PageUtil::addVar('javascript', 'modules/pn_bbsmile/pnjavascript/dosmilie.js');
-    PageUtil::addVar('javascript', 'modules/pn_bbsmile/pnjavascript/control_modal.js');
-    PageUtil::addVar('stylesheet', ThemeUtil::getModuleStylesheet('pn_bbsmile'));
+    PageUtil::addVar('javascript', 'modules/bbsmile/pnjavascript/dosmilie.js');
+    PageUtil::addVar('javascript', 'modules/bbsmile/pnjavascript/control_modal.js');
+    PageUtil::addVar('stylesheet', ThemeUtil::getModuleStylesheet('bbsmile'));
     
     $templatefile = DataUtil::formatForOS(pnModGetName()) . '.html';
     if($pnr->template_exists($templatefile)) {
         return $pnr->fetch($templatefile);
     }
-    return $pnr->fetch('pn_bbsmile_user_bbsmiles.html');
+    return $pnr->fetch('bbsmile_user_bbsmiles.html');
 }

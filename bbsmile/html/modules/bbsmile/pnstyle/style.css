@@ -4,21 +4,21 @@
  * admin panel
  *
  */
-#pnbbsmileadmin {
+#bbsmileadmin {
     margin: 1em 0;
 }
 
-#pnbbsmileadmin p.footer {
+#bbsmileadmin p.footer {
     margin-top: 2em; 
     text-align:center;
     font-size: 90%;
 }
 
-#pnbbsmileadmin label {
+#bbsmileadmin label {
     padding: 3px 0;
 }
 
-#pnbbsmileadmin dl dt {
+#bbsmileadmin dl dt {
     display: block;
     float: left;
     text-align: right;
@@ -28,7 +28,7 @@
     line-height: 2em;
 }
 
-#pnbbsmileadmin dl dd {
+#bbsmileadmin dl dd {
     display: block;
     float: left;
     text-align: left;
@@ -52,7 +52,7 @@
     border-bottom: 2px solid #ffd324;
 }
 
-.pn_bbsmile_smilies {
+.bbsmile_smilies {
     display: none;
 }
     
@@ -92,7 +92,7 @@ img.bb_smilie {
  * clearfix solution
  */
 
-.pn_bbsmile_clearfix:after {
+.bbsmile_clearfix:after {
     content: "."; 
     display: block; 
     height: 0; 
@@ -100,15 +100,15 @@ img.bb_smilie {
     visibility: hidden;
 }
 
-.pn_bbsmile_clearfix {display: inline-table;}
+.bbsmile_clearfix {display: inline-table;}
 
 /* Hides from IE-mac \*/
-* html .pn_bbsmile_clearfix {height: 1%;}
-.pn_bbsmile_clearfix {display: block;}
+* html .bbsmile_clearfix {height: 1%;}
+.bbsmile_clearfix {display: block;}
 /* End hide from IE-mac */
 
 /* Overflow-Methode zum Clearen der Float-Umgebungen */
-.pn_bbsmile_floatbox { 
+.bbsmile_floatbox { 
     overflow:hidden; 
 }
 

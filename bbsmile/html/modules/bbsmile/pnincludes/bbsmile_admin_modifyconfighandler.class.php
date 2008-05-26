@@ -16,10 +16,10 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Frank Schummertz
-// Purpose of file:  pn_bbsmile administration display functions
+// Purpose of file:  bbsmile administration display functions
 // ----------------------------------------------------------------------
 
-class pn_bbsmile_admin_modifyconfighandler
+class bbsmile_admin_modifyconfighandler
 {
 
     function initialize(&$pnRender)
@@ -33,8 +33,8 @@ class pn_bbsmile_admin_modifyconfighandler
     function handleCommand(&$pnRender, &$args)
     {
         // Security check
-        if (!SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
-            return LogUtil::registerPermissionError(pnModURL('pn_bbsmile', 'admin', 'main'));
+        if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
+            return LogUtil::registerPermissionError(pnModURL('bbsmile', 'admin', 'main'));
         }  
         if ($args['commandName'] == 'submit') {
             if (!$pnRender->pnFormIsValid()) {
@@ -47,14 +47,14 @@ class pn_bbsmile_admin_modifyconfighandler
             $ossmiliepath = DataUtil::formatForOS($data['smiliepath']);
             if(!file_exists($ossmiliepath) || !is_readable($ossmiliepath)) {
                 $ifield = & $pnRender->pnFormGetPluginById('smiliepath');
-                $ifield->setError(DataUtil::formatForDisplay(_PNBBSMILE_ILLEGALSMILIEPATH));
+                $ifield->setError(DataUtil::formatForDisplay(_BBSMILE_ILLEGALSMILIEPATH));
                 $ok = false;
             }
 
             $osautosmiliepath = DataUtil::formatForOS($data['smiliepath_auto']);
             if(!file_exists($osautosmiliepath) || !is_readable($osautosmiliepath)) {
                 $ifield = & $pnRender->pnFormGetPluginById('smiliepath_auto');
-                $ifield->setError(DataUtil::formatForDisplay(_PNBBSMILE_ILLEGALSMILIEPATH));
+                $ifield->setError(DataUtil::formatForDisplay(_BBSMILE_ILLEGALSMILIEPATH));
                 $ok = false;
             }
             
@@ -62,12 +62,12 @@ class pn_bbsmile_admin_modifyconfighandler
                 return false;
             }
 
-            pnModSetVar('pn_bbsmile', 'smiliepath',       $data['smiliepath']);
-            pnModSetVar('pn_bbsmile', 'smiliepath_auto',  $data['smiliepath_auto']);
-            pnModSetVar('pn_bbsmile', 'activate_auto',    $data['activate_auto']);
-            pnModSetVar('pn_bbsmile', 'remove_inactive',  $data['remove_inactive']);
+            pnModSetVar('bbsmile', 'smiliepath',       $data['smiliepath']);
+            pnModSetVar('bbsmile', 'smiliepath_auto',  $data['smiliepath_auto']);
+            pnModSetVar('bbsmile', 'activate_auto',    $data['activate_auto']);
+            pnModSetVar('bbsmile', 'remove_inactive',  $data['remove_inactive']);
 
-            LogUtil::registerStatus(_PNBBSMILE_ADMIN_CONFIGSAVED);
+            LogUtil::registerStatus(_BBSMILE_ADMIN_CONFIGSAVED);
         }
         return true;
     }

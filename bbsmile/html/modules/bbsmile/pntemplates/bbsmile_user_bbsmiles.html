@@ -1,0 +1,26 @@
+<!--[* $Id$ *]-->
+
+<!--[* add the javascript file  *]-->
+
+<noscript>
+    <p class="noscript"><!--[ pnml name='_BBSMILE_NOSCRIPTWARNING' ]--></p>
+</noscript>
+
+<div id="bbsmile_<!--[ $counter ]-->" class="bbsmile_smilies">
+    <!--[ bbsmile_smilie_list assign="smilies" type="standard" ]-->
+    <div class="bb_standardsmilies">
+        <!--[* default smilies *]-->
+        <!--[ foreach item=smilie from=$smilies ]-->
+        <a href="javascript:void(0);" onclick="AddSmilie('<!--[ $textfieldid ]-->', ' <!--[ $smilie.short ]--> ')" title="<!--[$smilie.short]-->">
+        <img class="bb_smilie" src="<!--[ $pncore.bbsmile.smiliepath ]-->/<!--[ $smilie.imgsrc ]-->" alt='Smilie <!--[ $smilie.alt ]-->' />
+        </a>
+        <!--[ /foreach ]-->
+    </div>
+    
+    <!--[ if $pncore.bbsmile.activate_auto  ]-->
+        <div class="bb_showhidesmilies">
+            <a href="ajax.php?module=bbsmile&amp;func=loadsmilies&amp;textfieldid=<!--[ $textfieldid ]-->" id="smiliemodal"><!--[pnml name="_BBSMILE_MORESMILIES"]--></a>&nbsp;<img class="hidden" id="loadsmilieindicator" src="images/ajax/indicator.white.gif" alt="ajaxindicator" />
+        </div>
+    <!--[/if]-->
+</div>
+

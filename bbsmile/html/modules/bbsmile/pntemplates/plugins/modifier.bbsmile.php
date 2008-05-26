@@ -39,13 +39,13 @@
 
  
 /**
- * Smarty modifier to apply the pn_bbsmile transform hooks
+ * Smarty modifier to apply the bbsmile transform hooks
  * 
  * Available parameters:
 
  * Example
  * 
- *   <!--[$MyVar|pnbbsmile]-->
+ *   <!--[$MyVar|bbsmile]-->
  * 
  * 
  * @author       Frank Schummertz
@@ -54,11 +54,11 @@
  * @param        array    $string     the contents to transform
  * @return       string   the modified output
  */
-function smarty_modifier_pnbbsmile($string)
+function smarty_modifier_bbsmile($string)
 {
 	$extrainfo = array($string);
 
     $return = "";
-    list($return) = pnModAPIFunc('pn_bbsmile', 'user', 'transform', array('objectid' => '', 'extrainfo' => $extrainfo));
+    list($return) = pnModAPIFunc('bbsmile', 'user', 'transform', array('objectid' => '', 'extrainfo' => $extrainfo));
     return $return;                      
 }

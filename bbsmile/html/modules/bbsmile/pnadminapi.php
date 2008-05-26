@@ -16,13 +16,13 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Hinrich Donner
-// changed to pn_bbsmile: larsneo
+// changed to bbsmile: larsneo
 // ----------------------------------------------------------------------
 
 
 /*
  * This function synchronized the smilies stored in the directory with
- * the smilies sored in the modVar ('pn_bbsmile','smilie_array).
+ * the smilies sored in the modVar ('bbsmile','smilie_array).
  * The function checks if there is a smilie in the directory which is
  * not in the modVar. If the smilie is in the modVar, the infos of the
  * modVar are kept. Otherwise the new smilie is addes with it default infos.
@@ -34,13 +34,13 @@
  *
  *@params $args['forcereload'] bool
  */
-function pn_bbsmile_adminapi_updatesmilies($args)
+function bbsmile_adminapi_updatesmilies($args)
 {
     // Get the new array
-    $new_smilies = pnModAPIFunc('pn_bbsmile', 'admin', 'load_smilies');
+    $new_smilies = pnModAPIFunc('bbsmile', 'admin', 'load_smilies');
 
     // Get the old array
-    $old_smilies = pnModGetVar('pn_bbsmile','smilie_array');
+    $old_smilies = pnModGetVar('bbsmile','smilie_array');
 
     //Combine old array and new array
     // First create a new array
@@ -63,7 +63,7 @@ function pn_bbsmile_adminapi_updatesmilies($args)
     }
 
     // Save the array
-    pnModSetVar('pn_bbsmile','smilie_array', $smilies);
+    pnModSetVar('bbsmile','smilie_array', $smilies);
 
     // Return success
     return true;
@@ -73,10 +73,10 @@ function pn_bbsmile_adminapi_updatesmilies($args)
 /**
  * get all smilies
  */
-function pn_bbsmile_adminapi_load_smilies()
+function bbsmile_adminapi_load_smilies()
 {
     // default smilies
-    $imagepath = pnModGetVar('pn_bbsmile', 'smiliepath');
+    $imagepath = pnModGetVar('bbsmile', 'smiliepath');
     $icons = array('icon_biggrin.gif' =>
                    array('type'    => 0,
                          'imgsrc'  => 'icon_biggrin.gif' ,
@@ -169,8 +169,8 @@ function pn_bbsmile_adminapi_load_smilies()
                          'alias'   => '',
                          'active'  => '1'));
 
-    if(pnModGetVar('pn_bbsmile', 'activate_auto') == 1) {
-        $smiliepath_auto = DataUtil::formatForOS(pnModGetVar('pn_bbsmile', 'smiliepath_auto'));
+    if(pnModGetVar('bbsmile', 'activate_auto') == 1) {
+        $smiliepath_auto = DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath_auto'));
         $handle=opendir($smiliepath_auto);
         if($handle<>false) {
             while ($file = readdir($handle)) {
@@ -197,19 +197,19 @@ function pn_bbsmile_adminapi_load_smilies()
  * @author Mark West
  * @return array array of admin links
  */
-function pn_bbsmile_adminapi_getlinks()
+function bbsmile_adminapi_getlinks()
 {
     $links = array();
-    if (SecurityUtil::checkPermission('pn_bbsmile::', '::', ACCESS_ADMIN)) {
-        $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'main'), 'text' => _PNBBSMILE_ADMIN_START);
-        if(pnModGetVar('pn_bbsmile', 'activate_auto') == 1) {
-            $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'readsmilies'), 'text' => _PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM);
-            $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _PNBBSMILE_ADMIN_TITLE_EDITSMILIES);
+    if (SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
+        $links[] = array('url' => pnModURL('bbsmile', 'admin', 'main'), 'text' => _BBSMILE_ADMIN_START);
+        if(pnModGetVar('bbsmile', 'activate_auto') == 1) {
+            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'readsmilies'), 'text' => _BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM);
+            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _BBSMILE_ADMIN_TITLE_EDITSMILIES);
         } else {
-            $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'readsmilies'), 'text' => _PNBBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM, 'title' => _PNBBSMILE_NOAUTOSMILIES, 'disabled' => true);
-            $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _PNBBSMILE_ADMIN_TITLE_EDITSMILIES, 'title' => _PNBBSMILE_NOAUTOSMILIES, 'disabled' => true);
+            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'readsmilies'), 'text' => _BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM, 'title' => _BBSMILE_NOAUTOSMILIES, 'disabled' => true);
+            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _BBSMILE_ADMIN_TITLE_EDITSMILIES, 'title' => _BBSMILE_NOAUTOSMILIES, 'disabled' => true);
         }
-        $links[] = array('url' => pnModURL('pn_bbsmile', 'admin', 'modifyconfig'), 'text' => _PNBBSMILE_ADMIN_TITLE_CONFIG);
+        $links[] = array('url' => pnModURL('bbsmile', 'admin', 'modifyconfig'), 'text' => _BBSMILE_ADMIN_TITLE_CONFIG);
     }
     return $links;
 }
