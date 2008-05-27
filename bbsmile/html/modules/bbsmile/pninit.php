@@ -108,7 +108,7 @@ function bbsmile_upgrade($oldversion)
                                      'pn_bbsmile',
                                      'user',
                                      'transform')) {
-                return LogUtil::registerError(_BBCODE_COULDNOTUNREGISTER . ' (transform hook)');
+                return LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (transform hook)');
             } 
             // add hook
             if (!pnModRegisterHook('item',
@@ -117,7 +117,7 @@ function bbsmile_upgrade($oldversion)
                                    'bbsmile',
                                    'user',
                                    'transform')) {
-                return LogUtil::registerError(_BBCODE_COULDNOTREGISTER . ' (transform hook)');
+                return LogUtil::registerError(_BBSMILE_COULDNOTREGISTER . ' (transform hook)');
             }
             
             // attach bbcode to previous hooked modules

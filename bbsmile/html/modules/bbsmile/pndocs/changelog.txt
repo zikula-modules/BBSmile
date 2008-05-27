@@ -4,6 +4,7 @@ IMPORTANT NOTICE:
 ==================================================================================
 The permission component changed in v2.0 from pn_bbsmile to bbsmile, please update
 your permission rules!!!
+You might also need to change the path settings that point to your smilies images.
 ==================================================================================
     - renamed to bbsmile to get rid of the pn_ prefix.
 
