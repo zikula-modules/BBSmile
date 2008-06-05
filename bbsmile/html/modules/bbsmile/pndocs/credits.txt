@@ -12,4 +12,4 @@ The idea was initially taken from BB coding.
 
 Authors
     Hinrich Donner <hd@tiro.de>
-    larsneo <larsneo@postnuke.com>
+    larsneo <larsneo@zikula.org>

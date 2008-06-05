@@ -1,9 +1,9 @@
 <?php
 // $Id: global.php 83 2007-08-22 19:19:55Z landseer $
 // ----------------------------------------------------------------------
-// PostNuke Content Management System
-// Copyright (C) 2001 by the PostNuke Development Team.
-// http://www.postnuke.com/
+// Zikula Application Framework
+// Copyright (C) 2001 by the Zikula Development Team.
+// http://www.zikula.org/
 // ----------------------------------------------------------------------
 // Based on:
 // PHP-NUKE Web Portal System - http://phpnuke.org/

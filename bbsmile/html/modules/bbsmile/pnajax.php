@@ -19,7 +19,7 @@
 // ----------------------------------------------------------------------
 
 /**
- * @package PostNuke_Utility_Modules
+ * @package Zikula_Utility_Modules
  * @subpackage bbsmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */

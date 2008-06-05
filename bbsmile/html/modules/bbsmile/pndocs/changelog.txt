@@ -9,7 +9,7 @@ You might also need to change the path settings that point to your smilies image
     - renamed to bbsmile to get rid of the pn_ prefix.
 
 Version 2.0 (not released)
-    - .8 only version, will not run with .764 or older!
+    - Zikula 1.0 only version, will not run with .764 or older!
     
 Version 1.22  - last version for .764 or older versions of PostNuke
     - internal version
