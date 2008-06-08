@@ -48,7 +48,6 @@ define('_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'With confirmation all smilies
 define('_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM', 'Read smilies from filesystem');
 define('_BBSMILE_ADMIN_LABEL_REMOVE_INACTIVE', 'Remove inactive smilie shortcuts');
 define('_BBSMILE_ADMIN_LABEL_SMILIETABLE', 'Currently defined Smilies');
-define('_BBSMILE_ADMIN_NOACCESS', 'You do not have access to this module');
 define('_BBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM', 'Smilies have been read from filesystem sucsessfully.');
 define('_BBSMILE_ADMIN_SMILIETABLE_ACTIVE', 'Active');
 define('_BBSMILE_ADMIN_SMILIETABLE_ALIAS', 'Aliases for this smilie');
@@ -62,7 +61,6 @@ define('_BBSMILE_ADMIN_TITLE', 'bbsmile Administration');
 define('_BBSMILE_ADMIN_TITLE_CONFIG', 'Modify Configuration');
 define('_BBSMILE_ADMIN_TITLE_EDITSMILIES', 'Edit the defined smilies');
 define('_BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM', 'Read smilies out of the directory');
-define('_BBSMILE_ARGSERROR', '[bbsmile] Internal error! Arguments missing!');
 
 //
 // C

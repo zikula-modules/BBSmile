@@ -37,7 +37,7 @@
 function bbsmile_admin_main()
 {
     if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
-        return LogUtil::registerPermissionError(_BBSMILE_ADMIN_NOACCESS);
+        return LogUtil::registerPermissionError(pnConfigGetVar('entrypoint', 'index.php'));
     }
 
     $pnr = pnRender::getInstance('bbsmile', false, null, true);
@@ -60,7 +60,7 @@ function bbsmile_admin_main()
 function bbsmile_admin_modifyconfig()
 {
     if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
-        return LogUtil::registerPermissionError(_BBSMILE_ADMIN_NOACCESS);
+        return LogUtil::registerPermissionError(pnConfigGetVar('entrypoint', 'index.php'));
     }
 
     Loader::requireOnce('modules/bbsmile/pnincludes/bbsmile_admin_modifyconfighandler.class.php');
@@ -80,7 +80,7 @@ function bbsmile_admin_modifyconfig()
 function bbsmile_admin_readsmilies() {
 
     if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
-        return LogUtil::registerPermissionError(_BBSMILE_ADMIN_NOACCESS);
+        return LogUtil::registerPermissionError(pnConfigGetVar('entrypoint', 'index.php'));
     }
 
     $submit = FormUtil::getPassedValue('submit', null, 'POST');
@@ -106,7 +106,7 @@ function bbsmile_admin_readsmilies() {
 function bbsmile_admin_editsmilies() {
 
     if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
-        return LogUtil::registerPermissionError(_BBSMILE_ADMIN_NOACCESS);
+        return LogUtil::registerPermissionError(pnConfigGetVar('entrypoint', 'index.php'));
     }
 
     $submit = FormUtil::getPassedValue('submit', null, 'POST');

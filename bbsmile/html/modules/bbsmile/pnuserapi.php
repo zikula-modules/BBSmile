@@ -33,7 +33,7 @@ function bbsmile_userapi_transform($args)
     // Argument check
     if ((!isset($args['objectid'])) ||
         (!isset($args['extrainfo']))) {
-        return LogUtil::registerError(_BBSMILE_ARGSERROR);
+        return LogUtil::registerError(_MODARGSERROR);
     }
 
     if (is_array($args['extrainfo'])) {

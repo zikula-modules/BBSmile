@@ -48,7 +48,6 @@ define('_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'Mit dem Bestätigen werden all
 define('_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM', 'Lese Smilies vom Filesystem');
 define('_BBSMILE_ADMIN_LABEL_REMOVE_INACTIVE', 'Inaktive Smiliekürzel entfernen');
 define('_BBSMILE_ADMIN_LABEL_SMILIETABLE', 'Definierte Smilies');
-define('_BBSMILE_ADMIN_NOACCESS', 'Keine Berechtigung für dieses Modul');
 define('_BBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM', 'Smilies wurden neu eingelesen');
 define('_BBSMILE_ADMIN_SMILIETABLE_ACTIVE', 'Aktiv');
 define('_BBSMILE_ADMIN_SMILIETABLE_ALIAS', 'Aliase zu dem Smilie');
@@ -62,7 +61,6 @@ define('_BBSMILE_ADMIN_TITLE', 'bbsmile Administration');
 define('_BBSMILE_ADMIN_TITLE_CONFIG', 'Konfiguration ändern');
 define('_BBSMILE_ADMIN_TITLE_EDITSMILIES', 'Editiere die aktuell definierten Smilies');
 define('_BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM', 'Lese Smilies aus dem Ordner neu ein');
-define('_BBSMILE_ARGSERROR', '[bbsmile] Interner Fehler! Parameter fehlen!');
 
 //
 // C
