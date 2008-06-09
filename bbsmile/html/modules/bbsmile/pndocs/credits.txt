@@ -5,6 +5,8 @@ autosmilies extension by Thomas Pawlitzki
 
 control_modal.js by Ryan Johnson <ryan@livepipe.net>
 
+French language pack created by Gilles Pilloud
+
 Credits for versions up to 1.12:
 --------------------------------
 This work is based on bb_anywhere from Hinrich Donner <hd@tiro.de>.
@@ -13,3 +15,4 @@ The idea was initially taken from BB coding.
 Authors
     Hinrich Donner <hd@tiro.de>
     larsneo <larsneo@zikula.org>
+
