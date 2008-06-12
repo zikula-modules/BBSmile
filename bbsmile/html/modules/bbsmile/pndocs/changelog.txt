@@ -5,6 +5,12 @@ IMPORTANT NOTICE:
 The permission component changed in v2.0 from pn_bbsmile to bbsmile, please update
 your permission rules!!!
 You might also need to change the path settings that point to your smilies images.
+===============================================================================
+Upgrade from pn_bbsmile:
+* remove old pn_bbsmile module in the filesystem, do not remove the module in
+  Zikula!
+* copy new bbsmile files to your modules folder
+* regenerate modules list and continue upgrading as usual
 ==================================================================================
     - renamed to bbsmile to get rid of the pn_ prefix.
 
