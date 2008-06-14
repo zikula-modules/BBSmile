@@ -27,9 +27,6 @@
 // changed to bbsmile: larsneo
 // ----------------------------------------------------------------------
 
-// include smilie alternative text defines
-Loader::includeOnce('modules/bbsmile/pnlang/eng/smilies.php');
-
 //
 // A
 //

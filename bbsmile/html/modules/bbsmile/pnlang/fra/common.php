@@ -1,5 +1,5 @@
 <?php
-// $Id: global.php 83 2007-08-22 19:19:55Z landseer $
+// $Id$
 // ----------------------------------------------------------------------
 // Zikula Application Framework
 // Copyright (C) 2001 by the Zikula Development Team.
@@ -23,40 +23,22 @@
 //
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
-// Original Author of file: Hinrich Donner
-// changed to bbsmile: larsneo
+// Original Author of file: Gilles Pilloud
 // ----------------------------------------------------------------------
-
-// include smilie alternative text defines
-Loader::includeOnce('modules/bbsmile/pnlang/fra/smilies.php');
-
-// new
-define('_BBSMILE_NOAUTOSMILIES', 'L\'extension des émoticônes n\'est pas activée!');
 
 //
 // A
 //
-define('_BBSMILE_ADMIN_BTN_SUBMIT', 'Appliquer');
-define('_BBSMILE_ADMIN_CONFIGSAVED', 'La configuration de bbsmile a été mise à jour');
-define('_BBSMILE_ADMIN_HINT_IMAGEPATH', 'Entrer le répertoire (relatif) où se trouvent les émoticônes. Pas de slash terminal ni de backslash !');
-define('_BBSMILE_ADMIN_LABEL_IMAGEPATH', 'Chemin vers les émoticônes');
-define('_BBSMILE_ADMIN_TITLE', 'Administration de bbsmile ');
-define('_BBSMILE_ADMIN_TITLE_CONFIG', 'Modifier la configuration');
-//define('_BBSMILE_ADMIN_V1_HINT', 'Notez que bbsmilies doit être activé pour être utilisé par un module spécifique par <a href="index.php?name=Modules&type=admin&func=view">administration -> modules</a>.');
-//define('_BBSMILE_ARGSERROR', '[bbsmile] Erreur interne ! Argument manquant !');
-
-//
-// C
-//
-define('_BBSMILE_COULDNOTREGISTER', 'bbsmile n\a pas été installé !');
-define('_BBSMILE_COULDNOTUNREGISTER', 'bbsmile n\'a pas été supprimé !');
-
 define('_BBSMILE_ADDHOOK','Activer bbsmile pour plus de modules');
 define('_BBSMILE_ADMIN_BTN_CANCEL','Annuler');  
+define('_BBSMILE_ADMIN_BTN_SUBMIT', 'Appliquer');
+define('_BBSMILE_ADMIN_CONFIGSAVED', 'La configuration de bbsmile a été mise à jour');
 define('_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM','Les émoticônes doivent-elles être lues en dehors du dossier?');
 define('_BBSMILE_ADMIN_EDITEDSMILIESSAVED','Les émoticônes ont été sauvées.');     
+define('_BBSMILE_ADMIN_HINT_IMAGEPATH', 'Entrer le répertoire (relatif) où se trouvent les émoticônes. Pas de slash terminal ni de backslash !');
 define('_BBSMILE_ADMIN_HINT_IMAGEPATH_AUTO','Entrez le dossier (relatif), ou sont situés les émoticônes, elles seront automatiquement inclues. Tous les fichiers doivent se terminer par gif, jpg, jpeg ou png. Pas de slash ni d\'antislash!'); 
 define('_BBSMILE_ADMIN_LABEL_ACTIVATE_AUTO','Activer automatiquement les émoticônes');  
+define('_BBSMILE_ADMIN_LABEL_IMAGEPATH', 'Chemin vers les émoticônes');
 define('_BBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO','Chemin des émoticônes inclues automatiquement');    
 define('_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM','Avec votre confirmation, toutes les émoticônes en dehors du dossier seront lues. Sans images, un dossier sera supprimé. Les changement sur les émoticônes seront sauvegardés.');    
 define('_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM','Lecture des émoticônes du système de fichier');       
@@ -71,14 +53,47 @@ define('_BBSMILE_ADMIN_SMILIETABLE_FILENAME','Nom du fichier');
 define('_BBSMILE_ADMIN_SMILIETABLE_SHORT','Raccourcis'); 
 define('_BBSMILE_ADMIN_SMILIETABLE_SMILIE','Emoticône');  
 define('_BBSMILE_ADMIN_START','Accueil');
+define('_BBSMILE_ADMIN_TITLE', 'Administration de bbsmile ');
+define('_BBSMILE_ADMIN_TITLE_CONFIG', 'Modifier la configuration');
 define('_BBSMILE_ADMIN_TITLE_EDITSMILIES','Modifier les émoticônes définis'); 
 define('_BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM','Lire les émoticônes en dehors du dossier');  
+
+//
+// C
+//
 define('_BBSMILE_CLICKOUTSIDETOCLOSE','Cliquez en dehors de la fenêtre pour la fermer.');
+define('_BBSMILE_COULDNOTREGISTER', 'bbsmile n\a pas été installé !');
+define('_BBSMILE_COULDNOTUNREGISTER', 'bbsmile n\'a pas été supprimé !');
+
+//
+// F
+//
 define('_BBSMILE_FORCERELOAD','Rechargement des émoticônes, toutes les données seront réécrites!');       
+
+//
+// G
+//
 define('_BBSMILE_GOTOHOMEPAGE','visitez la page du projet bbsmile');   
+
+//
+// I
+//
 define('_BBSMILE_ILLEGALSMILIEPATH','Le chemin n`existe pas ou le système ne peux être lu.'); 
 define('_BBSMILE_ISHOOKEDWITH','bbsmile est actuellement utilisé par les modules suivants'); 
+
+//
+// M
+//
 define('_BBSMILE_MORESMILIES','Plus d\'émoticônes'); 
+
+//
+// N
+//
+define('_BBSMILE_NOAUTOSMILIES', 'L\'extension des émoticônes n\'est pas activée!');
 define('_BBSMILE_NOSCRIPTWARNING','Votre navigateur ne supporte pas le javascript ou il est désactivé. L\'interface bbsmile a été désactivée.');  
 define('_BBSMILE_NOTHOOKED','** bbsmile n\'est utilisé par aucun module **');      
+
+//
+// S
+//
 define('_BBSMILE_SHOWHIDE_SMILIES','afficher/cacher les émoticônes');     
