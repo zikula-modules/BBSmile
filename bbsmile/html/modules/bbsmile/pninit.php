@@ -89,18 +89,25 @@ function bbsmile_upgrade($oldversion)
                 return LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (display hook)');
             }
             pnModDelVar('pn_bbsmile', 'displayhook');
-        case '1.22':
+        case '1.18':
             // .8 only version
         case '2.0':
-            $oldvars = pnModGetVar('pn_bbsmile');
-            foreach ($oldvars as $varname => $oldvar) {
-                pnModSetVar('bbsmile', $varname, $oldvar);
-            }
-            pnModDelVar('pn_bbsmile');
 
-            // get list of hooked modules
-            $hookedmods = pnModAPIFunc('modules', 'admin', 'gethookedmodules', array('hookmodname' => 'pn_bbcode'));
+            pnModSetVar('bbsmile', 'smiliepath', str_replace('pn_bbsmile', 'bbsmile', pnModGetVar('pn_bbsmile', 'smiliepath')));
+            pnModSetVar('bbsmile', 'smiliepath_auto', str_replace('pn_bbsmile', 'bbsmile', pnModGetVar('pn_bbsmile', 'smiliepath_auto')));
+            pnModSetVar('bbsmile', 'activate_auto', pnModGetVar('pn_bbsmile', 'activate_auto'));
+            pnModSetVar('bbsmile', 'remove_inactive', pnModGetVar('pn_bbsmile', 'remove_inactive'));
+            $smilie_array = pnModGetVar('pn_bbsmile', 'smilie_array');
+            if(@unserialize($smilie_array)!=='') {
+                $smilie_array = unserialize($smilie_array);
+            }
+            pnModSetVar('bbsmile', 'smilie_array', $smilie_array);
+
+            pnModDelVar('pn_bbsmile');
             
+            // get list of hooked modules
+            $hookedmods = pnModAPIFunc('modules', 'admin', 'gethookedmodules', array('hookmodname' => 'pn_bbsmile'));
+
             // remove hook
             if (!pnModUnregisterHook('item',
                                      'transform',
@@ -110,6 +117,7 @@ function bbsmile_upgrade($oldversion)
                                      'transform')) {
                 return LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (transform hook)');
             } 
+            
             // add hook
             if (!pnModRegisterHook('item',
                                    'transform',
@@ -120,7 +128,7 @@ function bbsmile_upgrade($oldversion)
                 return LogUtil::registerError(_BBSMILE_COULDNOTREGISTER . ' (transform hook)');
             }
             
-            // attach bbcode to previous hooked modules
+            // attach bbcode to previously hooked modules
             foreach ($hookedmods as $hookedmod => $dummy) {
                 pnModAPIFunc('modules' ,'admin', 'enablehooks', 
                              array('callermodname' => $hookedmod,
