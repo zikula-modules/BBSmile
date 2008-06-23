@@ -1,7 +1,7 @@
 // $Id$
 
 Event.observe(window, 'load', function() {
-        $$('b.bsmile_smilies').each(function(el) {
+        $$('.bbsmile_smilies').each(function(el) {
             el.removeClassName('bbsmile_smilies');
         });
         if($('smiliemodal')) {
