@@ -89,6 +89,7 @@ function bbsmile_upgrade($oldversion)
                 return LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (display hook)');
             }
             pnModDelVar('pn_bbsmile', 'displayhook');
+        case '1.17':
         case '1.18':
             // .8 only version
         case '2.0':
