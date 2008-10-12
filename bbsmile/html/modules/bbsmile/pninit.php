@@ -105,35 +105,22 @@ function bbsmile_upgrade($oldversion)
 
             pnModDelVar('pn_bbsmile');
             
-            // get list of hooked modules
-            $hookedmods = pnModAPIFunc('modules', 'admin', 'gethookedmodules', array('hookmodname' => 'pn_bbsmile'));
-
-            // remove hook
-            if (!pnModUnregisterHook('item',
-                                     'transform',
-                                     'API',
-                                     'pn_bbsmile',
-                                     'user',
-                                     'transform')) {
-                return LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (transform hook)');
-            } 
+    		// update hooks
+    		$pntables = pnDBGetTables();
+    		$hookstable  = $pntables['hooks'];
+    		$hookscolumn = $pntables['hooks_column'];
+    		$sql = 'UPDATE ' . $hookstable . ' SET ' . $hookscolumn['smodule'] . '=\'bbsmile\' WHERE ' . $hookscolumn['smodule'] . '=\'pn_bbsmile\'';
+    		$res = DBUtil::executeSQL ($sql);
+    		if ($res === false) {
+        		return LogUtil::registerError(_BBSMILE_FAILEDTOUPGRADEHOOK . ' (smodule)');
+    		}
+    
+    		$sql = 'UPDATE ' . $hookstable . ' SET ' . $hookscolumn['tmodule'] . '=\'bbsmile\' WHERE ' . $hookscolumn['tmodule'] . '=\'pn_bbsmile\'';
+    		$res   = DBUtil::executeSQL ($sql);
+    		if ($res === false) {
+        		return LogUtil::registerError(_BBSMILE_FAILEDTOUPGRADEHOOK . ' (tmodule)');
+    		}
             
-            // add hook
-            if (!pnModRegisterHook('item',
-                                   'transform',
-                                   'API',
-                                   'bbsmile',
-                                   'user',
-                                   'transform')) {
-                return LogUtil::registerError(_BBSMILE_COULDNOTREGISTER . ' (transform hook)');
-            }
-            
-            // attach bbcode to previously hooked modules
-            foreach ($hookedmods as $hookedmod => $dummy) {
-                pnModAPIFunc('modules' ,'admin', 'enablehooks', 
-                             array('callermodname' => $hookedmod,
-                                   'hookmodname'   => 'bbsmile'));
-            }
         default:
             break;
     }
