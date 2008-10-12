@@ -69,7 +69,7 @@ define('_BBSMILE_COULDNOTUNREGISTER', 'bbsmile was NOT removed!');
 //
 // F
 //
-define('_BBSMILE_FAILEDTOUPGRADEHOOK', 'Fehler beim Aktualiseren der Hooks')
+define('_BBSMILE_FAILEDTOUPGRADEHOOK', 'Fehler beim Aktualiseren der Hooks');
 define('_BBSMILE_FORCERELOAD', 'Force reload of smilies, all data will be overwritten!');
 
 //
