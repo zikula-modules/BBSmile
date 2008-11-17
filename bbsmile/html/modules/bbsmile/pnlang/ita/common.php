@@ -31,10 +31,6 @@
  * @translated by Arthens
  */
 
-
-// include smilie alternative text defines
-Loader::includeOnce('modules/bbsmile/pnlang/ita/smilies.php');
-
 //
 // A
 //
