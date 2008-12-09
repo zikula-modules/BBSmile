@@ -2,22 +2,25 @@
 <!--[include file="bbsmile_admin_header.html"]-->
 
 <form class="pn-adminform" action="<!--[pnmodurl modname="bbsmile" type="admin" func="readsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
-<div>
-	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="bbsmile"]-->" />
-	<h2><!--[pnml name="_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM"]--></h2>
-	<p><!--[pnml name="_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM"]--></p>
-	<!--[if $pncore.bbsmile.smiliepath_auto neq '']-->
-	<p><strong><!--[$pncore.bbsmile.smiliepath_auto]--></strong></p>
-	<!--[/if]-->
-	<p><!--[pnml name="_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM" ]--></p>
-	<div class="pn-adminformrow">
-		<label for="forcereload"><!--[ pnml name='_BBSMILE_FORCERELOAD' ]--></label>
-	    <input name="forcereload" id="forcereload" type="checkbox" value="1" />
-	</div>
-	<div class="pn-adminformrow pn-adminformbuttons">
-		<input name="submit" type="submit" value="<!--[pnml name="_BBSMILE_ADMIN_BTN_SUBMIT"]-->" />
-	</div>
-</div>
-</form>	
+
+  <fieldset>
+    <legend><!--[ pnml name='_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM' ]--></legend>
+    <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="bbsmile"]-->" />
+    <p><!--[pnml name="_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM"]--></p>
+    <!--[if $pncore.bbsmile.smiliepath_auto neq '']-->
+    <p><strong><!--[$pncore.bbsmile.smiliepath_auto]--></strong></p>
+    <!--[/if]-->
+    <p><!--[pnml name="_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM" ]--></p>
+    <div class="pn-adminformrow">
+      <label for="forcereload"><!--[ pnml name='_BBSMILE_FORCERELOAD' ]--></label>
+      <input name="forcereload" id="forcereload" type="checkbox" value="1" />
+    </div>
+  </fieldset>
+
+  <div class="pn-adminformrow pn-adminformbuttons">
+    <input name="submit" type="submit" value="<!--[pnml name="_BBSMILE_ADMIN_BTN_SUBMIT"]-->" />
+  </div>
+
+</form>
 
 <!--[include file="bbsmile_admin_footer.html"]-->

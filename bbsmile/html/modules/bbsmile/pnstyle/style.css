@@ -5,7 +5,6 @@
  *
  */
 #bbsmileadmin {
-    margin: 1em 0;
 }
 
 #bbsmileadmin p.footer {
@@ -14,28 +13,25 @@
     font-size: 90%;
 }
 
-#bbsmileadmin label {
-    padding: 3px 0;
-}
-
 #bbsmileadmin dl dt {
-    display: block;
-    float: left;
-    text-align: right;
-    width: 40%;
-    padding: 0;
-    margin: 0.5em;
-    line-height: 2em;
+  clear:both;
+  display:block;
+  float:left;
+  line-height:2em;
+  margin:0.5em;
+  padding:0;
+  text-align:right;
+  width:40%;
 }
 
 #bbsmileadmin dl dd {
-    display: block;
-    float: left;
-    text-align: left;
-    width: 40%;
-    margin: 0.5em;
-    padding: 0;
-    line-height: 2em;
+  display:block;
+  float:left;
+  line-height:2em;
+  margin:0.5em;
+  padding:0;
+  text-align:left;
+  width:50%;
 }
 
 /**
@@ -88,34 +84,11 @@ img.bb_smilie {
     display: inline;
 }
 
-/*
- * clearfix solution
- */
-
-.bbsmile_clearfix:after {
-    content: "."; 
-    display: block; 
-    height: 0; 
-    clear: both; 
-    visibility: hidden;
-}
-
-.bbsmile_clearfix {display: inline-table;}
-
-/* Hides from IE-mac \*/
-* html .bbsmile_clearfix {height: 1%;}
-.bbsmile_clearfix {display: block;}
-/* End hide from IE-mac */
-
-/* Overflow-Methode zum Clearen der Float-Umgebungen */
-.bbsmile_floatbox { 
-    overflow:hidden; 
-}
-
 /**
  * control_modal
  *
  */
+ 
 #modal_container {
     padding:5px;
     background-color:#fff;

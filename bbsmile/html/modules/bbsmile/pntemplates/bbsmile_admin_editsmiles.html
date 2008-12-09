@@ -1,56 +1,55 @@
 <!--[*  $Id$  *]-->
 <!--[include file="bbsmile_admin_header.html"]-->
 
-
-<h2><!--[pnml name="_BBSMILE_ADMIN_LABEL_SMILIETABLE"]--></h2>
+<h3><!--[pnml name="_BBSMILE_ADMIN_LABEL_SMILIETABLE"]--></h3>
 <p><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ALIAS_HINT"]--></p>
 <form class="pn-adminform" action="<!--[pnmodurl modname="bbsmile" type="admin" func="editsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
-<div>
-	<input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="bbsmile"]-->" />
-	<table class="pn-admintable">
-		<thead>
-			<tr>
-				<th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_SMILIE"]--></th>
-				<th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_SHORT"]--></th>
-				<th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_FILENAME"]--></th>
-				<th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ALT"]--></th>
- 				<th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ALIAS"]--></th>
- 				<th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ACTIVE"]--></th>
-			</tr>
-		</thead>
-		<tbody>
-			<!--[foreach from=$smilies key=key item=smilie]-->
-			<tr class="<!--[cycle values=pn-odd,pn-even]-->">
-				<td>
-					<img src="<!--[ if $smilie.type eq 0 ]--><!--[ $pncore.bbsmile.smiliepath ]--><!--[ else ]--><!--[ $pncore.bbsmile.smiliepath_auto ]--><!--[ /if ]-->/<!--[$smilie.imgsrc|pnvarprepfordisplay]-->" alt="<!--[$smilie.alt|pnvarprepfordisplay]-->" />
-					<input type="hidden" name="key[]" value="<!--[$key]-->" />
-					<input type="hidden" name="smilietype[]" value="<!--[$smilie.type|pnvarprepfordisplay]-->" />
-				</td>
-				<td>
-					<!--[$smilie.short]-->
-					<input type="hidden" name="short[]" value="<!--[$smilie.short|pnvarprepfordisplay]-->" />
-				</td>
-				<td>
-					<!--[$smilie.imgsrc]-->
-					<input type="hidden" name="imgsrc[]" value="<!--[$smilie.imgsrc|pnvarprepfordisplay]-->" />
-				</td>
-				<td>
-				    <input type="text" name="alt[]" value="<!--[$smilie.alt|pnvarprepfordisplay]-->" size="20" maxlength="20" />
-				</td>
-				<td>
-				    <input type="text" name="alias[]" value="<!--[$smilie.alias|pnvarprepfordisplay]-->" size="20" maxlength="20" />
-				</td>
- 				<td>
-				    <input type="checkbox" name="active[]" value="<!--[$key]-->" <!--[ if $smilie.active eq 1 ]--> checked="checked" <!--[/if]--> />
-				</td>
-			</tr>
-			<!--[/foreach]-->
-		</tbody>
-	</table>
-	<div class="pn-adminformrow pn-adminformbuttons">
-	<input name="submit" type="submit" value="<!--[pnml name="_BBSMILE_ADMIN_BTN_SUBMIT"]-->" />
-	</div>
-</div>
+  <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="bbsmile"]-->" />
+  <table class="pn-admintable">
+    <thead>
+      <tr>
+        <th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_SMILIE"]--></th>
+        <th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_SHORT"]--></th>
+        <th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_FILENAME"]--></th>
+        <th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ALT"]--></th>
+        <th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ALIAS"]--></th>
+        <th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ACTIVE"]--></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--[foreach from=$smilies key=key item=smilie]-->
+      <tr class="<!--[cycle values=pn-odd,pn-even]-->">
+        <td>
+          <img src="<!--[ if $smilie.type eq 0 ]--><!--[ $pncore.bbsmile.smiliepath ]--><!--[ else ]--><!--[ $pncore.bbsmile.smiliepath_auto ]--><!--[ /if ]-->/<!--[$smilie.imgsrc|pnvarprepfordisplay]-->" alt="<!--[$smilie.alt|pnvarprepfordisplay]-->" />
+          <input type="hidden" name="key[]" value="<!--[$key]-->" />
+          <input type="hidden" name="smilietype[]" value="<!--[$smilie.type|pnvarprepfordisplay]-->" />
+        </td>
+        <td>
+          <!--[$smilie.short]-->
+          <input type="hidden" name="short[]" value="<!--[$smilie.short|pnvarprepfordisplay]-->" />
+        </td>
+        <td>
+          <!--[$smilie.imgsrc]-->
+          <input type="hidden" name="imgsrc[]" value="<!--[$smilie.imgsrc|pnvarprepfordisplay]-->" />
+        </td>
+        <td>
+          <input type="text" name="alt[]" value="<!--[$smilie.alt|pnvarprepfordisplay]-->" size="20" maxlength="20" />
+        </td>
+        <td>
+          <input type="text" name="alias[]" value="<!--[$smilie.alias|pnvarprepfordisplay]-->" size="20" maxlength="20" />
+        </td>
+        <td>
+          <input type="checkbox" name="active[]" value="<!--[$key]-->" <!--[ if $smilie.active eq 1 ]--> checked="checked" <!--[/if]--> />
+        </td>
+      </tr>
+      <!--[/foreach]-->
+    </tbody>
+  </table>
+
+  <div class="pn-adminformrow pn-adminformbuttons">
+    <input name="submit" type="submit" value="<!--[pnml name="_BBSMILE_ADMIN_BTN_SUBMIT"]-->" />
+  </div>
+
 </form>
 
 <!--[include file="bbsmile_admin_footer.html"]-->
