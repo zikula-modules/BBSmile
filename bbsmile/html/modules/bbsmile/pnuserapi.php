@@ -71,8 +71,8 @@ function bbsmile_transform($text)
     $remove_inactive = pnModGetVar('bbsmile', 'remove_inactive');
 
     if(is_array($smilies) && count($smilies)>0) {
-        $imagepath = DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath'));
-        $imagepath_auto = DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath_auto'));
+        $imagepath      = pnGetBaseURL() . DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath'));
+        $imagepath_auto = pnGetBaseURL() . DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath_auto'));
         $auto_active = pnModGetVar('bbsmile','activate_auto');
     	// pad it with a space so we can distinguish between FALSE and matching the 1st char (index 0).
 	    // This is important!
