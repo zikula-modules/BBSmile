@@ -71,6 +71,8 @@ function bbsmile_transform($text)
     $remove_inactive = pnModGetVar('bbsmile', 'remove_inactive');
 
     if(is_array($smilies) && count($smilies)>0) {
+        // sort smilies, see http://code.zikula.org/bbsmile/ticket/1
+        uasort($smilies, 'cmp_smiliesort');
         $imagepath      = pnGetBaseURL() . DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath'));
         $imagepath_auto = pnGetBaseURL() . DataUtil::formatForOS(pnModGetVar('bbsmile', 'smiliepath_auto'));
         $auto_active = pnModGetVar('bbsmile','activate_auto');
@@ -134,4 +136,9 @@ function bbsmile_userapi_getall()
 
 	}
 	return $icons;
+}
+
+function cmp_smiliesort ($a, $b)
+{
+    return strlen($a['short']) > strlen($b['short']);
 }
