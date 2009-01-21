@@ -1,19 +1,22 @@
 <!--[*  $Id$  *]-->
 <!--[include file="bbsmile_admin_header.html"]-->
+<h3><!--[ pnml name='_BBSMILE_ADMIN_TITLE_CONFIG' ]--></h3>
+<br class="pn-clearer" />
 
 <!--[ pnform ]-->
 <!--[ pnformvalidationsummary ]-->
 
 <fieldset>
   <legend><!--[ pnml name=_BBSMILE_ADMIN_TITLE_CONFIG html=1 ]--></legend>
-  <dl class="pn-clearfix">
+  <dl class="configrow">
     <dt><!--[ pnformlabel for="smiliepath" text='_BBSMILE_ADMIN_LABEL_IMAGEPATH' ]--></dt>
     <dd><!--[ pnformtextinput size="40" maxLength="255" id="smiliepath" text=$pncore.bbsmile.smiliepath ]--></dd>
 
     <dt><!--[ pnformlabel for="activate_auto" text='_BBSMILE_ADMIN_LABEL_ACTIVATE_AUTO' ]--></dt>
     <dd><!--[ pnformcheckbox id="activate_auto" checked=$pncore.bbsmile.activate_auto ]--></dd>
   </dl>
-  <dl class="pn-clearfix">  
+
+  <dl class="configrow">  
     <dt><!--[ pnformlabel for="smiliepath_auto" text='_BBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO' ]--></dt>
     <dd><!--[ pnformtextinput size="40" maxLength="255" id="smiliepath_auto" text=$pncore.bbsmile.smiliepath_auto ]--></dd>
 

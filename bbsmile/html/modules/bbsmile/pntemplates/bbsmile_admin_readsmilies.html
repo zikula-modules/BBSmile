@@ -1,5 +1,6 @@
 <!--[*  $Id$  *]-->
 <!--[include file="bbsmile_admin_header.html"]-->
+<br class="pn-clearer" />
 
 <form class="pn-adminform" action="<!--[pnmodurl modname="bbsmile" type="admin" func="readsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
 
@@ -11,10 +12,11 @@
     <p><strong><!--[$pncore.bbsmile.smiliepath_auto]--></strong></p>
     <!--[/if]-->
     <p><!--[pnml name="_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM" ]--></p>
-    <div class="pn-adminformrow">
-      <label for="forcereload"><!--[ pnml name='_BBSMILE_FORCERELOAD' ]--></label>
-      <input name="forcereload" id="forcereload" type="checkbox" value="1" />
-    </div>
+
+    <dl class="configrow">
+      <dt><label for="forcereload"><!--[ pnml name='_BBSMILE_FORCERELOAD' ]--></label></dt>
+      <dd><input name="forcereload" id="forcereload" type="checkbox" value="1" /></dd>
+    </dl>
   </fieldset>
 
   <div class="pn-adminformrow pn-adminformbuttons">
