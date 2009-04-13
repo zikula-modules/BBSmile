@@ -9,7 +9,7 @@
     background: #fff6bf url(../pnimages/exclamation.png) center no-repeat;
     background-position: 15px 50%; /* x-pos y-pos */
     text-align: left;
-    padding: 5px 20px 5px 45px;
+    padding: 5px 20px 5px 45px ! important;
     border-top: 2px solid #ffd324;
     border-bottom: 2px solid #ffd324;
 }
