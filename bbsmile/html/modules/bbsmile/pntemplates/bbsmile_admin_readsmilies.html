@@ -1,27 +1,31 @@
 <!--[*  $Id$  *]-->
+<!--[ cssversion assign='configclass' ]-->
+
 <!--[include file="bbsmile_admin_header.html"]-->
-<br class="pn-clearer" />
+<h2><!--[ pnml name='_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM' ]--></h2>
+<div class="pn-informationmsg"><!--[pnml name="_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM"]--></div>
 
-<form class="pn-adminform" action="<!--[pnmodurl modname="bbsmile" type="admin" func="readsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<form class="<!--[ $configclass ]-->" action="<!--[pnmodurl modname="bbsmile" type="admin" func="readsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
 
-  <fieldset>
-    <legend><!--[ pnml name='_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM' ]--></legend>
-    <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="bbsmile"]-->" />
-    <p><!--[pnml name="_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM"]--></p>
-    <!--[if $pncore.bbsmile.smiliepath_auto neq '']-->
-    <p><strong><!--[$pncore.bbsmile.smiliepath_auto]--></strong></p>
-    <!--[/if]-->
-    <p><!--[pnml name="_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM" ]--></p>
+    <fieldset>
+        <legend><!--[ pnml name='_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM' ]--></legend>
+        <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="bbsmile"]-->" />
+        <!--[if $pncore.bbsmile.smiliepath_auto neq '']-->
+        <div class="<!--[ $configclass ]-->row">
+            <label><!--[ pnml name='_BBSMILE_ADMIN_LABEL_IMAGEPATH' ]--></label>
+            <span style="font-weight:bold;"><!--[$pncore.bbsmile.smiliepath_auto]--></span>
+        </div>
+        <!--[/if]-->
 
-    <dl class="configrow">
-      <dt><label for="forcereload"><!--[ pnml name='_BBSMILE_FORCERELOAD' ]--></label></dt>
-      <dd><input name="forcereload" id="forcereload" type="checkbox" value="1" /></dd>
-    </dl>
-  </fieldset>
+        <div class="<!--[ $configclass ]-->row">
+            <label for="forcereload"><!--[ pnml name='_BBSMILE_FORCERELOAD' ]--></label>
+            <input name="forcereload" id="forcereload" type="checkbox" value="1" />
+        </div>
+    </fieldset>
 
-  <div class="pn-adminformrow pn-adminformbuttons">
-    <input name="submit" type="submit" value="<!--[pnml name="_BBSMILE_ADMIN_BTN_SUBMIT"]-->" />
-  </div>
+    <div class="<!--[ $configclass ]-->buttons">
+        <input name="submit" type="submit" value="<!--[pnml name="_BBSMILE_ADMIN_BTN_SUBMIT"]-->" />
+    </div>
 
 </form>
 

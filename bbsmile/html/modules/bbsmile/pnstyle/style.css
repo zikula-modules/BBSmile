@@ -1,9 +1,9 @@
 /*  $Id$  */
 
 /**
- * user interface
- *
- */
+* user interface
+*
+*/
 
 .noscript {
     background: #fff6bf url(../pnimages/exclamation.png) center no-repeat;
@@ -17,7 +17,7 @@
 .bbsmile_smilies {
     display: none;
 }
-    
+
 .bb_standardsmilies {
     margin-top: 1em;
     width: 300px;
@@ -30,14 +30,14 @@ img.bb_smilie {
 .bb_showhidesmilies {
     margin: 5px 0;
 }
-    
+
 .bb_moresmilies {
-    margin-bottom: 10px; 
-    width: 300px; 
-    height: 2em; 
-    overflow: auto; 
-    color: #00009C;  
-    background: transparent;  
+    margin-bottom: 10px;
+    width: 300px;
+    height: 2em;
+    overflow: auto;
+    color: #00009C;
+    background: transparent;
     border: none;
     display: block;
 }
@@ -51,10 +51,10 @@ img.bb_smilie {
 }
 
 /**
- * control_modal
- *
- */
- 
+* control_modal
+*
+*/
+
 #modal_container {
     padding:5px;
     background-color:#fff;
@@ -72,41 +72,7 @@ img.bb_smilie {
 }
 
 #bbsmileadmin p.footer {
-  margin-top: 2em;
-  text-align:center;
-  font-size: 90%;
-}
-
-
-/*******************************************************************************/
-/* Administration / Preferences
-/*******************************************************************************/
-
-#bbsmileadmin dl.configrow {
-  margin:0.5em;
-  min-height:0;
-}
-#bbsmileadmin dl.configrow dt {
-  clear:left;
-  float:left;
-  margin:0;
-  padding:0.5em 0;
-  text-align:right;
-  width:30%;
-}
-#bbsmileadmin dl.configrow dd {
-  margin:0 0 0 33%;
-  padding:0.5em 0;
-  text-align:left;
-}
-#bbsmileadmin dl.configrow dd:after {
-  content: ".";
-  display:block;
-  clear:left;
-  height:0;
-  visibility:hidden;
-}
-#bbsmileadmin dl.configrow dd div.pn-informationmsg {
-  margin-left:0;
-  margin-right:0;
+    margin-top: 2em;
+    text-align:center;
+    font-size: 90%;
 }

@@ -1,32 +1,34 @@
 <!--[*  $Id$  *]-->
-<!--[include file="bbsmile_admin_header.html"]-->
-<h3><!--[ pnml name='_BBSMILE_ADMIN_TITLE_CONFIG' ]--></h3>
-<br class="pn-clearer" />
+<!--[ cssversion assign='configclass' ]-->
 
-<!--[ pnform ]-->
+<!--[include file="bbsmile_admin_header.html"]-->
+<h2><!--[ pnml name='_BBSMILE_ADMIN_TITLE_CONFIG' ]--></h2>
+
+<!--[ pnform cssClass=$configclass]-->
 <!--[ pnformvalidationsummary ]-->
 
 <fieldset>
-  <legend><!--[ pnml name=_BBSMILE_ADMIN_TITLE_CONFIG html=1 ]--></legend>
-  <dl class="configrow">
-    <dt><!--[ pnformlabel for="smiliepath" text='_BBSMILE_ADMIN_LABEL_IMAGEPATH' ]--></dt>
-    <dd><!--[ pnformtextinput size="40" maxLength="255" id="smiliepath" text=$pncore.bbsmile.smiliepath ]--></dd>
-
-    <dt><!--[ pnformlabel for="activate_auto" text='_BBSMILE_ADMIN_LABEL_ACTIVATE_AUTO' ]--></dt>
-    <dd><!--[ pnformcheckbox id="activate_auto" checked=$pncore.bbsmile.activate_auto ]--></dd>
-  </dl>
-
-  <dl class="configrow">  
-    <dt><!--[ pnformlabel for="smiliepath_auto" text='_BBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO' ]--></dt>
-    <dd><!--[ pnformtextinput size="40" maxLength="255" id="smiliepath_auto" text=$pncore.bbsmile.smiliepath_auto ]--></dd>
-
-    <dt><!--[ pnformlabel for="remove_inactive" text='_BBSMILE_ADMIN_LABEL_REMOVE_INACTIVE' ]--></dt>
-    <dd><!--[ pnformcheckbox id="remove_inactive" checked=$pncore.bbsmile.remove_inactive ]--></dd>
-  </dl>
+    <legend><!--[ pnml name=_BBSMILE_ADMIN_TITLE_CONFIG html=1 ]--></legend>
+    <div class="<!--[ $configclass ]-->row">
+        <!--[ pnformlabel for="smiliepath" text='_BBSMILE_ADMIN_LABEL_IMAGEPATH' ]-->
+        <!--[ pnformtextinput size="40" maxLength="255" id="smiliepath" text=$pncore.bbsmile.smiliepath ]-->
+    </div>
+    <div class="<!--[ $configclass ]-->row">
+        <!--[ pnformlabel for="activate_auto" text='_BBSMILE_ADMIN_LABEL_ACTIVATE_AUTO' ]-->
+        <!--[ pnformcheckbox id="activate_auto" checked=$pncore.bbsmile.activate_auto ]-->
+    </div>
+    <div class="<!--[ $configclass ]-->row">
+        <!--[ pnformlabel for="smiliepath_auto" text='_BBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO' ]-->
+        <!--[ pnformtextinput size="40" maxLength="255" id="smiliepath_auto" text=$pncore.bbsmile.smiliepath_auto ]-->
+    </div>
+    <div class="<!--[ $configclass ]-->row">
+        <!--[ pnformlabel for="remove_inactive" text='_BBSMILE_ADMIN_LABEL_REMOVE_INACTIVE' ]-->
+        <!--[ pnformcheckbox id="remove_inactive" checked=$pncore.bbsmile.remove_inactive ]-->
+    </div>
 </fieldset>
 
-<div class="pn-formrow pn-formbuttons">
-  <!--[pnformbutton id="submit" commandName="submit" text="_BBSMILE_ADMIN_BTN_SUBMIT"]-->
+<div class="<!--[ $configclass ]-->buttons">
+    <!--[pnformbutton id="submit" commandName="submit" text="_BBSMILE_ADMIN_BTN_SUBMIT"]-->
 </div>
 
 <!--[ /pnform ]-->
