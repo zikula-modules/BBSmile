@@ -37,6 +37,6 @@ $modversion['license']          = 'pndocs/license.txt';
 $modversion['coding']           = 'pndocs/coding.txt';
 $modversion['official']         = 0;
 $modversion['author']           = 'Frank Schummertz, pnForum team';
-$modversion['contact']          = 'http://www.pnforum.de';
+$modversion['contact']          = 'http://code.zikula.org/bbsmile';
 $modversion['admin']            = 1;
 $modversion['securityschema']   = array('bbsmile::' => '::');
