@@ -1,13 +1,11 @@
 <!--[*  $Id$  *]-->
-<!--[ cssversion assign='configclass' ]-->
-
 <!--[include file="bbsmile_admin_header.html"]-->
 <h2><!--[pnml name="_BBSMILE_ADMIN_LABEL_SMILIETABLE"]--></h2>
 
-<div class="pn-informationmsg"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ALIAS_HINT"]--></div>
-<form class="<!--[ $configclass ]-->" action="<!--[pnmodurl modname="bbsmile" type="admin" func="editsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div class="z-informationmsg"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_ALIAS_HINT"]--></div>
+<form class="z-form" action="<!--[pnmodurl modname="bbsmile" type="admin" func="editsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
   <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="bbsmile"]-->" />
-  <table class="pn-admintable">
+  <table class="z-admintable">
     <thead>
       <tr>
         <th class="bb_tablehead"><!--[pnml name="_BBSMILE_ADMIN_SMILIETABLE_SMILIE"]--></th>
@@ -20,7 +18,7 @@
     </thead>
     <tbody>
       <!--[foreach from=$smilies key=key item=smilie]-->
-      <tr class="<!--[cycle values=pn-odd,pn-even]-->">
+      <tr class="<!--[cycle values=z-odd,z-even]-->">
         <td>
           <img src="<!--[ if $smilie.type eq 0 ]--><!--[ $pncore.bbsmile.smiliepath ]--><!--[ else ]--><!--[ $pncore.bbsmile.smiliepath_auto ]--><!--[ /if ]-->/<!--[$smilie.imgsrc|pnvarprepfordisplay]-->" alt="<!--[$smilie.alt|pnvarprepfordisplay]-->" />
           <input type="hidden" name="key[]" value="<!--[$key]-->" />
@@ -48,7 +46,7 @@
     </tbody>
   </table>
 
-  <div class="<!--[ $configclass ]-->buttons">
+  <div class="z-formbuttons">
     <input name="submit" type="submit" value="<!--[pnml name="_BBSMILE_ADMIN_BTN_SUBMIT"]-->" />
   </div>
 

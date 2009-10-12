@@ -37,7 +37,7 @@
 define('_BBSMILE_ADDHOOK', 'Attiva bbsmile per altri moduli');
 define('_BBSMILE_ADMIN_BTN_CANCEL', 'Annulla');
 define('_BBSMILE_ADMIN_BTN_SUBMIT', 'Applica');
-define('_BBSMILE_ADMIN_CONFIGSAVED', 'la configurazione di bbsmile Ë stata aggiornata');
+define('_BBSMILE_ADMIN_CONFIGSAVED', 'la configurazione di bbsmile √® stata aggiornata');
 define('_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM', 'Vuoi che gli smile vengano letti direttamente dalla cartella?');
 define('_BBSMILE_ADMIN_EDITEDSMILIESSAVED', 'Gli smile modificati sono stati salvati.');
 define('_BBSMILE_ADMIN_HINT_IMAGEPATH', 'Inserisci la cartella (relativa) dove si trovano gli smile. Nessun / finale o backslash!');
@@ -45,7 +45,7 @@ define('_BBSMILE_ADMIN_HINT_IMAGEPATH_AUTO', 'Inserisci la cartella (relativa) d
 define('_BBSMILE_ADMIN_LABEL_ACTIVATE_AUTO', 'Attiva auto-smile');
 define('_BBSMILE_ADMIN_LABEL_IMAGEPATH', 'Path agli smile');
 define('_BBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO', 'Path agli smile da includere automaticamente');
-define('_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'Confermando questa operazione tutti gli smile nella directory sottostante verranno aggiunti. Gli smile la cui immagine risulter‡ mancante verranno cancellati. I cambiamenti delle informazioni degli smile verranno mantenuti.');
+define('_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'Confermando questa operazione tutti gli smile nella directory sottostante verranno aggiunti. Gli smile la cui immagine risulter√† mancante verranno cancellati. I cambiamenti delle informazioni degli smile verranno mantenuti.');
 define('_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM', 'Leggi gli smile dal filesystem');
 define('_BBSMILE_ADMIN_LABEL_REMOVE_INACTIVE', 'Rimuovi le scorciatoie per gli smile inattivi');
 define('_BBSMILE_ADMIN_LABEL_SMILIETABLE', 'Smile attuali');
@@ -67,8 +67,8 @@ define('_BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM', 'Leggi Smile dalla Cart
 // C
 //
 define('_BBSMILE_CLICKOUTSIDETOCLOSE', 'Clicca fuori dalla finestra per chiuderla');
-define('_BBSMILE_COULDNOTREGISTER', 'bbsmile non Ë stato installato!');
-define('_BBSMILE_COULDNOTUNREGISTER', 'bbsmile non Ë stato rimosso!');
+define('_BBSMILE_COULDNOTREGISTER', 'bbsmile non √® stato installato!');
+define('_BBSMILE_COULDNOTUNREGISTER', 'bbsmile non √® stato rimosso!');
 
 //
 // F
@@ -84,7 +84,7 @@ define('_BBSMILE_GOTOHOMEPAGE', 'visita la pagina del progetto bbsmile');
 // I
 //
 define('_BBSMILE_ILLEGALSMILIEPATH', 'Il path non esiste o il sistema non riesce a leggerlo.');
-define('_BBSMILE_ISHOOKEDWITH', 'Attualmente bbsmile Ë utilizzato dai seguenti moduli');
+define('_BBSMILE_ISHOOKEDWITH', 'Attualmente bbsmile √® utilizzato dai seguenti moduli');
 
 //
 // M
@@ -94,8 +94,8 @@ define('_BBSMILE_MORESMILIES', 'Altri Smile');
 //
 // N
 //
-define('_BBSMILE_NOAUTOSMILIES', 'Extended Smilies non Ë ancora stato attivato!');
-define('_BBSMILE_NOSCRIPTWARNING', 'Javascript Ë disabilitato oppure non Ë supportato dal tuo browser. L\'interfaccia di bbsmile Ë stata disattivata.');
+define('_BBSMILE_NOAUTOSMILIES', 'Extended Smilies non √® ancora stato attivato!');
+define('_BBSMILE_NOSCRIPTWARNING', 'Javascript √® disabilitato oppure non √® supportato dal tuo browser. L\'interfaccia di bbsmile √® stata disattivata.');
 define('_BBSMILE_NOTHOOKED', '** nessun modulo utilizza bbsmile **');
 
 //

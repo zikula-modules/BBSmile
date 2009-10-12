@@ -30,39 +30,39 @@
 //
 // A
 //
-define('_BBSMILE_ADDHOOK', 'bbsmile für weitere Module aktivieren');
+define('_BBSMILE_ADDHOOK', 'bbsmile fÃ¼r weitere Module aktivieren');
 define('_BBSMILE_ADMIN_BTN_CANCEL', 'Abbrechen');
-define('_BBSMILE_ADMIN_BTN_SUBMIT', 'Übertragen');
-define('_BBSMILE_ADMIN_CONFIGSAVED', 'bbsmile Konfiguration geändert');
+define('_BBSMILE_ADMIN_BTN_SUBMIT', 'Ãœbertragen');
+define('_BBSMILE_ADMIN_CONFIGSAVED', 'bbsmile Konfiguration geÃ¤ndert');
 define('_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM', 'Sollen die Smilies jetzt aktualisiert werden?');
 define('_BBSMILE_ADMIN_EDITEDSMILIESSAVED', 'Die editierten Smilies wurden gespeichert');
-define('_BBSMILE_ADMIN_HINT_IMAGEPATH', 'Verzeichnis (relativ), das die Smiliegrafiken enthält. Ohne / am Ende und ohne Backslashes!');
-define('_BBSMILE_ADMIN_HINT_IMAGEPATH_AUTO', 'Verzeichnis (relativ), das die automatisch eingebundenen Smiliegrafiken enthält. Alle Dateien, die die Endung gif,jpg,jpeg oder png haben, werden aus diesem verzeichnis automatisch hinzugefügt. Ohne / am Ende und ohne Backslashes!');
+define('_BBSMILE_ADMIN_HINT_IMAGEPATH', 'Verzeichnis (relativ), das die Smiliegrafiken enthÃ¤lt. Ohne / am Ende und ohne Backslashes!');
+define('_BBSMILE_ADMIN_HINT_IMAGEPATH_AUTO', 'Verzeichnis (relativ), das die automatisch eingebundenen Smiliegrafiken enthÃ¤lt. Alle Dateien, die die Endung gif,jpg,jpeg oder png haben, werden aus diesem verzeichnis automatisch hinzugefÃ¼gt. Ohne / am Ende und ohne Backslashes!');
 define('_BBSMILE_ADMIN_LABEL_ACTIVATE_AUTO', 'Automatisches Einbinden von Smilies aktivieren');
 define('_BBSMILE_ADMIN_LABEL_IMAGEPATH', 'Pfad zu den Smiliegrafiken');
 define('_BBSMILE_ADMIN_LABEL_IMAGEPATH_AUTO', 'Pfad zu den automatisch eingebundenen Smiliegrafiken');
-define('_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'Mit dem Bestätigen werden alle Smilies aus dem unten genannten Verzeichnis eingelesen. Smilies, deren Bilder aus dem Verzeichnis gelöscht wurden, werden ebenfalls gelöscht. Änderung von schon bestehenden Smilies bleiben erhalten.');
+define('_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM', 'Mit dem BestÃ¤tigen werden alle Smilies aus dem unten genannten Verzeichnis eingelesen. Smilies, deren Bilder aus dem Verzeichnis gelÃ¶scht wurden, werden ebenfalls gelÃ¶scht. Ã„nderung von schon bestehenden Smilies bleiben erhalten.');
 define('_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM', 'Lese Smilies vom Filesystem');
-define('_BBSMILE_ADMIN_LABEL_REMOVE_INACTIVE', 'Inaktive Smiliekürzel entfernen');
+define('_BBSMILE_ADMIN_LABEL_REMOVE_INACTIVE', 'Inaktive SmiliekÃ¼rzel entfernen');
 define('_BBSMILE_ADMIN_LABEL_SMILIETABLE', 'Definierte Smilies');
 define('_BBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM', 'Smilies wurden neu eingelesen');
 define('_BBSMILE_ADMIN_SMILIETABLE_ACTIVE', 'Aktiv');
 define('_BBSMILE_ADMIN_SMILIETABLE_ALIAS', 'Aliase zu dem Smilie');
-define('_BBSMILE_ADMIN_SMILIETABLE_ALIAS_HINT', 'Aliase können mit "," getrennt werden. Allerdings OHNE Leerstellen.');
+define('_BBSMILE_ADMIN_SMILIETABLE_ALIAS_HINT', 'Aliase kÃ¶nnen mit "," getrennt werden. Allerdings OHNE Leerstellen.');
 define('_BBSMILE_ADMIN_SMILIETABLE_ALT', 'Alternativtext');
 define('_BBSMILE_ADMIN_SMILIETABLE_FILENAME', 'Dateiname');
-define('_BBSMILE_ADMIN_SMILIETABLE_SHORT', 'Abkürzung/Trigger');
+define('_BBSMILE_ADMIN_SMILIETABLE_SHORT', 'AbkÃ¼rzung/Trigger');
 define('_BBSMILE_ADMIN_SMILIETABLE_SMILIE', 'Smilie');
 define('_BBSMILE_ADMIN_START', 'Start');
 define('_BBSMILE_ADMIN_TITLE', 'bbsmile Administration');
-define('_BBSMILE_ADMIN_TITLE_CONFIG', 'Konfiguration ändern');
+define('_BBSMILE_ADMIN_TITLE_CONFIG', 'Konfiguration Ã¤ndern');
 define('_BBSMILE_ADMIN_TITLE_EDITSMILIES', 'Editiere die aktuell definierten Smilies');
 define('_BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM', 'Lese Smilies aus dem Ordner neu ein');
 
 //
 // C
 //
-define('_BBSMILE_CLICKOUTSIDETOCLOSE', 'Außerhalb dieses Fenster klicken zum Schliessen');
+define('_BBSMILE_CLICKOUTSIDETOCLOSE', 'AuÃŸerhalb dieses Fenster klicken zum Schliessen');
 define('_BBSMILE_COULDNOTREGISTER', 'bbsmile NICHT installiert!');
 define('_BBSMILE_COULDNOTUNREGISTER', 'bbsmile NICHT entfernt!');
 
@@ -70,7 +70,7 @@ define('_BBSMILE_COULDNOTUNREGISTER', 'bbsmile NICHT entfernt!');
 // F
 //
 define('_BBSMILE_FAILEDTOUPGRADEHOOK', 'Fehler beim Aktualiseren der Hooks');
-define('_BBSMILE_FORCERELOAD', 'Neuladen erzwingen, alle Smilieeinstellungen werden überschrieben!');
+define('_BBSMILE_FORCERELOAD', 'Neuladen erzwingen, alle Smilieeinstellungen werden Ã¼berschrieben!');
 
 //
 // G
@@ -92,7 +92,7 @@ define('_BBSMILE_MORESMILIES', 'Weitere Smilies');
 // N
 //
 define('_BBSMILE_NOAUTOSMILIES', 'Erweiterte Smilies sind noch nicht aktiviert!');
-define('_BBSMILE_NOSCRIPTWARNING', 'Ihr Browser unterstützt kein Javascript oder Javascript ist deaktiviert. Das BBSmile-Interface ist daher nicht verfügbar.');
+define('_BBSMILE_NOSCRIPTWARNING', 'Ihr Browser unterstÃ¼tzt kein Javascript oder Javascript ist deaktiviert. Das BBSmile-Interface ist daher nicht verfÃ¼gbar.');
 define('_BBSMILE_NOTHOOKED', '** bbsmile wird zur Zeit von keinem Modul verwendet **');
 
 //
