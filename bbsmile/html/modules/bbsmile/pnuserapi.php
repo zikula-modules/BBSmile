@@ -34,7 +34,7 @@ function bbsmile_userapi_transform($args)
     // Argument check
     if ((!isset($args['objectid'])) ||
         (!isset($args['extrainfo']))) {
-        return LogUtil::registerError(__('Error! Could not do what you wanted. Please check your input.', $dom));
+        return LogUtil::registerArgsError();
     }
 
     if (is_array($args['extrainfo'])) {

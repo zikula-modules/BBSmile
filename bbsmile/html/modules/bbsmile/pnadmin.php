@@ -95,7 +95,7 @@ function bbsmile_admin_readsmilies()
     $forcereload = ($forcereload==1) ? true : false;
     // @see adminapi.php#bbsmile_adminapi_updatesmilies()
     pnModAPIFunc('bbsmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
-    LogUtil::registerStatus(__('Smilies have been read from filesystem sucsessfully.', $dom));
+    LogUtil::registerStatus(__('Smilies have been read from filesystem successfully.', $dom));
     return pnRedirect(pnModURL('bbsmile', 'admin'));
 }
 

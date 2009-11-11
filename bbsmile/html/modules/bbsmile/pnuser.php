@@ -44,7 +44,7 @@ function bbsmile_user_main()
 function bbsmile_user_bbsmiles($args)
 {
     if(!isset($args['textfieldid']) || empty($args['textfieldid'])) {
-        return LogUtil::registerError(_MODARGSERROR . ' (textfieldid)');
+        return LogUtil::registerArgsError();
     }
 
     // if we have more than one textarea we need to distinguish them, so we simply use

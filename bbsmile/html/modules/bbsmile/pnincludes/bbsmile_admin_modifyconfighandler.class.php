@@ -33,6 +33,7 @@ class bbsmile_admin_modifyconfighandler
     function handleCommand(&$pnRender, &$args)
     {
         $dom = ZLanguage::getModuleDomain('bbsmile');
+
         // Security check
         if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError(pnModURL('bbsmile', 'admin', 'main'));

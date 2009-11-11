@@ -210,7 +210,7 @@ function bbsmile_adminapi_getlinks()
             $links[] = array('url' => pnModURL('bbsmile', 'admin', 'readsmilies'), 'text' => __('Read smilies out of the directory', $dom), 'title' => __('Extended Smilies not yet activated!', $dom), 'disabled' => true);
             $links[] = array('url' => pnModURL('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => __('Edit the defined smilies', $dom), 'title' => __('Extended Smilies not yet activated!', $dom), 'disabled' => true);
         }
-        $links[] = array('url' => pnModURL('bbsmile', 'admin', 'modifyconfig'), 'text' => __('Modify Configuration', $dom));
+        $links[] = array('url' => pnModURL('bbsmile', 'admin', 'modifyconfig'), 'text' => __('Settings', $dom));
     }
     return $links;
 }

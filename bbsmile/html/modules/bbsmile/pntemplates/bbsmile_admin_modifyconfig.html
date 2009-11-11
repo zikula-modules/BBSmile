@@ -1,15 +1,15 @@
 <!--[*  $Id$  *]-->
 <!--[include file="bbsmile_admin_header.html"]-->
-<h2><!--[gt text='Modify Configuration']--></h2>
+<h2><!--[gt text='Settings']--></h2>
 
-<!--[pnform cssclass="z-form"]-->
+<!--[pnform cssClass="z-form"]-->
 <!--[pnformvalidationsummary]-->
 
 <fieldset>
-    <legend><!--[gt text="Modify Configuration"]--></legend>
+    <legend><!--[gt text="General settings"]--></legend>
     <div class="z-formrow">
         <!--[pnformlabel for="smiliepath" __text='Path to the smilies']-->
-        <!--[pnformtextinput size="40" maxlength="255" id="smiliepath" text=$pncore.bbsmile.smiliepath]-->
+        <!--[pnformtextinput size="40" maxLength="255" id="smiliepath" text=$pncore.bbsmile.smiliepath]-->
     </div>
     <div class="z-formrow">
         <!--[pnformlabel for="activate_auto" __text='Activate auto smilies']-->
@@ -17,7 +17,7 @@
     </div>
     <div class="z-formrow">
         <!--[pnformlabel for="smiliepath_auto" __text='Path to the automatically included smilies']-->
-        <!--[pnformtextinput size="40" maxlength="255" id="smiliepath_auto" __text=$pncore.bbsmile.smiliepath_auto]-->
+        <!--[pnformtextinput size="40" maxLength="255" id="smiliepath_auto" text=$pncore.bbsmile.smiliepath_auto]-->
     </div>
     <div class="z-formrow">
         <!--[pnformlabel for="remove_inactive" __text='Remove inactive smilie shortcuts']-->
@@ -26,7 +26,7 @@
 </fieldset>
 
 <div class="z-formbuttons">
-    <!--[pnformbutton id="submit" commandname="submit" __text="Apply"]-->
+    <!--[pnformbutton id="submit" commandName="submit" __text="Apply"]-->
 </div>
 
 <!--[/pnform]-->
