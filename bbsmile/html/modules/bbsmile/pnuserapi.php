@@ -30,10 +30,11 @@
 */
 function bbsmile_userapi_transform($args)
 {
+    $dom = ZLanguage::getModuleDomain('bbsmile');
     // Argument check
     if ((!isset($args['objectid'])) ||
         (!isset($args['extrainfo']))) {
-        return LogUtil::registerError(_MODARGSERROR);
+        return LogUtil::registerError(__('Error! Could not do what you wanted. Please check your input.', $dom));
     }
 
     if (is_array($args['extrainfo'])) {

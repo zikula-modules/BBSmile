@@ -86,7 +86,8 @@ function bbsmile_upgrade($oldversion)
                                      'pn_bbsmile',
                                      'user',
                                      'smilies')) {
-                return LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (display hook)');
+                LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (display hook)');
+                return '1.15';
             }
             pnModDelVar('pn_bbsmile', 'displayhook');
         case '1.17':
@@ -105,7 +106,7 @@ function bbsmile_upgrade($oldversion)
             pnModSetVar('bbsmile', 'smilie_array', $smilie_array);
 
             pnModDelVar('pn_bbsmile');
-            
+
     		// update hooks
     		$pntables = pnDBGetTables();
     		$hookstable  = $pntables['hooks'];
@@ -113,15 +114,17 @@ function bbsmile_upgrade($oldversion)
     		$sql = 'UPDATE ' . $hookstable . ' SET ' . $hookscolumn['smodule'] . '=\'bbsmile\' WHERE ' . $hookscolumn['smodule'] . '=\'pn_bbsmile\'';
     		$res = DBUtil::executeSQL ($sql);
     		if ($res === false) {
-        		return LogUtil::registerError(_BBSMILE_FAILEDTOUPGRADEHOOK . ' (smodule)');
+        		LogUtil::registerError(_BBSMILE_FAILEDTOUPGRADEHOOK . ' (smodule)');
+        		return '2.0';
     		}
-    
+
     		$sql = 'UPDATE ' . $hookstable . ' SET ' . $hookscolumn['tmodule'] . '=\'bbsmile\' WHERE ' . $hookscolumn['tmodule'] . '=\'pn_bbsmile\'';
     		$res   = DBUtil::executeSQL ($sql);
     		if ($res === false) {
-        		return LogUtil::registerError(_BBSMILE_FAILEDTOUPGRADEHOOK . ' (tmodule)');
+        		LogUtil::registerError(_BBSMILE_FAILEDTOUPGRADEHOOK . ' (tmodule)');
+        		return '2.0';
     		}
-            
+
         default:
             break;
     }

@@ -199,17 +199,18 @@ function bbsmile_adminapi_load_smilies()
  */
 function bbsmile_adminapi_getlinks()
 {
+    $dom = ZLanguage::getModuleDomain('bbsmile');
     $links = array();
     if (SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
-        $links[] = array('url' => pnModURL('bbsmile', 'admin', 'main'), 'text' => _BBSMILE_ADMIN_START);
+        $links[] = array('url' => pnModURL('bbsmile', 'admin', 'main'), 'text' => __('Start', $dom));
         if(pnModGetVar('bbsmile', 'activate_auto') == 1) {
-            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'readsmilies'), 'text' => _BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM);
-            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _BBSMILE_ADMIN_TITLE_EDITSMILIES);
+            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'readsmilies'), 'text' => __('Read smilies out of the directory', $dom));
+            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => __('Edit the defined smilies', $dom));
         } else {
-            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'readsmilies'), 'text' => _BBSMILE_ADMIN_TITLE_READSMILIESFROMFILESYSTEM, 'title' => _BBSMILE_NOAUTOSMILIES, 'disabled' => true);
-            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => _BBSMILE_ADMIN_TITLE_EDITSMILIES, 'title' => _BBSMILE_NOAUTOSMILIES, 'disabled' => true);
+            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'readsmilies'), 'text' => __('Read smilies out of the directory', $dom), 'title' => __('Extended Smilies not yet activated!', $dom), 'disabled' => true);
+            $links[] = array('url' => pnModURL('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => __('Edit the defined smilies', $dom), 'title' => __('Extended Smilies not yet activated!', $dom), 'disabled' => true);
         }
-        $links[] = array('url' => pnModURL('bbsmile', 'admin', 'modifyconfig'), 'text' => _BBSMILE_ADMIN_TITLE_CONFIG);
+        $links[] = array('url' => pnModURL('bbsmile', 'admin', 'modifyconfig'), 'text' => __('Modify Configuration', $dom));
     }
     return $links;
 }

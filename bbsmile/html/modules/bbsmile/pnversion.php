@@ -25,18 +25,21 @@
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
+$dom = ZLanguage::getModuleDomain('bbsmile');
 $modversion['name']             = 'bbsmile';
 $modversion['oldnames']         = array('pn_bbsmile');
-$modversion['version']          = '2.1';
+$modversion['version']          = '2.2';
 $modversion['id']               = '163';
-$modversion['description']      = 'Smilie Hook (Autoincluded)';
+$modversion['description']      = __('Smilie Hook (Autoincluded)', $dom);
+$modversion['displayname']      = __('BBSmile Hook', $dom);
+$modversion['url']              = __('bbsmile', $dom);
 $modversion['credits']          = 'pndocs/credits.txt';
 $modversion['help']             = 'pndocs/help.txt';
 $modversion['changelog']        = 'pndocs/changelog.txt';
 $modversion['license']          = 'pndocs/license.txt';
 $modversion['coding']           = 'pndocs/coding.txt';
 $modversion['official']         = 0;
-$modversion['author']           = 'Frank Schummertz, pnForum team';
+$modversion['author']           = 'Frank Schummertz, Dizkus team';
 $modversion['contact']          = 'http://code.zikula.org/bbsmile';
 $modversion['admin']            = 1;
 $modversion['securityschema']   = array('bbsmile::' => '::');

@@ -77,8 +77,9 @@ function bbsmile_admin_modifyconfig()
  *
  *
  */
-function bbsmile_admin_readsmilies() {
-
+function bbsmile_admin_readsmilies()
+{
+    $dom = ZLanguage::getModuleDomain('bbsmile');
     if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
         return LogUtil::registerPermissionError(pnConfigGetVar('entrypoint', 'index.php'));
     }
@@ -94,7 +95,7 @@ function bbsmile_admin_readsmilies() {
     $forcereload = ($forcereload==1) ? true : false;
     // @see adminapi.php#bbsmile_adminapi_updatesmilies()
     pnModAPIFunc('bbsmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
-    LogUtil::registerStatus(_BBSMILE_ADMIN_SMILIESREADFROMFILESYSTEM);
+    LogUtil::registerStatus(__('Smilies have been read from filesystem sucsessfully.', $dom));
     return pnRedirect(pnModURL('bbsmile', 'admin'));
 }
 
@@ -103,8 +104,9 @@ function bbsmile_admin_readsmilies() {
  *
  *
  */
-function bbsmile_admin_editsmilies() {
-
+function bbsmile_admin_editsmilies()
+{
+    $dom = ZLanguage::getModuleDomain('bbsmile');
     if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
         return LogUtil::registerPermissionError(pnConfigGetVar('entrypoint', 'index.php'));
     }
@@ -146,6 +148,6 @@ function bbsmile_admin_editsmilies() {
 
    pnModSetVar('bbsmile','smilie_array', $smilies);
 
-   LogUtil::registerStatus(_BBSMILE_ADMIN_EDITEDSMILIESSAVED);
+   LogUtil::registerStatus(__('The edited smilies have been saved.', $dom));
    return pnRedirect(pnModURL('bbsmile', 'admin'));
 }
