@@ -1,27 +1,27 @@
 <!--[*  $Id$  *]-->
 <!--[include file="bbsmile_admin_header.html"]-->
-<h2><!--[ pnml name='_BBSMILE_ADMIN_LABEL_READSMILIESFROMFILESYSTEM' ]--></h2>
-<div class="z-informationmsg"><!--[pnml name="_BBSMILE_ADMIN_LABEL_READFROMFILESYSTEM"]--></div>
+<h2><!--[gt text='Read smilies from filesystem']--></h2>
+<div class="z-informationmsg"><!--[gt text="With confirmation all smilies out of the directory are read. Smilies without a image in the directory will be deleted. Changes on smilie information will be kept."]--></div>
 
 <form class="z-form" action="<!--[pnmodurl modname="bbsmile" type="admin" func="readsmilies"]-->" method="post" enctype="application/x-www-form-urlencoded">
 
     <fieldset>
-        <legend><!--[ pnml name='_BBSMILE_ADMIN_CONFIRM_READFROMFILESYSTEM' ]--></legend>
+        <legend><!--[gt text='Should the smilies be read out of the directory?']--></legend>
         <input type="hidden" name="authid" value="<!--[pnsecgenauthkey module="bbsmile"]-->" />
         <!--[if $pncore.bbsmile.smiliepath_auto neq '']-->
         <div class="z-formrow">
-            <label><!--[ pnml name='_BBSMILE_ADMIN_LABEL_IMAGEPATH' ]--></label>
+            <label><!--[gt text='Path to the smilies']--></label>
             <span style="font-weight:bold;"><!--[$pncore.bbsmile.smiliepath_auto]--></span>
         </div>
         <!--[/if]-->
         <div class="z-formrow">
-            <label for="forcereload"><!--[ pnml name='_BBSMILE_FORCERELOAD' ]--></label>
+            <label for="forcereload"><!--[gt text='Force reload of smilies, all data will be overwritten!']--></label>
             <input name="forcereload" id="forcereload" type="checkbox" value="1" />
         </div>
     </fieldset>
 
     <div class="z-formbuttons">
-        <input name="submit" type="submit" value="<!--[pnml name="_BBSMILE_ADMIN_BTN_SUBMIT"]-->" />
+        <input name="submit" type="submit" value="<!--[gt text="Apply"]-->" />
     </div>
 
 </form>
