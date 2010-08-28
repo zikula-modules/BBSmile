@@ -29,7 +29,7 @@ class BBSmile_Version extends Zikula_Version
 {
 	public function getMetaData()
 	{
-		$meta['oldnames']         = array('pn_bbsmile');
+		$meta['oldnames']         = array('bbsmile');
 		$meta['version']          = '3.0.0';
 		$meta['id']               = '163';
 		$meta['description']      = $this->__('Smilie Hook (Autoincluded)');
