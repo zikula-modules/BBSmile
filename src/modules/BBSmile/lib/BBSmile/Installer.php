@@ -16,12 +16,12 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Hinrich Donner
-// changed to bbsmile: larsneo
+// changed to BBSmile: larsneo
 // ----------------------------------------------------------------------
 
 /**
  * @package Zikula_Utility_Modules
- * @subpackage bbsmile
+ * @subpackage BBSmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
@@ -54,7 +54,7 @@ class BBSmile_Installer extends Zikula_Installer
 				  'BBSmile',
 				  'user',
 				  'transform')) {
-		return LogUtil::registerError(_BBSMILE_COULDNOTREGISTER . ' (transform hook)');
+		return LogUtil::registerError($this->__('Error! Could not register BBSmile transform hook.'));
 	    }
 	    // Initialisation successful
 	    return true;
@@ -80,7 +80,7 @@ class BBSmile_Installer extends Zikula_Installer
 					  'pn_bbsmile',
 					  'user',
 					  'smilies')) {
-			return LogUtil::registerError(_BBSMILE_COULDNOTREGISTER . ' (display hook)');
+			return LogUtil::registerError($this->__('Error! Could not register BBSmile display hook.'));
 		    }
 		    ModUtil::setVar('pn_bbsmile', 'displayhook', '1');
 		case '1.15':
@@ -90,7 +90,7 @@ class BBSmile_Installer extends Zikula_Installer
 					    'pn_bbsmile',
 					    'user',
 					    'smilies')) {
-			LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (display hook)');
+            LogUtil::registerError($this->__('Error! Could not unregister BBSmile display hook.'));
 			return '1.15';
 		    }
 		    ModUtil::delVar('pn_bbsmile', 'displayhook');
@@ -118,14 +118,14 @@ class BBSmile_Installer extends Zikula_Installer
 			$sql = 'UPDATE ' . $hookstable . ' SET ' . $hookscolumn['smodule'] . '=\'bbsmile\' WHERE ' . $hookscolumn['smodule'] . '=\'pn_bbsmile\'';
 			$res = DBUtil::executeSQL ($sql);
 			if ($res === false) {
-				LogUtil::registerError(_BBSMILE_FAILEDTOUPGRADEHOOK . ' (smodule)');
+				LogUtil::registerError($this->__('Error! Failed to upgrade BBSmile hooks (smodule).'));
 				return '2.0';
 			}
 
 			$sql = 'UPDATE ' . $hookstable . ' SET ' . $hookscolumn['tmodule'] . '=\'bbsmile\' WHERE ' . $hookscolumn['tmodule'] . '=\'pn_bbsmile\'';
 			$res   = DBUtil::executeSQL ($sql);
 			if ($res === false) {
-				LogUtil::registerError(_BBSMILE_FAILEDTOUPGRADEHOOK . ' (tmodule)');
+			    LogUtil::registerError($this->__('Error! Failed to upgrade BBSmile hooks (tmodule).'));
 				return '2.0';
 			}
 
@@ -147,7 +147,7 @@ class BBSmile_Installer extends Zikula_Installer
 				    'BBSmile',
 				    'user',
 				    'transform')) {
-		return LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (transform hook)');
+		return LogUtil::registerError($this->__('Error! Could not unregister BBSmile transform hook.'));
 	    }
 
 	    // Remove module variables

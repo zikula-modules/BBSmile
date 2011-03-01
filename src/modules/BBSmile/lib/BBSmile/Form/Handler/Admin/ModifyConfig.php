@@ -16,7 +16,7 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Frank Schummertz
-// Purpose of file:  bbsmile administration display functions
+// Purpose of file:  BBSmile administration display functions
 // ----------------------------------------------------------------------
 
 class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
@@ -37,7 +37,7 @@ class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
         }
 
         // Security check
-        if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
+        if (!SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError(ModUtil::url('BBSmile', 'admin', 'main'));
         }
 
@@ -72,7 +72,7 @@ class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
         $this->setVar('activate_auto',    $data['activate_auto']);
         $this->setVar('remove_inactive',  $data['remove_inactive']);
 
-        LogUtil::registerStatus($this->__('bbsmile configuration updated'));
+        LogUtil::registerStatus($this->__('BBSmile configuration updated'));
 
         return true;
     }

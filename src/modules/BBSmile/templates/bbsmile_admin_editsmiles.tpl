@@ -3,9 +3,9 @@
 
 <p class="z-informationmsg">{gt text='Aliases are seperated by ",". Please don\'t use spaces.'}</p>
 
-<form class="z-form" action="{modurl modname="bbsmile" type="admin" func="editsmilies"}" method="post" enctype="application/x-www-form-urlencoded">
+<form class="z-form" action="{modurl modname="BBSmile" type="admin" func="editsmilies"}" method="post" enctype="application/x-www-form-urlencoded">
     <div>
-        <input type="hidden" name="authid" value="{secgenauthkey module="bbsmile"}" />
+        <input type="hidden" name="authid" value="{secgenauthkey module="BBSmile"}" />
         <table class="z-admintable">
             <thead>
                 <tr>
@@ -21,7 +21,7 @@
                 {foreach from=$smilies key=key item=smilie}
                 <tr class="{cycle values=z-odd,z-even}">
                     <td>
-                        <img src="{if $smilie.type eq 0}{$modvars.bbsmile.smiliepath}{else}{$modvars.bbsmile.smiliepath_auto}{/if}/{$smilie.imgsrc|safehtml}" alt="{$smilie.alt|safehtml}" />
+                        <img src="{if $smilie.type eq 0}{$modvars.BBSmile.smiliepath}{else}{$modvars.BBSmile.smiliepath_auto}{/if}/{$smilie.imgsrc|safehtml}" alt="{$smilie.alt|safehtml}" />
                         <input type="hidden" name="key[]" value="{$key}" />
                         <input type="hidden" name="smilietype[]" value="{$smilie.type|safehtml}" />
                     </td>

@@ -4,15 +4,15 @@
 
 <p class="z-informationmsg">{gt text="With confirmation all smilies out of the directory are read. Smilies without a image in the directory will be deleted. Changes on smilie information will be kept."}</p>
 
-<form class="z-form" action="{modurl modname="bbsmile" type="admin" func="readsmilies"}" method="post" enctype="application/x-www-form-urlencoded">
+<form class="z-form" action="{modurl modname="BBSmile" type="admin" func="readsmilies"}" method="post" enctype="application/x-www-form-urlencoded">
 
     <fieldset>
         <legend>{gt text='Should the smilies be read out of the directory?'}</legend>
-        <input type="hidden" name="authid" value="{secgenauthkey module="bbsmile"}" />
-        {if $modvars.bbsmile.smiliepath_auto neq ''}
+        <input type="hidden" name="authid" value="{secgenauthkey module="BBSmile"}" />
+        {if $modvars.BBSmile.smiliepath_auto neq ''}
         <div class="z-formrow">
             <label>{gt text='Path to the smilies'}</label>
-            <span style="font-weight:bold;">{$modvars.bbsmile.smiliepath_auto}</span>
+            <span style="font-weight:bold;">{$modvars.BBSmile.smiliepath_auto}</span>
         </div>
         {/if}
         <div class="z-formrow">

@@ -20,7 +20,7 @@
 
 /**
  * @package Zikula_Utility_Modules
- * @subpackage bbsmile
+ * @subpackage BBSmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 

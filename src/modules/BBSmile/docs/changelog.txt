@@ -2,17 +2,17 @@ Version 2.1
 ===============================================================================
 IMPORTANT NOTICE:
 ==================================================================================
-The permission component changed in v2.0 from pn_bbsmile to bbsmile, please update
+The permission component changed in v2.0 from pn_bbsmile to BBSmile, please update
 your permission rules!!!
 You might also need to change the path settings that point to your smilies images.
 ===============================================================================
 Upgrade from pn_bbsmile:
 * remove old pn_bbsmile module in the filesystem, do not remove the module in
   Zikula!
-* copy new bbsmile files to your modules folder
+* copy new BBSmile files to your modules folder
 * regenerate modules list and continue upgrading as usual
 ==================================================================================
-    - renamed to bbsmile to get rid of the pn_ prefix.
+    - renamed to BBSmile to get rid of the pn_ prefix.
 
 Version 2.0 (not released)
     - Zikula 1.0 only version, will not run with .764 or older!

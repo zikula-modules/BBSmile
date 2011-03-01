@@ -21,7 +21,7 @@
 
 /**
  * @package Zikula_Utility_Modules
- * @subpackage bbsmile
+ * @subpackage BBSmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
@@ -40,7 +40,7 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 	*/
 	public function main()
 	{
-	    if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
+	    if (!SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
 		return LogUtil::registerPermissionError(System::getVar('entrypoint', 'index.php'));
 	    }
 
@@ -64,7 +64,7 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 	*/
 	public function modifyconfig()
 	{
-		if (!SecurityUtil::checkPermission('bbsmile::', "::", ACCESS_ADMIN)) {
+		if (!SecurityUtil::checkPermission('BBSmile::', "::", ACCESS_ADMIN)) {
 		      return LogUtil::registerPermissionError();
 		}
 
@@ -79,7 +79,7 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 	*/
 	public function readsmilies()
 	{
-	    if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
+	    if (!SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
 		return LogUtil::registerPermissionError(System::getVar('entrypoint', 'index.php'));
 	    }
 
@@ -106,7 +106,7 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 	*/
 	public function editsmilies()
 	{
-	    if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
+	    if (!SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
 		return LogUtil::registerPermissionError(System::getVar('entrypoint', 'index.php'));
 	    }
 

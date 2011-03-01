@@ -16,7 +16,7 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Hinrich Donner
-// changed to bbsmile: larsneo
+// changed to BBSmile: larsneo
 // ----------------------------------------------------------------------
 
 class BBSmile_Api_Admin extends Zikula_Api
@@ -201,7 +201,7 @@ class BBSmile_Api_Admin extends Zikula_Api
 	public function getlinks()
 	{
 	    $links = array();
-	    if (SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
+	    if (SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
             $links[] = array(
                 'url' => ModUtil::url('BBSmile', 'admin', 'main'),
                 'text' => $this->__('Start')

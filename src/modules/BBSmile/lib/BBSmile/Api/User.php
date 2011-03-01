@@ -16,12 +16,12 @@
 // To read the license please visit http://www.gnu.org/copyleft/gpl.html
 // ----------------------------------------------------------------------
 // Original Author of file: Hinrich Donner
-// changed to bbsmile: larsneo
+// changed to BBSmile: larsneo
 // ----------------------------------------------------------------------
 
 /**
  * @package Zikula_Utility_Modules
- * @subpackage bbsmile
+ * @subpackage BBSmile
  * @license http://www.gnu.org/copyleft/gpl.html
 */
 
