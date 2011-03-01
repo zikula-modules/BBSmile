@@ -60,9 +60,6 @@ class BBSmile_Controller_User extends Zikula_Controller
 		$pnr->assign('counter', $counter);
 		$pnr->assign('textfieldid', $args['textfieldid']);
 
-		PageUtil::addVar('javascript', 'javascript/ajax/prototype.js');
-		PageUtil::addVar('javascript', 'modules/Bbsmile/javascript/dosmilie.js');
-		PageUtil::addVar('javascript', 'modules/Bbsmile/javascript/control_modal.js');
 		PageUtil::addVar('stylesheet', ThemeUtil::getModuleStylesheet('bbsmile'));
 		
 		$templatefile = DataUtil::formatForOS(ModUtil::getName()) . '.tpl';

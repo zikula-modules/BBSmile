@@ -1,3 +1,6 @@
+{ajaxheader modname=BBSmile filename='dosmilie.js'}
+{ajaxheader modname=BBSmile filename='control_modal.js'}
+
 {* add the javascript file  *}
 
 <noscript>
