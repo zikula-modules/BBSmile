@@ -1,8 +1,7 @@
-{* $Id$ *}
 {admincategorymenu}
 <div class="z-adminbox">
-    <h1>{gt text='bbsmile Administration'}</h1>
-    <div class="z-menu">{moduleadminlinks modname="bbsmile"}</div>
+    <h1>{$modinfo.displayname}</h1>
+    {modulelinks modname='BBSmile' type='admin'}
 </div>
 
 <div id="bbsmileadmin" class="z-admincontainer">

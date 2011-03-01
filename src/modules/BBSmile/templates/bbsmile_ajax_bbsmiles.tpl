@@ -1,5 +1,3 @@
-{* $Id$ *}
-
 {bbsmile_smilie_list assign="autosmilies" type="auto"}
 {if $autosmilies_count > 0}
 <p>{gt text="Click outside this window to close it"}</p>
@@ -10,7 +8,7 @@
     {if $col == 5}</tr><tr>{assign var="col" value="0"}{/if}
         <td>
             <a href="javascript:void(0);" onclick="AddSmilie('{$textfieldid}', ' {$smilie.short} ')" title="{$smilie.short}">
-                <img src="{getbaseurl}{$zcore.bbsmile.smiliepath_auto}/{$smilie.imgsrc}" alt="Smilie {$smilie.alt}" />
+                <img src="{getbaseurl}{$modvars.bbsmile.smiliepath_auto}/{$smilie.imgsrc}" alt="Smilie {$smilie.alt}" />
             </a>
         </td>
         {assign var="col" value="`$col+1`"}

@@ -1,5 +1,3 @@
-{* $Id$ *}
-
 {* add the javascript file  *}
 
 <noscript>
@@ -12,12 +10,12 @@
         {* default smilies *}
         {foreach item=smilie from=$smilies}
         <a href="javascript:void(0);" onclick="AddSmilie('{$textfieldid}', ' {$smilie.short} ')" title="{$smilie.short}">
-            <img class="bb_smilie" src="{getbaseurl}{$zcore.bbsmile.smiliepath}/{$smilie.imgsrc}" alt='Smilie {$smilie.alt}' />
+            <img class="bb_smilie" src="{getbaseurl}{$modvars.bbsmile.smiliepath}/{$smilie.imgsrc}" alt='Smilie {$smilie.alt}' />
         </a>
         {/foreach}
     </div>
 
-    {if $zcore.bbsmile.activate_auto}
+    {if $modvars.bbsmile.activate_auto}
     <div class="bb_showhidesmilies">
         <a href="{getbaseurl}ajax.php?module=bbsmile&amp;func=loadsmilies&amp;textfieldid={$textfieldid}" id="smiliemodal">{gt text="More Smilies"}</a>&nbsp;<img class="hidden" id="loadsmilieindicator" src="images/ajax/indicator.white.gif" alt="ajaxindicator" />
     </div>

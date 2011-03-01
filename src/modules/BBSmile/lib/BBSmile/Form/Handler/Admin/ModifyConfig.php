@@ -19,9 +19,9 @@
 // Purpose of file:  bbsmile administration display functions
 // ----------------------------------------------------------------------
 
-class BBSmile_Form_Handler_Admin_ModifyConfig extends Form_Handler
+class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
 {
-    function initialize(&$view)
+    function initialize(Zikula_Form_View $view)
     {
         $view->caching = false;
         $view->add_core_data();
@@ -29,46 +29,51 @@ class BBSmile_Form_Handler_Admin_ModifyConfig extends Form_Handler
     }
 
 
-    function handleCommand(&$view, &$args)
+    function handleCommand(Zikula_Form_View $view, &$args)
     {
+        if ($args['commandName'] == 'cancel') {
+            $url = ModUtil::url('bbsmile', 'admin', 'modifyconfig' );
+            return $view->redirect($url);
+        }
 
         // Security check
         if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError(ModUtil::url('bbsmile', 'admin', 'main'));
         }
-        if ($args['commandName'] == 'submit') {
-            if (!$view->pnFormIsValid()) {
-                return false;
-            }
 
-            $ok = true;
-            $data = $view->pnFormGetValues();
-
-            $ossmiliepath = DataUtil::formatForOS($data['smiliepath']);
-            if(!file_exists($ossmiliepath) || !is_readable($ossmiliepath)) {
-                $ifield = & $view->pnFormGetPluginById('smiliepath');
-                $ifield->setError(DataUtil::formatForDisplay($this->__('The path does not exists or the system cannot read it.')));
-                $ok = false;
-            }
-
-            $osautosmiliepath = DataUtil::formatForOS($data['smiliepath_auto']);
-            if(!file_exists($osautosmiliepath) || !is_readable($osautosmiliepath)) {
-                $ifield = & $view->pnFormGetPluginById('smiliepath_auto');
-                $ifield->setError(DataUtil::formatForDisplay($this->__('The path does not exists or the system cannot read it.')));
-                $ok = false;
-            }
-
-            if($ok == false) {
-                return false;
-            }
-
-            ModUtil::setVar('bbsmile', 'smiliepath',       $data['smiliepath']);
-            ModUtil::setVar('bbsmile', 'smiliepath_auto',  $data['smiliepath_auto']);
-            ModUtil::setVar('bbsmile', 'activate_auto',    $data['activate_auto']);
-            ModUtil::setVar('bbsmile', 'remove_inactive',  $data['remove_inactive']);
-
-            LogUtil::registerStatus($this->__('bbsmile configuration updated'));
+        // check for valid form
+        if (!$view->isValid()) {
+            return false;
         }
+
+        $ok = true;
+        $data = $view->getValues();
+
+        $ossmiliepath = DataUtil::formatForOS($data['smiliepath']);
+        if(!file_exists($ossmiliepath) || !is_readable($ossmiliepath)) {
+            $ifield = & $view->pnFormGetPluginById('smiliepath');
+            $ifield->setError(DataUtil::formatForDisplay($this->__('The path does not exists or the system cannot read it.')));
+            $ok = false;
+        }
+
+        $osautosmiliepath = DataUtil::formatForOS($data['smiliepath_auto']);
+        if(!file_exists($osautosmiliepath) || !is_readable($osautosmiliepath)) {
+            $ifield = & $view->pnFormGetPluginById('smiliepath_auto');
+            $ifield->setError(DataUtil::formatForDisplay($this->__('The path does not exists or the system cannot read it.')));
+            $ok = false;
+        }
+
+        if($ok == false) {
+            return false;
+        }
+
+        $this->setVar('smiliepath',       $data['smiliepath']);
+        $this->setVar('smiliepath_auto',  $data['smiliepath_auto']);
+        $this->setVar('activate_auto',    $data['activate_auto']);
+        $this->setVar('remove_inactive',  $data['remove_inactive']);
+
+        LogUtil::registerStatus($this->__('bbsmile configuration updated'));
+
         return true;
     }
 

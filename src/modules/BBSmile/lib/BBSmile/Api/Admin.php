@@ -1,5 +1,5 @@
 <?php
-// $Id$
+//
 // ----------------------------------------------------------------------
 // LICENSE
 //
@@ -42,7 +42,7 @@ class BBSmile_Api_Admin extends Zikula_Api
 	    $new_smilies = ModUtil::apiFunc('bbsmile', 'admin', 'load_smilies');
 
 	    // Get the old array
-	    $old_smilies = ModUtil::getVar('bbsmile','smilie_array');
+	    $old_smilies = $this->getVar('smilie_array');
 
 	    //Combine old array and new array
 	    // First create a new array
@@ -65,7 +65,7 @@ class BBSmile_Api_Admin extends Zikula_Api
 	    }
 
 	    // Save the array
-	    ModUtil::setVar('bbsmile','smilie_array', $smilies);
+	    $this->setVar('smilie_array', $smilies);
 
 	    // Return success
 	    return true;
@@ -78,7 +78,7 @@ class BBSmile_Api_Admin extends Zikula_Api
 	public function load_smilies()
 	{
 	    // default smilies
-	    $imagepath = ModUtil::getVar('bbsmile', 'smiliepath');
+	    $imagepath = $this->setVar('smiliepath');
 	    $icons = array('icon_biggrin.gif' =>
 			  array('type'    => 0,
 				'imgsrc'  => 'icon_biggrin.gif' ,
@@ -171,8 +171,8 @@ class BBSmile_Api_Admin extends Zikula_Api
 				'alias'   => '',
 				'active'  => '1'));
 
-	    if(ModUtil::getVar('bbsmile', 'activate_auto') == 1) {
-		$smiliepath_auto = DataUtil::formatForOS(ModUtil::getVar('bbsmile', 'smiliepath_auto'));
+	    if($this->setVar('activate_auto') == 1) {
+		$smiliepath_auto = DataUtil::formatForOS($this->setVar('smiliepath_auto'));
 		$handle=opendir($smiliepath_auto);
 		if($handle<>false) {
 		    while ($file = readdir($handle)) {
@@ -196,22 +196,46 @@ class BBSmile_Api_Admin extends Zikula_Api
 	/**
 	* get available admin panel links
 	*
-	* @author Mark West
 	* @return array array of admin links
 	*/
 	public function getlinks()
 	{
 	    $links = array();
 	    if (SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
-		$links[] = array('url' => ModUtil::url('bbsmile', 'admin', 'main'), 'text' => $this->__('Start'));
-		if(ModUtil::getVar('bbsmile', 'activate_auto') == 1) {
-		    $links[] = array('url' => ModUtil::url('bbsmile', 'admin', 'readsmilies'), 'text' => $this->__('Read smilies out of the directory'));
-		    $links[] = array('url' => ModUtil::url('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => $this->__('Edit the defined smilies'));
-		} else {
-		    $links[] = array('url' => ModUtil::url('bbsmile', 'admin', 'readsmilies'), 'text' => $this->__('Read smilies out of the directory'), 'title' => $this->__('Extended Smilies not yet activated!'), 'disabled' => true);
-		    $links[] = array('url' => ModUtil::url('bbsmile', 'admin', 'editsmilies', array('aid' => -1)), 'text' => $this->__('Edit the defined smilies'), 'title' => $this->__('Extended Smilies not yet activated!'), 'disabled' => true);
-		}
-		$links[] = array('url' => ModUtil::url('bbsmile', 'admin', 'modifyconfig'), 'text' => $this->__('Settings'));
+            $links[] = array(
+                'url' => ModUtil::url('bbsmile', 'admin', 'main'),
+                'text' => $this->__('Start')
+            );
+            if($this->getVar('activate_auto') == 1) {
+                $links[] = array(
+                    'url' => ModUtil::url('bbsmile', 'admin', 'readsmilies'),
+                    'text' => $this->__('Read smilies out of the directory')
+                );
+                $links[] = array(
+                    'url' => ModUtil::url('bbsmile', 'admin', 'editsmilies', array('aid' => -1)),
+                    'text' => $this->__('Edit the defined smilies'),
+                    'class' => 'z-icon-es-list'
+                );
+            } else {
+                $links[] = array(
+                    'url' => ModUtil::url('bbsmile', 'admin', 'readsmilies'),
+                    'text' => $this->__('Read smilies out of the directory'),
+                    'title' => $this->__('Extended Smilies not yet activated!'),
+                    'disabled' => true
+                );
+                $links[] = array(
+                    'url' => ModUtil::url('bbsmile', 'admin', 'editsmilies', array('aid' => -1)),
+                    'text' => $this->__('Edit the defined smilies'),
+                    'title' => $this->__('Extended Smilies not yet activated!'),
+                    'disabled' => true,
+                    'class' => 'z-icon-es-list'
+                );
+            }
+            $links[] = array(
+                'url' => ModUtil::url('bbsmile', 'admin', 'modifyconfig'),
+                'text' => $this->__('Settings'),
+                'class' => 'z-icon-es-config'
+            );
 	    }
 	    return $links;
 	}

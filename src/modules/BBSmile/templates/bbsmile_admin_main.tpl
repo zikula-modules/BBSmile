@@ -1,4 +1,3 @@
-{*  $Id$  *}
 {include file="bbsmile_admin_header.tpl"}
 
 <strong>{gt text="Actually bbsmile is used with the following modules"}:</strong>

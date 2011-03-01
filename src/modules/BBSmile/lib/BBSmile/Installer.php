@@ -37,10 +37,10 @@ class BBSmile_Installer extends Zikula_Installer
 	    // Set up module variables
 	    //
 	    // - where are the smilies stored
-	    ModUtil::setVar('bbsmile', 'smiliepath',      'modules/Bbsmile/images/smilies');
-	    ModUtil::setVar('bbsmile', 'activate_auto',   '0');
-	    ModUtil::setVar('bbsmile', 'remove_inactive', '1');
-	    ModUtil::setVar('bbsmile', 'smiliepath_auto', 'modules/Bbsmile/images/smilies_auto');
+	    $this->setVar('smiliepath',      'modules/Bbsmile/images/smilies');
+	    $this->setVar('activate_auto',   '0');
+	    $this->setVar('remove_inactive', '1');
+	    $this->setVar('smiliepath_auto', 'modules/Bbsmile/images/smilies_auto');
 
 	    // Generate the smile array
 	    ModUtil::apiFunc('bbsmile','admin','updatesmilies',array(), true);
@@ -151,7 +151,7 @@ class BBSmile_Installer extends Zikula_Installer
 	    }
 
 	    // Remove module variables
-	    ModUtil::delVar('bbsmile');
+        $this->delVars();
 
 	    // Deletion successful
 	    return true;

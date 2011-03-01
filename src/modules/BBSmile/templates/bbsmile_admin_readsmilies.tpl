@@ -9,10 +9,10 @@
     <fieldset>
         <legend>{gt text='Should the smilies be read out of the directory?'}</legend>
         <input type="hidden" name="authid" value="{secgenauthkey module="bbsmile"}" />
-        {if $zcore.bbsmile.smiliepath_auto neq ''}
+        {if $modvars.bbsmile.smiliepath_auto neq ''}
         <div class="z-formrow">
             <label>{gt text='Path to the smilies'}</label>
-            <span style="font-weight:bold;">{$zcore.bbsmile.smiliepath_auto}</span>
+            <span style="font-weight:bold;">{$modvars.bbsmile.smiliepath_auto}</span>
         </div>
         {/if}
         <div class="z-formrow">

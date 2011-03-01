@@ -1,4 +1,3 @@
-{*  $Id$  *}
 {include file="bbsmile_admin_header.tpl"}
 <h2>{gt text="Currently defined Smilies"}</h2>
 
@@ -22,7 +21,7 @@
                 {foreach from=$smilies key=key item=smilie}
                 <tr class="{cycle values=z-odd,z-even}">
                     <td>
-                        <img src="{if $smilie.type eq 0}{$zcore.bbsmile.smiliepath}{else}{$zcore.bbsmile.smiliepath_auto}{/if}/{$smilie.imgsrc|safehtml}" alt="{$smilie.alt|safehtml}" />
+                        <img src="{if $smilie.type eq 0}{$modvars.bbsmile.smiliepath}{else}{$modvars.bbsmile.smiliepath_auto}{/if}/{$smilie.imgsrc|safehtml}" alt="{$smilie.alt|safehtml}" />
                         <input type="hidden" name="key[]" value="{$key}" />
                         <input type="hidden" name="smilietype[]" value="{$smilie.type|safehtml}" />
                     </td>
