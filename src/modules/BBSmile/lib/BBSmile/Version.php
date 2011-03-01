@@ -35,7 +35,7 @@ class BBSmile_Version extends Zikula_Version
 		$meta['description']      = $this->__('Smilie Hook (Autoincluded)');
 		$meta['displayname']      = $this->__('BBSmile Hook');
 		$meta['url']              = $this->__('bbsmile');
-		$meta['securityschema']   = array('bbsmile::' => '::');
+		$meta['securityschema']   = array('BBSmile::' => '::');
 		return $meta;
 	}
 }
