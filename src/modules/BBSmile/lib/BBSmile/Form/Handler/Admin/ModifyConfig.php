@@ -32,13 +32,13 @@ class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
     function handleCommand(Zikula_Form_View $view, &$args)
     {
         if ($args['commandName'] == 'cancel') {
-            $url = ModUtil::url('bbsmile', 'admin', 'modifyconfig' );
+            $url = ModUtil::url('BBSmile', 'admin', 'modifyconfig' );
             return $view->redirect($url);
         }
 
         // Security check
         if (!SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
-            return LogUtil::registerPermissionError(ModUtil::url('bbsmile', 'admin', 'main'));
+            return LogUtil::registerPermissionError(ModUtil::url('BBSmile', 'admin', 'main'));
         }
 
         // check for valid form

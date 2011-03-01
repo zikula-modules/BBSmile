@@ -24,7 +24,7 @@ class BBSmile_Api_Admin extends Zikula_Api
 
 	/*
 	* This function synchronized the smilies stored in the directory with
-	* the smilies sored in the modVar ('bbsmile','smilie_array).
+	* the smilies sored in the modVar ('BBSmile', 'smilie_array).
 	* The function checks if there is a smilie in the directory which is
 	* not in the modVar. If the smilie is in the modVar, the infos of the
 	* modVar are kept. Otherwise the new smilie is addes with it default infos.
@@ -39,7 +39,7 @@ class BBSmile_Api_Admin extends Zikula_Api
 	public function updatesmilies($args)
 	{
 	    // Get the new array
-	    $new_smilies = ModUtil::apiFunc('bbsmile', 'admin', 'load_smilies');
+	    $new_smilies = ModUtil::apiFunc('BBSmile', 'admin', 'load_smilies');
 
 	    // Get the old array
 	    $old_smilies = $this->getVar('smilie_array');
@@ -203,28 +203,28 @@ class BBSmile_Api_Admin extends Zikula_Api
 	    $links = array();
 	    if (SecurityUtil::checkPermission('bbsmile::', '::', ACCESS_ADMIN)) {
             $links[] = array(
-                'url' => ModUtil::url('bbsmile', 'admin', 'main'),
+                'url' => ModUtil::url('BBSmile', 'admin', 'main'),
                 'text' => $this->__('Start')
             );
             if($this->getVar('activate_auto') == 1) {
                 $links[] = array(
-                    'url' => ModUtil::url('bbsmile', 'admin', 'readsmilies'),
+                    'url' => ModUtil::url('BBSmile', 'admin', 'readsmilies'),
                     'text' => $this->__('Read smilies out of the directory')
                 );
                 $links[] = array(
-                    'url' => ModUtil::url('bbsmile', 'admin', 'editsmilies', array('aid' => -1)),
+                    'url' => ModUtil::url('BBSmile', 'admin', 'editsmilies', array('aid' => -1)),
                     'text' => $this->__('Edit the defined smilies'),
                     'class' => 'z-icon-es-list'
                 );
             } else {
                 $links[] = array(
-                    'url' => ModUtil::url('bbsmile', 'admin', 'readsmilies'),
+                    'url' => ModUtil::url('BBSmile', 'admin', 'readsmilies'),
                     'text' => $this->__('Read smilies out of the directory'),
                     'title' => $this->__('Extended Smilies not yet activated!'),
                     'disabled' => true
                 );
                 $links[] = array(
-                    'url' => ModUtil::url('bbsmile', 'admin', 'editsmilies', array('aid' => -1)),
+                    'url' => ModUtil::url('BBSmile', 'admin', 'editsmilies', array('aid' => -1)),
                     'text' => $this->__('Edit the defined smilies'),
                     'title' => $this->__('Extended Smilies not yet activated!'),
                     'disabled' => true,
@@ -232,7 +232,7 @@ class BBSmile_Api_Admin extends Zikula_Api
                 );
             }
             $links[] = array(
-                'url' => ModUtil::url('bbsmile', 'admin', 'modifyconfig'),
+                'url' => ModUtil::url('BBSmile', 'admin', 'modifyconfig'),
                 'text' => $this->__('Settings'),
                 'class' => 'z-icon-es-config'
             );

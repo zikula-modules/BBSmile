@@ -44,8 +44,8 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 		return LogUtil::registerPermissionError(System::getVar('entrypoint', 'index.php'));
 	    }
 
-	    $pnr = Zikula_View::getInstance('bbsmile', false, null, true);
-	    $hmods = ModUtil::apiFunc('modules', 'admin', 'gethookedmodules', array('hookmodname' => 'bbsmile'));
+	    $pnr = Zikula_View::getInstance('BBSmile', false, null, true);
+	    $hmods = ModUtil::apiFunc('modules', 'admin', 'gethookedmodules', array('hookmodname' => 'BBSmile'));
 	    $hookedmodules = array();
 	    foreach($hmods as $hmod => $dummy) {
 		$modid = ModUtil::getIdFromName($hmod);
@@ -68,7 +68,7 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 		      return LogUtil::registerPermissionError();
 		}
 
-        $form = FormUtil::newForm('bbsmile', $this);
+        $form = FormUtil::newForm('BBSmile', $this);
 		return $form->execute('bbsmile_admin_modifyconfig.tpl', new BBSmile_Form_Handler_Admin_ModifyConfig());
 	}
 
@@ -86,7 +86,7 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 	    $submit = FormUtil::getPassedValue('submit', null, 'POST');
 
 	    if(!$submit) {
-		$pnr = Zikula_View::getInstance('bbsmile', false, null, true);
+		$pnr = Zikula_View::getInstance('BBSmile', false, null, true);
 		$pnr->add_core_data();
 		return $pnr->fetch('bbsmile_admin_readsmilies.tpl');
 	    }
@@ -94,9 +94,9 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 	    $forcereload = FormUtil::getPassedValue('forcereload', 0, 'POST');
 	    $forcereload = ($forcereload==1) ? true : false;
 	    // @see adminapi.php#bbsmile_adminapi_updatesmilies()
-	    ModUtil::apiFunc('bbsmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
+	    ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
 	    LogUtil::registerStatus($this->__('Smilies have been read from filesystem successfully.'));
-	    return System::redirect(ModUtil::url('bbsmile', 'admin'));
+	    return System::redirect(ModUtil::url('BBSmile', 'admin'));
 	}
 
 	/**
@@ -113,7 +113,7 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 	    $submit = FormUtil::getPassedValue('submit', null, 'POST');
 
 	    if(!$submit) {
-		$pnr = Zikula_View::getInstance('bbsmile', false, null, true);
+		$pnr = Zikula_View::getInstance('BBSmile', false, null, true);
 		$smilies = $this->getVar('smilie_array');
 		$pnr->assign('smilies',$smilies);
 		$pnr->add_core_data();
@@ -149,6 +149,6 @@ class BBSmile_Controller_Admin extends Zikula_Controller
 	  $this->setVar('smilie_array', $smilies);
 
 	  LogUtil::registerStatus($this->__('The edited smilies have been saved.'));
-	  return System::redirect(ModUtil::url('bbsmile', 'admin'));
+	  return System::redirect(ModUtil::url('BBSmile', 'admin'));
 	}
 }

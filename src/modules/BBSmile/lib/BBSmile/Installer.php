@@ -37,13 +37,13 @@ class BBSmile_Installer extends Zikula_Installer
 	    // Set up module variables
 	    //
 	    // - where are the smilies stored
-	    $this->setVar('smiliepath',      'modules/Bbsmile/images/smilies');
+	    $this->setVar('smiliepath',      'modules/BBSmile/images/smilies');
 	    $this->setVar('activate_auto',   '0');
 	    $this->setVar('remove_inactive', '1');
-	    $this->setVar('smiliepath_auto', 'modules/Bbsmile/images/smilies_auto');
+	    $this->setVar('smiliepath_auto', 'modules/BBSmile/images/smilies_auto');
 
 	    // Generate the smile array
-	    ModUtil::apiFunc('bbsmile','admin','updatesmilies',array(), true);
+	    ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array(), true);
 
 
 	    // Set up module hooks
@@ -51,7 +51,7 @@ class BBSmile_Installer extends Zikula_Installer
 	    if (!ModUtil::registerHook('item',
 				  'transform',
 				  'API',
-				  'bbsmile',
+				  'BBSmile',
 				  'user',
 				  'transform')) {
 		return LogUtil::registerError(_BBSMILE_COULDNOTREGISTER . ' (transform hook)');
@@ -67,10 +67,10 @@ class BBSmile_Installer extends Zikula_Installer
 	{
 		switch($oldversion) {
 		    case '1.13':
-		    ModUtil::setVar('pn_bbsmile', 'smiliepath',       'modules/Bbsmile/images/smilies');
+		    ModUtil::setVar('pn_bbsmile', 'smiliepath',       'modules/BBSmile/images/smilies');
 			ModUtil::setVar('pn_bbsmile', 'activate_auto',    '0');
 		    ModUtil::setVar('pn_bbsmile', 'remove_inactive',  '1');
-			ModUtil::setVar('pn_bbsmile', 'smiliepath_auto',  'modules/Bbsmile/images/smilies_auto');
+			ModUtil::setVar('pn_bbsmile', 'smiliepath_auto',  'modules/BBSmile/images/smilies_auto');
 			ModUtil::apiFunc('pn_bbsmile','admin','updatesmilies',array());
 		case '1.14':
 		    // display hook
@@ -99,15 +99,15 @@ class BBSmile_Installer extends Zikula_Installer
 		    // .8 only version
 		case '2.0':
 
-		    ModUtil::setVar('bbsmile', 'smiliepath', str_replace('pn_bbsmile', 'bbsmile', ModUtil::getVar('pn_bbsmile', 'smiliepath')));
-		    ModUtil::setVar('bbsmile', 'smiliepath_auto', str_replace('pn_bbsmile', 'bbsmile', ModUtil::getVar('pn_bbsmile', 'smiliepath_auto')));
-		    ModUtil::setVar('bbsmile', 'activate_auto', ModUtil::getVar('pn_bbsmile', 'activate_auto'));
-		    ModUtil::setVar('bbsmile', 'remove_inactive', ModUtil::getVar('pn_bbsmile', 'remove_inactive'));
+		    ModUtil::setVar('BBSmile', 'smiliepath', str_replace('pn_bbsmile', 'BBSmile', ModUtil::getVar('pn_bbsmile', 'smiliepath')));
+		    ModUtil::setVar('BBSmile', 'smiliepath_auto', str_replace('pn_bbsmile', 'BBSmile', ModUtil::getVar('pn_bbsmile', 'smiliepath_auto')));
+		    ModUtil::setVar('BBSmile', 'activate_auto', ModUtil::getVar('pn_bbsmile', 'activate_auto'));
+		    ModUtil::setVar('BBSmile', 'remove_inactive', ModUtil::getVar('pn_bbsmile', 'remove_inactive'));
 		    $smilie_array = ModUtil::getVar('pn_bbsmile', 'smilie_array');
 		    if(@unserialize($smilie_array)!=='') {
 			$smilie_array = unserialize($smilie_array);
 		    }
-		    ModUtil::setVar('bbsmile', 'smilie_array', $smilie_array);
+		    ModUtil::setVar('BBSmile', 'smilie_array', $smilie_array);
 
 		    ModUtil::delVar('pn_bbsmile');
 
@@ -144,7 +144,7 @@ class BBSmile_Installer extends Zikula_Installer
 	    if (!ModUtil::unregisterHook('item',
 				    'transform',
 				    'API',
-				    'bbsmile',
+				    'BBSmile',
 				    'user',
 				    'transform')) {
 		return LogUtil::registerError(_BBSMILE_COULDNOTUNREGISTER . ' (transform hook)');

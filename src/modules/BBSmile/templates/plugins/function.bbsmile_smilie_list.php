@@ -21,7 +21,7 @@ function smarty_function_BBSMILE_smilie_list($params, &$smarty)
 	$smilies = array();
 
 	// Gett all Smilies
-	$all_smilies = ModUtil::getVar('bbsmile', 'smilie_array');
+	$all_smilies = ModUtil::getVar('BBSmile', 'smilie_array');
 
 	foreach ($all_smilies as $key=> $smilie) {
 		// Check if the typ od the smilie is the wanted type

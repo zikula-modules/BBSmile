@@ -70,15 +70,15 @@ class BBSmile_Api_User extends Zikula_Api
 		}
 	    }
 
-	    $smilies = ModUtil::getVar('bbsmile','smilie_array');
-	    $remove_inactive = ModUtil::getVar('bbsmile', 'remove_inactive');
+	    $smilies = ModUtil::getVar('BBSmile', 'smilie_array');
+	    $remove_inactive = ModUtil::getVar('BBSmile', 'remove_inactive');
 
 	    if(is_array($smilies) && count($smilies)>0) {
-		// sort smilies, see http://code.zikula.org/Bbsmile/ticket/1
+		// sort smilies, see http://code.zikula.org/BBSmile/ticket/1
 		uasort($smilies, array($this, 'cmp_smiliesort'));
-		$imagepath      = System::getBaseUrl() . DataUtil::formatForOS(ModUtil::getVar('bbsmile', 'smiliepath'));
-		$imagepath_auto = System::getBaseUrl() . DataUtil::formatForOS(ModUtil::getVar('bbsmile', 'smiliepath_auto'));
-		$auto_active = ModUtil::getVar('bbsmile','activate_auto');
+		$imagepath      = System::getBaseUrl() . DataUtil::formatForOS(ModUtil::getVar('BBSmile', 'smiliepath'));
+		$imagepath_auto = System::getBaseUrl() . DataUtil::formatForOS(ModUtil::getVar('BBSmile', 'smiliepath_auto'));
+		$auto_active = ModUtil::getVar('BBSmile', 'activate_auto');
 		// pad it with a space so we can distinguish between FALSE and matching the 1st char (index 0).
 		    // This is important!
 		$text = ' ' . $text;

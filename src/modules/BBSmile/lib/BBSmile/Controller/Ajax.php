@@ -36,7 +36,7 @@ class BBSmile_Controller_Ajax extends Zikula_Controller
 	{
 		$textfieldid = FormUtil::getPassedValue('textfieldid', null, 'GET');
 		
-		$pnr = Zikula_View::getInstance('bbsmile', false, null, true);
+		$pnr = Zikula_View::getInstance('BBSmile', false, null, true);
 		$pnr->assign('counter', SessionUtil::getVar('counter'));
 		$pnr->assign('textfieldid', $textfieldid);
 		$pnr->view->add_core_data();

@@ -59,6 +59,6 @@ function smarty_modifier_bbsmile($string)
 	$extrainfo = array($string);
 
     $return = "";
-    list($return) = ModUtil::apiFunc('bbsmile', 'user', 'transform', array('objectid' => '', 'extrainfo' => $extrainfo));
+    list($return) = ModUtil::apiFunc('BBSmile', 'user', 'transform', array('objectid' => '', 'extrainfo' => $extrainfo));
     return $return;                      
 }

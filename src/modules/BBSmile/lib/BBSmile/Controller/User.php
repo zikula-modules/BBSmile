@@ -56,11 +56,11 @@ class BBSmile_Controller_User extends Zikula_Controller
 		$counter++;
 		SessionUtil::setVar('bbsmile_counter', $counter);
 
-		$pnr = Zikula_View::getInstance('bbsmile', false, null, true);
+		$pnr = Zikula_View::getInstance('BBSmile', false, null, true);
 		$pnr->assign('counter', $counter);
 		$pnr->assign('textfieldid', $args['textfieldid']);
 
-		PageUtil::addVar('stylesheet', ThemeUtil::getModuleStylesheet('bbsmile'));
+		PageUtil::addVar('stylesheet', ThemeUtil::getModuleStylesheet('BBSmile'));
 		
 		$templatefile = DataUtil::formatForOS(ModUtil::getName()) . '.tpl';
 		if($pnr->template_exists($templatefile)) {
