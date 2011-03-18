@@ -1,8 +1,17 @@
 <?php
 
 /**
- * $Id :  $
+ * BBSmile
  *
+ * @license http://www.gnu.org/copyleft/gpl.html
+ * @package Zikula_Utility_Modules
+ * @subpackage BBSmile
+ *
+ * Please see the NOTICE file distributed with this source code for further
+ * information regarding copyright and licensing.
+ */
+
+/**
  * Type: Function
  * Author: Thomas Pawlitzki
  *

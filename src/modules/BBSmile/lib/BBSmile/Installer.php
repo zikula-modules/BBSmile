@@ -1,159 +1,72 @@
 <?php
-// $Id$
-// ----------------------------------------------------------------------
-// LICENSE
-//
-// This program is free software; you can redistribute it and/or
-// modify it under the terms of the GNU General Public License (GPL)
-// as published by the Free Software Foundation; either version 2
-// of the License, or (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// To read the license please visit http://www.gnu.org/copyleft/gpl.html
-// ----------------------------------------------------------------------
-// Original Author of file: Hinrich Donner
-// changed to BBSmile: larsneo
-// ----------------------------------------------------------------------
 
 /**
+ * BBSmile
+ *
+ * @license http://www.gnu.org/copyleft/gpl.html
  * @package Zikula_Utility_Modules
  * @subpackage BBSmile
- * @license http://www.gnu.org/copyleft/gpl.html
-*/
+ *
+ * Please see the NOTICE file distributed with this source code for further
+ * information regarding copyright and licensing.
+ */
 
 class BBSmile_Installer extends Zikula_Installer
 {
 
 
-	/**
-	* init module
-	*/
-	public function install() {
+    /**
+    * init module
+    */
+    public function install() {
 
-	    // Set up module variables
-	    //
-	    // - where are the smilies stored
-	    $this->setVar('smiliepath',      'modules/BBSmile/images/smilies');
-	    $this->setVar('activate_auto',   '0');
-	    $this->setVar('remove_inactive', '1');
-	    $this->setVar('smiliepath_auto', 'modules/BBSmile/images/smilies_auto');
+        // Set up module variables
+        //
+        // - where are the smilies stored
+        $this->setVar('smiliepath',      'modules/BBSmile/images/smilies');
+        $this->setVar('activate_auto',   '0');
+        $this->setVar('remove_inactive', '1');
+        $this->setVar('smiliepath_auto', 'modules/BBSmile/images/smilies_auto');
 
-	    // Generate the smile array
-	    ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array(), true);
+        // Generate the smile array
+        ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array(), true);
 
 
-	    // Set up module hooks
-	    // transform hook
-	    if (!ModUtil::registerHook('item',
-				  'transform',
-				  'API',
-				  'BBSmile',
-				  'user',
-				  'transform')) {
-		return LogUtil::registerError($this->__('Error! Could not register BBSmile transform hook.'));
-	    }
-	    // Initialisation successful
-	    return true;
-	}
+        // Set up module hooks
+        // create hook
+        HookUtil::registerHookProviderBundles($this->version);
 
-	/**
-	* upgrade module
-	*/
-	public function upgrade($oldversion)
-	{
-		switch($oldversion) {
-		    case '1.13':
-		    ModUtil::setVar('pn_bbsmile', 'smiliepath',       'modules/BBSmile/images/smilies');
-			ModUtil::setVar('pn_bbsmile', 'activate_auto',    '0');
-		    ModUtil::setVar('pn_bbsmile', 'remove_inactive',  '1');
-			ModUtil::setVar('pn_bbsmile', 'smiliepath_auto',  'modules/BBSmile/images/smilies_auto');
-			ModUtil::apiFunc('pn_bbsmile','admin','updatesmilies',array());
-		case '1.14':
-		    // display hook
-		    if (!ModUtil::registerHook('item',
-					  'display',
-					  'GUI',
-					  'pn_bbsmile',
-					  'user',
-					  'smilies')) {
-			return LogUtil::registerError($this->__('Error! Could not register BBSmile display hook.'));
-		    }
-		    ModUtil::setVar('pn_bbsmile', 'displayhook', '1');
-		case '1.15':
-		    if (!ModUtil::unregisterHook('item',
-					    'display',
-					    'GUI',
-					    'pn_bbsmile',
-					    'user',
-					    'smilies')) {
-            LogUtil::registerError($this->__('Error! Could not unregister BBSmile display hook.'));
-			return '1.15';
-		    }
-		    ModUtil::delVar('pn_bbsmile', 'displayhook');
-		case '1.17':
-		case '1.18':
-		    // .8 only version
-		case '2.0':
+        // Initialisation successful
+        return true;
+    }
 
-		    ModUtil::setVar('BBSmile', 'smiliepath', str_replace('pn_bbsmile', 'BBSmile', ModUtil::getVar('pn_bbsmile', 'smiliepath')));
-		    ModUtil::setVar('BBSmile', 'smiliepath_auto', str_replace('pn_bbsmile', 'BBSmile', ModUtil::getVar('pn_bbsmile', 'smiliepath_auto')));
-		    ModUtil::setVar('BBSmile', 'activate_auto', ModUtil::getVar('pn_bbsmile', 'activate_auto'));
-		    ModUtil::setVar('BBSmile', 'remove_inactive', ModUtil::getVar('pn_bbsmile', 'remove_inactive'));
-		    $smilie_array = ModUtil::getVar('pn_bbsmile', 'smilie_array');
-		    if(@unserialize($smilie_array)!=='') {
-			$smilie_array = unserialize($smilie_array);
-		    }
-		    ModUtil::setVar('BBSmile', 'smilie_array', $smilie_array);
+    /**
+    * upgrade module
+    */
+    public function upgrade($oldversion)
+    {
+/*
+        switch($oldversion) {
 
-		    ModUtil::delVar('pn_bbsmile');
+        default:
+            break;
+        }
+*/
+        return true;
+    }
 
-			// update hooks
-			$tables = DBUtil::getTables();
-			$hookstable  = $tables['hooks'];
-			$hookscolumn = $tables['hooks_column'];
-			$sql = 'UPDATE ' . $hookstable . ' SET ' . $hookscolumn['smodule'] . '=\'bbsmile\' WHERE ' . $hookscolumn['smodule'] . '=\'pn_bbsmile\'';
-			$res = DBUtil::executeSQL ($sql);
-			if ($res === false) {
-				LogUtil::registerError($this->__('Error! Failed to upgrade BBSmile hooks (smodule).'));
-				return '2.0';
-			}
+    /**
+    * delete module
+    */
+    public function uninstall() {
 
-			$sql = 'UPDATE ' . $hookstable . ' SET ' . $hookscolumn['tmodule'] . '=\'bbsmile\' WHERE ' . $hookscolumn['tmodule'] . '=\'pn_bbsmile\'';
-			$res   = DBUtil::executeSQL ($sql);
-			if ($res === false) {
-			    LogUtil::registerError($this->__('Error! Failed to upgrade BBSmile hooks (tmodule).'));
-				return '2.0';
-			}
+        // Remove module hooks
+        HookUtil::unregisterHookProviderBundles($this->version);
 
-		default:
-		    break;
-	    }
-	    return true;
-	}
-
-	/**
-	* delete module
-	*/
-	public function uninstall() {
-
-	    // Remove module hooks
-	    if (!ModUtil::unregisterHook('item',
-				    'transform',
-				    'API',
-				    'BBSmile',
-				    'user',
-				    'transform')) {
-		return LogUtil::registerError($this->__('Error! Could not unregister BBSmile transform hook.'));
-	    }
-
-	    // Remove module variables
+        // Remove module variables
         $this->delVars();
 
-	    // Deletion successful
-	    return true;
-	}
+        // Deletion successful
+        return true;
+    }
 }

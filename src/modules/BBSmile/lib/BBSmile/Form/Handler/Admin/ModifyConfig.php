@@ -1,23 +1,15 @@
 <?php
-// $Id: mh_admin_modifyconfighandler.class.php 166 2007-02-18 19:18:21Z landseer $
-// ----------------------------------------------------------------------
-// LICENSE
-//
-// This program is free software; you can redistribute it and/or
-// modify it under the terms of the GNU General Public License (GPL)
-// as published by the Free Software Foundation; either version 2
-// of the License, or (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// To read the license please visit http://www.gnu.org/copyleft/gpl.html
-// ----------------------------------------------------------------------
-// Original Author of file: Frank Schummertz
-// Purpose of file:  BBSmile administration display functions
-// ----------------------------------------------------------------------
+
+/**
+ * BBSmile
+ *
+ * @license http://www.gnu.org/copyleft/gpl.html
+ * @package Zikula_Utility_Modules
+ * @subpackage BBSmile
+ *
+ * Please see the NOTICE file distributed with this source code for further
+ * information regarding copyright and licensing.
+ */
 
 class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
 {
@@ -32,7 +24,7 @@ class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
     function handleCommand(Zikula_Form_View $view, &$args)
     {
         if ($args['commandName'] == 'cancel') {
-            $url = ModUtil::url('BBSmile', 'admin', 'modifyconfig' );
+            $url = ModUtil::url('BBSmile', 'admin', 'main' );
             return $view->redirect($url);
         }
 
@@ -51,14 +43,14 @@ class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
 
         $ossmiliepath = DataUtil::formatForOS($data['smiliepath']);
         if(!file_exists($ossmiliepath) || !is_readable($ossmiliepath)) {
-            $ifield = & $view->pnFormGetPluginById('smiliepath');
+            $ifield = $this->view->getPluginById('smiliepath');
             $ifield->setError(DataUtil::formatForDisplay($this->__('The path does not exists or the system cannot read it.')));
             $ok = false;
         }
 
         $osautosmiliepath = DataUtil::formatForOS($data['smiliepath_auto']);
         if(!file_exists($osautosmiliepath) || !is_readable($osautosmiliepath)) {
-            $ifield = & $view->pnFormGetPluginById('smiliepath_auto');
+            $ifield = $this->view->getPluginById('smiliepath_auto');
             $ifield->setError(DataUtil::formatForDisplay($this->__('The path does not exists or the system cannot read it.')));
             $ok = false;
         }
