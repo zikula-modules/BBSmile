@@ -11,7 +11,7 @@
  * information regarding copyright and licensing.
  */
 
-class BBSmile_Controller_Ajax extends Zikula_Controller
+class BBSmile_Controller_Ajax extends Zikula_AbstractController
 {
 
 	/**

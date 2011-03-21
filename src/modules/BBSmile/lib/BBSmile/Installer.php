@@ -11,7 +11,7 @@
  * information regarding copyright and licensing.
  */
 
-class BBSmile_Installer extends Zikula_Installer
+class BBSmile_Installer extends Zikula_AbstractInstaller
 {
 
 

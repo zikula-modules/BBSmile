@@ -11,7 +11,7 @@
  * information regarding copyright and licensing.
  */
 
-class BBSmile_Version extends Zikula_Version
+class BBSmile_Version extends Zikula_AbstractVersion
 {
 	public function getMetaData()
 	{

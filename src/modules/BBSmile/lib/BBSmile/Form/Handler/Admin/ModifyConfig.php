@@ -11,7 +11,7 @@
  * information regarding copyright and licensing.
  */
 
-class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_Handler
+class BBSmile_Form_Handler_Admin_ModifyConfig extends Zikula_Form_AbstractHandler
 {
     function initialize(Zikula_Form_View $view)
     {

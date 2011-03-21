@@ -11,7 +11,7 @@
  * information regarding copyright and licensing.
  */
 
-class BBSmile_Api_User extends Zikula_Api
+class BBSmile_Api_User extends Zikula_AbstractApi
 {
 
     /*

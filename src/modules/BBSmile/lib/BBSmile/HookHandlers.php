@@ -11,7 +11,7 @@
  * information regarding copyright and licensing.
  */
 
-class BBSmile_HookHandlers extends Zikula_HookHandler
+class BBSmile_HookHandlers extends Zikula_AbstractHookHandler
 {
 
     /**
