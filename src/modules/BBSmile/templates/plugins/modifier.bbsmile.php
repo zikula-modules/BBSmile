@@ -29,5 +29,5 @@
  */
 function smarty_modifier_bbsmile($string)
 {
-    return = ModUtil::apiFunc('BBSmile', 'user', 'transform', array('text' =>  $string));
+    return ModUtil::apiFunc('BBSmile', 'user', 'transform', array('text' =>  $string));
 }

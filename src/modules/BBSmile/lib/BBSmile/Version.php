@@ -26,11 +26,21 @@ class BBSmile_Version extends Zikula_AbstractVersion
     	return $meta;
 	}
 
+	/**
+	 * Define Hook Bundles
+	 */
     protected function setupHookBundles()
     {
-        $bundle = new Zikula_Version_HookProviderBundle('modulehook_area.bbsmile.bbsmile', $this->__('BBSmile filter hook'));
-        $bundle->addHook('hookhandler.bbsmile.ui.filter', 'ui.filter', 'BBSmile_HookHandlers', 'uifilter', 'bbsmile.service');
-        // add other hooks as needed
+
+    	// first bundle does not work at the moment TODO
+    /*	$bundle = new Zikula_HookManager_ProviderBundle($this->name, 'provider.bbsmile.ui_hooks.smilies', 'ui_hooks', $this->__('BBSmile - Show smilies'));
+    	$bundle->addServiceHandler('display_view','BBSmile_HookHandlers','uiEdit', 'bbsmile.smilies');
+    	
+    	$this->registerHookProviderBundle($bundle); */
+    	
+    	$bundle = new Zikula_HookManager_ProviderBundle($this->name, 'provider.bbsmile.filter_hooks.smilies', 'filter_hooks', $this->__('BBSmile - Transform Smilies'));
+    	$bundle->addServiceHandler('filter','BBSmile_HookHandlers', 'uifilter', 'bbsmile.smilies');
+        
         $this->registerHookProviderBundle($bundle);
 
         //... repeat as many times as necessary
