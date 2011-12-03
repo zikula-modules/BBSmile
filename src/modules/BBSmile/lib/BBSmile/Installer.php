@@ -34,7 +34,7 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
 
         // Set up module hooks
         // create hook
-        HookUtil::registerHookProviderBundles($this->version);
+        HookUtil::registerProviderBundles($this->version->getHookProviderBundles());
 
         // Initialisation successful
         return true;
@@ -54,14 +54,14 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
 */
         return true;
     }
-
+    
     /**
     * delete module
     */
     public function uninstall() {
 
         // Remove module hooks
-        HookUtil::unregisterHookProviderBundles($this->version);
+        HookUtil::unregisterProviderBundles($this->version->getHookProviderBundles());
 
         // Remove module variables
         $this->delVars();
