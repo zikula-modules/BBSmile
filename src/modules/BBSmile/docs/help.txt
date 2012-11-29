@@ -8,6 +8,12 @@ The permission component changed in v2.0 from pn_bbsmile to BBSmile, please upda
 your permission rules!!!
 ==================================================================================
 
+For using BBSmile please note:
+
+1) the img-tag must be allowed with attributes in the Zikula security settings,
+2) the checkbox "Activate auto smilies" must be activated in the bbsmile seetings, otherwise smilies will not be transformed,
+3) the smilies must be read from filesystem after installation.
+
 BBSmile optionally reads additional smilies from a separate folder. You
 can define your own shortcuts and aliases for them as well as an alt text for
 the images. These alternate text may start with a _ and will be treated as a
