@@ -10,23 +10,23 @@
  * Please see the NOTICE file distributed with this source code for further
  * information regarding copyright and licensing.
  */
-
 class BBSmile_Installer extends Zikula_AbstractInstaller
 {
 
-
     /**
-    * init module
-    */
-    public function install() {
+     * init module
+     */
+    public function install()
+    {
 
         // Set up module variables
         //
         // - where are the smilies stored
-        $this->setVar('smiliepath',      'modules/BBSmile/images/smilies');
-        $this->setVar('activate_auto',   '0');
+        $this->setVar('smiliepath', 'modules/BBSmile/images/smilies');
+        $this->setVar('activate_auto', '0');
         $this->setVar('remove_inactive', '1');
         $this->setVar('smiliepath_auto', 'modules/BBSmile/images/smilies_auto');
+        $this->setVar('smilie_array', array());
 
         // Generate the smile array
         ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array(), true);
@@ -41,24 +41,25 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
     }
 
     /**
-    * upgrade module
-    */
+     * upgrade module
+     */
     public function upgrade($oldversion)
     {
-/*
-        switch($oldversion) {
+        /*
+          switch($oldversion) {
 
-        default:
-            break;
-        }
-*/
+          default:
+          break;
+          }
+         */
         return true;
     }
-    
+
     /**
-    * delete module
-    */
-    public function uninstall() {
+     * delete module
+     */
+    public function uninstall()
+    {
 
         // Remove module hooks
         HookUtil::unregisterProviderBundles($this->version->getHookProviderBundles());
@@ -69,4 +70,5 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
         // Deletion successful
         return true;
     }
+
 }
