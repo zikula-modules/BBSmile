@@ -92,6 +92,7 @@ class BBSmile_Api_User extends Zikula_AbstractApi
     public function getall()
     {
         $handle=opendir('images/smilies');
+        $filelist = array();
         while ($file = readdir($handle)) {
             $filelist[] = $file;
         }
