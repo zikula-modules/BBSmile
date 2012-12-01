@@ -1,5 +1,4 @@
-{*  $Id$  *}
-{include file="bbsmile_admin_header.tpl"}
+{include file="admin/header.tpl"}
 <h2>{gt text='Read smilies from filesystem'}</h2>
 
 <p class="z-informationmsg">{gt text="With confirmation all smilies out of the directory are read. Smilies without a image in the directory will be deleted. Changes on smilie information will be kept."}</p>
@@ -27,4 +26,4 @@
 
 </form>
 
-{include file="bbsmile_admin_footer.tpl"}
+{include file="admin/footer.tpl"}

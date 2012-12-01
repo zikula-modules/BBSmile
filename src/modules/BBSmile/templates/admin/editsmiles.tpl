@@ -1,4 +1,4 @@
-{include file="bbsmile_admin_header.tpl"}
+{include file="admin/header.tpl"}
 <h2>{gt text="Currently defined Smilies"}</h2>
 
 <p class="z-informationmsg">{gt text='Aliases are seperated by ",". Please don\'t use spaces.'}</p>
@@ -54,4 +54,4 @@
     </div>
 </form>
 
-{include file="bbsmile_admin_footer.tpl"}
+{include file="admin/footer.tpl"}

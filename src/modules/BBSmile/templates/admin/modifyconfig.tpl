@@ -1,4 +1,4 @@
-{include file="bbsmile_admin_header.tpl"}
+{include file="admin/header.tpl"}
 <h2>{gt text='Settings'}</h2>
 
 {form cssClass="z-form"}
@@ -31,4 +31,4 @@
 
 {/form}
 
-{include file="bbsmile_admin_footer.tpl"}
+{include file="admin/footer.tpl"}
