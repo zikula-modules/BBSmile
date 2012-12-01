@@ -1,5 +1,4 @@
-It's ust a simple Hook for integration of smilies.
-Written for the pnForum but might be used everywhere ;)
+It's just a simple Hook for integration of smilies.
 
 ===============================================================================
 IMPORTANT NOTICE:
@@ -10,8 +9,8 @@ your permission rules!!!
 
 For using BBSmile please note:
 
-1) the img-tag must be allowed with attributes in the Zikula security settings,
-2) the checkbox "Activate auto smilies" must be activated in the bbsmile seetings, otherwise smilies will not be transformed,
+1) the <img> tag must be allowed with attributes in the Zikula security settings,
+2) the checkbox "Activate auto smilies" must be activated in the bbsmile settings, otherwise smilies will not be transformed,
 3) the smilies must be read from filesystem after installation.
 
 BBSmile optionally reads additional smilies from a separate folder. You
