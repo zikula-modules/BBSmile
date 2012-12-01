@@ -28,7 +28,7 @@ class BBSmile_HookHandlers extends Zikula_Hook_AbstractHandler
     {
         $this->view = Zikula_View::getInstance("BBSmile");
     }
-    
+
     /**
      * Display 'hidden' htm required to assist the transform hook?
      * @param Zikula_DisplayHook $hook 
