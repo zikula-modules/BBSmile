@@ -30,15 +30,6 @@ class BBSmile_HookHandlers extends Zikula_Hook_AbstractHandler
     }
 
     /**
-     * Display 'hidden' htm required to assist the transform hook?
-     * @param Zikula_DisplayHook $hook 
-     */
-    public function uiView(Zikula_DisplayHook $hook)
-    {
-        // nothing to do atm
-    }
-
-    /**
      * Display smilies and provide interface for their use in an edit object form
      * 
      * @param Zikula_DisplayHook $hook
@@ -88,7 +79,6 @@ class BBSmile_HookHandlers extends Zikula_Hook_AbstractHandler
         // Asign the smilies to smarty
         $this->view->assign($assign, $smilies);
         $this->view->assign($assign . '_count', count($smilies));
-
 
         $hook->setResponse(new Zikula_Response_DisplayHook(BBSmile_Version::PROVIDER_UIAREANAME, $this->view, 'hook/display_bbsmiles.tpl'));
 

@@ -35,8 +35,6 @@ class BBSmile_Version extends Zikula_AbstractVersion
     protected function setupHookBundles()
     {
         $bundle = new Zikula_HookManager_ProviderBundle($this->name, self::PROVIDER_UIAREANAME, 'ui_hooks', $this->__('BBSmile - Show smilies'));
-        // display_view hook is used to add required JS to hooked object display page and any other "hidden" code
-        $bundle->addServiceHandler('display_view', 'BBSmile_HookHandlers', 'uiView', 'bbsmile.smilies');
         // form_edit hook is used to add smiley selector and other code to new object form (validate and process hooks unneeded)
         $bundle->addServiceHandler('form_edit', 'BBSmile_HookHandlers', 'uiEdit', 'bbsmile.smilies');
         $this->registerHookProviderBundle($bundle);
