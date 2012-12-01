@@ -209,22 +209,6 @@ class BBSmile_Api_Admin extends Zikula_AbstractApi
                 'text' => $this->__('Edit the defined smilies'),
                 'class' => 'z-icon-es-edit'
             );
-/*
-            } else {
-                $links[] = array(
-                    'url' => ModUtil::url('BBSmile', 'admin', 'readsmilies'),
-                    'text' => $this->__('Read smilies out of the directory'),
-                    'title' => $this->__('Extended Smilies not yet activated!'),
-                    'disabled' => true
-                );
-                $links[] = array(
-                    'url' => ModUtil::url('BBSmile', 'admin', 'editsmilies', array('aid' => -1)),
-                    'text' => $this->__('Edit the defined smilies'),
-                    'title' => $this->__('Extended Smilies not yet activated!'),
-                    'disabled' => true,
-                    'class' => 'z-icon-es-list'
-                );
-*/
         }
         return $links;
     }
