@@ -1,20 +1,46 @@
-// $Id$
+/**
+ * BBSmile
+ *
+ * @license http://www.gnu.org/copyleft/gpl.html
+ * @package Zikula_Utility_Modules
+ * @subpackage BBSmile
+ *
+ * Please see the NOTICE file distributed with this source code for further
+ * information regarding copyright and licensing.
+ */
+
+// var tracks element with last focus
+var bbsmileLastFocus = '';
 
 Event.observe(window, 'load', function() {
-        $$('.bbsmile_smilies').each(function(el) {
-            el.removeClassName('bbsmile_smilies');
-        });
-        if($('smiliemodal')) {
-            new Control.Modal($('smiliemodal'), {});
-        }
+    $$('.bbsmile_smilies').each(function(el) {
+        el.removeClassName('bbsmile_smilies');
     });
+    if($('smiliemodal')) {
+        new Control.Modal($('smiliemodal'), {});
+    }
+    // setup onBlur() handler to track which element was last in focus
+    $$('textarea', 'input', 'select').each(function(element) {
+        element.onblur = function() {
+            bbsmileLastFocus = element;
+        };
+    });
+});
     
     
-// new function
+/**
+ * Add smilie text to TEXTAREA
+ */
 function AddSmilie(textfieldname, SmilieCode) {
-    var SmilieCode;
-    var revisedMessage;
-    var textfield = $(textfieldname);
+
+    // set textfield element to last focused element
+    var textfield = bbsmileLastFocus;
+    
+    // if element is not a textarea then do nothing
+    if (textfield.tagName != 'TEXTAREA') {
+        alert('select a textarea first!') // needs translation
+        return;
+    }
 
     Control.Modal.close()
 
