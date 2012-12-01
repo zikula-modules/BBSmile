@@ -25,7 +25,7 @@ class BBSmile_Controller_Ajax extends Zikula_AbstractController
 		
 		$this->view->assign('counter', SessionUtil::getVar('counter'));
 		$this->view->assign('textfieldid', $textfieldid);
-		$out = $this->view->fetch('bbsmile_ajax_bbsmiles.tpl');
+		$out = $this->view->fetch('ajax/bbsmiles.tpl');
 		echo $out;
 		System::shutdown();
 	}
