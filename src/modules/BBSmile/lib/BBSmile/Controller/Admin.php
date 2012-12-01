@@ -34,7 +34,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
         }
 
         $form = FormUtil::newForm('BBSmile', $this);
-        return $form->execute('bbsmile_admin_modifyconfig.tpl', new BBSmile_Form_Handler_Admin_ModifyConfig());
+        return $form->execute('admin/modifyconfig.tpl', new BBSmile_Form_Handler_Admin_ModifyConfig());
 
     }
 
@@ -52,7 +52,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
         $submit = FormUtil::getPassedValue('submit', null, 'POST');
 
         if(!$submit) {
-            return $this->view->fetch('bbsmile_admin_readsmilies.tpl');
+            return $this->view->fetch('admin/readsmilies.tpl');
         }
         // submit is set - update the Smilies
         $forcereload = FormUtil::getPassedValue('forcereload', 0, 'POST');
@@ -60,7 +60,8 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
         // @see adminapi.php#bbsmile_adminapi_updatesmilies()
         ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
         LogUtil::registerStatus($this->__('Smilies have been read from filesystem successfully.'));
-        return System::redirect(ModUtil::url('BBSmile', 'admin', 'editsmilies'));
+        
+        $this->redirect(ModUtil::url('BBSmile', 'admin', 'editsmilies'));
     }
 
     /**
@@ -79,7 +80,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
         if(!$submit) {
             $smilies = $this->getVar('smilie_array');
             $this->view->assign('smilies',$smilies);
-            return $this->view->fetch('bbsmile_admin_editsmiles.tpl');
+            return $this->view->fetch('admin/editsmiles.tpl');
         }
         // submit is set
         // Get input
@@ -111,6 +112,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
       $this->setVar('smilie_array', $smilies);
 
       LogUtil::registerStatus($this->__('The edited smilies have been saved.'));
-      return System::redirect(ModUtil::url('BBSmile', 'admin', 'main'));
+      
+      $this->redirect(ModUtil::url('BBSmile', 'admin', 'main'));
     }
 }
