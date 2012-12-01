@@ -1,5 +1,4 @@
-{ajaxheader modname='BBSmile' filename='dosmilie.js'}
-{ajaxheader modname='BBSmile' filename='control_modal.js'}
+{ajaxheader modname='BBSmile' ui=true filename='dosmilie.js'}
 {pageaddvar name='stylesheet' value='modules/BBSmile/style/style.css'}
 
 <noscript>

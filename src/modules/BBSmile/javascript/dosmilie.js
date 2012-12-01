@@ -17,7 +17,7 @@ Event.observe(window, 'load', function() {
         el.removeClassName('bbsmile_smilies');
     });
     if($('smiliemodal')) {
-        new Control.Modal($('smiliemodal'), {});
+        new Zikula.UI.Window($('smiliemodal'),{modal: true});
     }
     // setup onBlur() handler to track which element was last in focus
     $$('textarea', 'input', 'select').each(function(element) {
