@@ -19,13 +19,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
     }
 
     /**
-     * the main administration function
-     * This function is the default function, and is called whenever the
-     * module is initiated without defining arguments.  As such it can
-     * be used for a number of things, but most commonly it either just
-     * shows the module menu and returns or calls whatever the module
-     * designer feels should be the default function (often this is the
-     * view() function)
+     * Main Admin function
      */
     public function main()
     {

@@ -60,7 +60,6 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
      */
     public function uninstall()
     {
-
         // Remove module hooks
         HookUtil::unregisterProviderBundles($this->version->getHookProviderBundles());
 

@@ -12,21 +12,24 @@
  */
 class BBSmile_Api_Admin extends Zikula_AbstractApi
 {
-    /*
-     * This function synchronized the smilies stored in the directory with
-     * the smilies sored in the modVar ('BBSmile', 'smilie_array).
+    /**
+     * Class BBSmile_Api_Admin 
+     */
+    
+    /**
+     * This function synchronizes the smilies stored in the directory with
+     * the smilies stored in the modVar ('BBSmile', 'smilie_array).
      * The function checks if there is a smilie in the directory which is
-     * not in the modVar. If the smilie is in the modVar, the infos of the
-     * modVar are kept. Otherwise the new smilie is addes with it default infos.
+     * not in the modVar. If the smilie is in the modVar, the info in the
+     * modVar are kept. Otherwise the new smilie is added with the default info.
      * This function has to be called to include new smilies which are stored in the
      * auto-directory of the module.
      *
-     * It can be called out of the admininterface and is called when the module
-     * is inited and upgraded
+     * It can be called out of the admin interface and is called when the module
+     * is installed and upgraded
      *
      * @params $args['forcereload'] bool
      */
-
     public function updatesmilies($args)
     {
         // Get the new array
@@ -68,7 +71,6 @@ class BBSmile_Api_Admin extends Zikula_AbstractApi
     public function load_smilies()
     {
         // default smilies
-        $imagepath = $this->getVar('smiliepath');
         $icons = array(
             'icon_biggrin.gif' => array('type' => 0,
                 'imgsrc' => 'icon_biggrin.gif',

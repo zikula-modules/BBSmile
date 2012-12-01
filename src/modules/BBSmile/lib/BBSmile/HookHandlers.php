@@ -21,8 +21,6 @@ class BBSmile_HookHandlers extends Zikula_Hook_AbstractHandler
 
     /**
      * Post constructor hook.
-     *
-     * @return void
      */
     public function setup()
     {
@@ -33,8 +31,6 @@ class BBSmile_HookHandlers extends Zikula_Hook_AbstractHandler
      * Display smilies and provide interface for their use in an edit object form
      * 
      * @param Zikula_DisplayHook $hook
-     * 
-     * @return string (html) 
      */
     public function uiEdit(Zikula_DisplayHook $hook)
     {
@@ -81,25 +77,17 @@ class BBSmile_HookHandlers extends Zikula_Hook_AbstractHandler
         $this->view->assign($assign . '_count', count($smilies));
 
         $hook->setResponse(new Zikula_Response_DisplayHook(BBSmile_Version::PROVIDER_UIAREANAME, $this->view, 'hook/display_bbsmiles.tpl'));
-
-        return;
     }
 
     /**
-     * the hook filter function
+     * filter the provided string and search/replace with smilies
+     * 
+     * @param Zikula_FilterHook $hook
      */
     public static function uifilter(Zikula_FilterHook $hook)
     {
-
-        // Security check
-        if (!SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADD)) {
-            return;
-        }
-
         $data = ModUtil::apiFunc('BBSmile', 'user', 'transform', array('text' => $hook->getData()));
-
         $hook->setData($data);
-        return;
     }
 
 }

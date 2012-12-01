@@ -12,10 +12,12 @@
  */
 class BBSmile_Api_User extends Zikula_AbstractApi
 {
-    /*
-     * main transformation function
+    
+    /**
+     * transform text to images
+     * 
+     * @param string $args['text']
      */
-
     function transform($args)
     {
         $text = $args['text'];
@@ -108,6 +110,13 @@ class BBSmile_Api_User extends Zikula_AbstractApi
 
 }
 
+/**
+ * uasort callback function (called above)
+ * 
+ * @param string $a
+ * @param string $b
+ * @return boolean 
+ */
 function cmp_smiliesort($a, $b)
 {
     return strlen($a['short']) > strlen($b['short']);

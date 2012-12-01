@@ -15,16 +15,16 @@ class BBSmile_Controller_User extends Zikula_AbstractController
 
     /**
      * main funcion
-     * The main function is not used in the bbsmile module, we just rediret to index.php
+     * The main function is not used in the bbsmile module, we just rediret to homepage
      *
      */
     public function main()
     {
-        return System::redirect(System::getVar('entrypoint', 'index.php'));
+        return System::redirect(System::getHomepageUrl());
     }
 
     /**
-     * bbsmile
+     * bbsmiles
      * returns a html snippet with buttons for inserting bbsmiles into a text
      *
      * @param    $args['textfieldid']  id of the textfield for inserting smilies
