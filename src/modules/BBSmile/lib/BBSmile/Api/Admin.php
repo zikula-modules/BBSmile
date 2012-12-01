@@ -196,18 +196,19 @@ class BBSmile_Api_Admin extends Zikula_AbstractApi
         if (SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
             $links[] = array(
                 'url' => ModUtil::url('BBSmile', 'admin', 'main'),
-                'text' => $this->__('Settings')
+                'text' => $this->__('Settings'),
+                'class' => 'z-icon-es-config'
             );
-            //if($this->getVar('activate_auto') == 1) {
-                $links[] = array(
-                    'url' => ModUtil::url('BBSmile', 'admin', 'readsmilies'),
-                    'text' => $this->__('Read smilies out of the directory')
-                );
-                $links[] = array(
-                    'url' => ModUtil::url('BBSmile', 'admin', 'editsmilies', array('aid' => -1)),
-                    'text' => $this->__('Edit the defined smilies'),
-                    'class' => 'z-icon-es-list'
-                );
+            $links[] = array(
+                'url' => ModUtil::url('BBSmile', 'admin', 'readsmilies'),
+                'text' => $this->__('Read smilies out of the directory'),
+                'class' => 'z-icon-es-gears'
+            );
+            $links[] = array(
+                'url' => ModUtil::url('BBSmile', 'admin', 'editsmilies', array('aid' => -1)),
+                'text' => $this->__('Edit the defined smilies'),
+                'class' => 'z-icon-es-edit'
+            );
 /*
             } else {
                 $links[] = array(
@@ -224,7 +225,6 @@ class BBSmile_Api_Admin extends Zikula_AbstractApi
                     'class' => 'z-icon-es-list'
                 );
 */
-            //}
         }
         return $links;
     }
