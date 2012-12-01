@@ -1,5 +1,8 @@
-{include file="admin/header.tpl"}
-<h2>{gt text='Read smilies from filesystem'}</h2>
+{adminheader}
+<div class="z-admin-content-pagetitle">
+    {icon type="gears" size="small"}
+    <h3>{gt text='Read smilies from filesystem'}</h3>
+</div>
 
 <p class="z-informationmsg">{gt text="With confirmation all smilies out of the directory are read. Smilies without a image in the directory will be deleted. Changes on smilie information will be kept."}</p>
 
@@ -20,10 +23,10 @@
         </div>
     </fieldset>
 
-    <div class="z-formbuttons">
-        <input name="submit" type="submit" value="{gt text="Apply"}" />
+    <div class="z-buttons z-formbuttons">
+        {button src="button_ok.png" set="icons/extrasmall" __alt="Apply" __title="Apply" __text="Apply"}
     </div>
 
 </form>
 
-{include file="admin/footer.tpl"}
+</div>
