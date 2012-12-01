@@ -10,7 +10,7 @@
 
     <fieldset>
         <legend>{gt text='Should the smilies be read out of the directory?'}</legend>
-        <input type="hidden" name="authid" value="{secgenauthkey module="BBSmile"}" />
+        <input type="hidden" name="csrftoken" value="{insert name="csrftoken"}" />
         {if $modvars.BBSmile.smiliepath_auto neq ''}
         <div class="z-formrow">
             <label>{gt text='Path to the smilies'}</label>

@@ -48,6 +48,9 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
             return $this->view->fetch('admin/readsmilies.tpl');
         }
         // submit is set - update the Smilies
+        
+        $this->checkCsrfToken();
+
         $forcereload = FormUtil::getPassedValue('forcereload', 0, 'POST');
         $forcereload = ($forcereload == 1) ? true : false;
         // @see adminapi.php#bbsmile_adminapi_updatesmilies()
@@ -76,6 +79,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
             return $this->view->fetch('admin/editsmiles.tpl');
         }
         // submit is set
+        $this->checkCsrfToken();
         // Get input
         $keys = FormUtil::getPassedValue('key', array(), 'POST');
         $shorts = FormUtil::getPassedValue('short', array(), 'POST');

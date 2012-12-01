@@ -8,7 +8,7 @@
 
 <form class="z-form" action="{modurl modname="BBSmile" type="admin" func="editsmilies"}" method="post" enctype="application/x-www-form-urlencoded">
     <div>
-        <input type="hidden" name="authid" value="{secgenauthkey module="BBSmile"}" />
+        <input type="hidden" name="csrftoken" value="{insert name="csrftoken"}" />
         <table class="z-admintable">
             <thead>
                 <tr>
