@@ -29,11 +29,11 @@ function smarty_function_BBSMILE_smilie_list($params, &$smarty)
 	$active_smilies = array();
 	$smilies = array();
 
-	// Gett all Smilies
+	// Get all Smilies
 	$all_smilies = ModUtil::getVar('BBSmile', 'smilie_array');
 
 	foreach ($all_smilies as $key=> $smilie) {
-		// Check if the typ od the smilie is the wanted type
+		// Check if the type of the smilie is the wanted type
 		if ($smilie['active'] == 1) {
 			$active_smilies[$key] = $smilie;
 		}
@@ -52,7 +52,7 @@ function smarty_function_BBSMILE_smilie_list($params, &$smarty)
         }
             
 		foreach ($active_smilies as $key => $smilie) {
-			// Check if the typ od the smilie is the wanted type and if the smilie is active
+			// Check if the type of the smilie is the wanted type and if the smilie is active
 			if ($smilie['type'] == $type && $smilie['active'] == 1) {
 				$smilies[$key] = $smilie;
 			}
