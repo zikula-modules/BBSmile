@@ -25,9 +25,6 @@ class BBSmile_Api_Admin extends Zikula_AbstractApi
      * This function has to be called to include new smilies which are stored in the
      * auto-directory of the module.
      *
-     * It can be called out of the admin interface and is called when the module
-     * is installed and upgraded
-     *
      * @params $args['forcereload'] bool
      */
     public function updatesmilies($args)
