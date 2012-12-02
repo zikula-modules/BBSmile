@@ -19,11 +19,9 @@ Event.observe(window, 'load', function() {
     if($('smiliemodal')) {
         new Zikula.UI.Window($('smiliemodal'),{modal: true});
     }
-    // setup onBlur() handler to track which element was last in focus
-    $$('textarea', 'input', 'select').each(function(element) {
-        element.onblur = function() {
-            bbsmileLastFocus = element;
-        };
+    // setup onBlur() listener to track which element was last in focus
+    $$('textarea', 'input', 'select').invoke('observe', 'blur', function(event) {
+        bbsmileLastFocus = event.target;
     });
 });
     
