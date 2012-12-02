@@ -31,7 +31,7 @@ Event.observe(window, 'load', function() {
 /**
  * Add smilie text to TEXTAREA
  */
-function AddSmilie(textfieldname, SmilieCode) {
+function AddSmilie(SmilieCode) {
 
     // set textfield element to last focused element
     var textfield = bbsmileLastFocus;
@@ -39,6 +39,7 @@ function AddSmilie(textfieldname, SmilieCode) {
     // if element is not a textarea then do nothing
     if (textfield.tagName != 'TEXTAREA') {
         alert('select a textarea first!') // needs translation
+        Control.Modal.close()
         return;
     }
 
@@ -66,7 +67,6 @@ function AddSmilie(textfieldname, SmilieCode) {
     //
     else if(typeof textfield.selectionStart != 'undefined')
     {
-
         var start = textfield.selectionStart;
         var end = textfield.selectionEnd;
         var insText = textfield.value.substring(start, end);
@@ -89,42 +89,3 @@ function AddSmilie(textfieldname, SmilieCode) {
     textfield.focus();
 
 }
-
-function togglesmilies(theid)
-{
-    if($(theid)) {
-        $(theid).toggleClassName('hidden');
-    }
-}
-//
-// old and deprecated functions, not longer maintained!
-//
-//
-// old function wrapper
-function DoSmilie(SmilieCode) {
-    return AddSmilie('post', SmilieCode);
-}
-
-// new ShowHide, taken from pnUpper
-function getFormObject(name, form) {
-    var myobj = null;
-    if (document.getElementById) myobj = document.getElementById(name);
-    else if (document.all) myobj = document.all[name];
-    else myobj = document.forms[form][name];
-    if (!myobj) alert('Internal error with field ' + name + '!!');
-    else return myobj;
-}
-
-
-function ShowHide(id) {
-    var myobj = getFormObject(id, '');
-    if (myobj.style) {
-        if (myobj.style.display == "none") { myobj.style.display = ""; }
-        else { myobj.style.display = "none"; }
-    }
-    else {
-        myobj.visibility = "show";
-    }
-}
-
-

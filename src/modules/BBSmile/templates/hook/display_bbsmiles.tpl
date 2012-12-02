@@ -11,7 +11,7 @@
         <div class="bb_standardsmilies z-formnote">
             {* default smilies *}
             {foreach item=smilie from=$smilies}
-            <a href="javascript:void(0);" onclick="AddSmilie('{* $textfieldid *}', ' {$smilie.short} ')" title="{$smilie.short}">
+            <a href="javascript:void(0);" onclick="AddSmilie(' {$smilie.short} ')" title="{$smilie.short}">
                 <img class="bb_smilie" src="{getbaseurl}{$modvars.BBSmile.smiliepath}/{$smilie.imgsrc}" alt='Smilie {$smilie.alt}' />
             </a>
             {/foreach}

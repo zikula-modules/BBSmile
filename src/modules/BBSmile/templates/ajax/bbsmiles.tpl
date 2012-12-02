@@ -7,7 +7,7 @@
         {foreach name=element item=smilie from=$autosmilies}
     {if $col == 5}</tr><tr>{assign var="col" value="0"}{/if}
         <td>
-            <a href="javascript:void(0);" onclick="AddSmilie('{* $textfieldid *}', ' {$smilie.short} ')" title="{$smilie.short}">
+            <a href="javascript:void(0);" onclick="AddSmilie(' {$smilie.short} ')" title="{$smilie.short}">
                 <img src="{getbaseurl}{$modvars.BBSmile.smiliepath_auto}/{$smilie.imgsrc}" alt="Smilie {$smilie.alt}" />
             </a>
         </td>
