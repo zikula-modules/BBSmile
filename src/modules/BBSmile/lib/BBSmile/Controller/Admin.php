@@ -24,7 +24,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
     public function main()
     {
         if (!SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
-            return LogUtil::registerPermissionError(System::getVar('entrypoint', 'index.php'));
+            return LogUtil::registerPermissionError(System::getHomepageUrl());
         }
 
         $form = FormUtil::newForm('BBSmile', $this);
@@ -39,7 +39,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
     public function readsmilies()
     {
         if (!SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
-            return LogUtil::registerPermissionError(System::getVar('entrypoint', 'index.php'));
+            return LogUtil::registerPermissionError(System::getHomepageUrl());
         }
 
         $submit = FormUtil::getPassedValue('submit', null, 'POST');
@@ -68,7 +68,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
     public function editsmilies()
     {
         if (!SecurityUtil::checkPermission('BBSmile::', '::', ACCESS_ADMIN)) {
-            return LogUtil::registerPermissionError(System::getVar('entrypoint', 'index.php'));
+            return LogUtil::registerPermissionError(System::getHomepageUrl());
         }
 
         $submit = FormUtil::getPassedValue('submit', null, 'POST');
