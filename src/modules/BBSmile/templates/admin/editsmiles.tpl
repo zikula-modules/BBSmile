@@ -51,7 +51,7 @@
         </table>
             
         <div class="z-buttons z-formbuttons">
-            {button src="button_ok.png" set="icons/extrasmall" __alt="Apply" __title="Apply" __text="Apply"}
+            {button type='submit' value='1' src="button_ok.png" set="icons/extrasmall" __alt="Apply" __title="Apply" __text="Apply"}
         </div>
 
     </div>
