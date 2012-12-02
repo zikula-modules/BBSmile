@@ -18,22 +18,14 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
      */
     public function install()
     {
-
         // Set up module variables
-        //
-        // - where are the smilies stored
         $this->setVar('smiliepath', 'modules/BBSmile/images/smilies');
         $this->setVar('activate_auto', '0');
         $this->setVar('remove_inactive', '1');
         $this->setVar('smiliepath_auto', 'modules/BBSmile/images/smilies_auto');
-        $this->setVar('smilie_array', array());
-
-        // Generate the smile array
-        ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array(), true);
-
+        $this->setVar('smilie_array', BBSmile_Util::getDefaultSmilies());
 
         // Set up module hooks
-        // create hook
         HookUtil::registerProviderBundles($this->version->getHookProviderBundles());
 
         // Initialisation successful
