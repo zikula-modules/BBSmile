@@ -34,4 +34,4 @@
 
 {/form}
 
-</div>
+{adminfooter}
