@@ -42,7 +42,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
             return LogUtil::registerPermissionError(System::getHomepageUrl());
         }
 
-        $submit = FormUtil::getPassedValue('submit', null, 'POST');
+        $submit = $this->getPassedValue('submit', null, 'POST');
 
         if (!$submit) {
             return $this->view->fetch('admin/readsmilies.tpl');
@@ -51,7 +51,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
         
         $this->checkCsrfToken();
 
-        $forcereload = FormUtil::getPassedValue('forcereload', 0, 'POST');
+        $forcereload = $this->getPassedValue('forcereload', 0, 'POST');
         $forcereload = ($forcereload == 1) ? true : false;
         // @see adminapi.php#bbsmile_adminapi_updatesmilies()
         ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array('forcereload' => $forcereload));
@@ -71,7 +71,7 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
             return LogUtil::registerPermissionError(System::getHomepageUrl());
         }
 
-        $submit = FormUtil::getPassedValue('submit', null, 'POST');
+        $submit = $this->getPassedValue('submit', null, 'POST');
 
         if (!$submit) {
             $smilies = $this->getVar('smilie_array');
@@ -81,13 +81,13 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
         // submit is set
         $this->checkCsrfToken();
         // Get input
-        $keys = FormUtil::getPassedValue('key', array(), 'POST');
-        $shorts = FormUtil::getPassedValue('short', array(), 'POST');
-        $imgsrcs = FormUtil::getPassedValue('imgsrc', array(), 'POST');
-        $alts = FormUtil::getPassedValue('alt', array(), 'POST');
-        $aliases = FormUtil::getPassedValue('alias', array(), 'POST');
-        $types = FormUtil::getPassedValue('smilietype', array(), 'POST');
-        $active = FormUtil::getPassedValue('active', array(), 'POST');
+        $keys = $this->getPassedValue('key', array(), 'POST');
+        $shorts = $this->getPassedValue('short', array(), 'POST');
+        $imgsrcs = $this->getPassedValue('imgsrc', array(), 'POST');
+        $alts = $this->getPassedValue('alt', array(), 'POST');
+        $aliases = $this->getPassedValue('alias', array(), 'POST');
+        $types = $this->getPassedValue('smilietype', array(), 'POST');
+        $active = $this->getPassedValue('active', array(), 'POST');
 
         $smilies = array();
 
@@ -111,6 +111,26 @@ class BBSmile_Controller_Admin extends Zikula_AbstractController
         LogUtil::registerStatus($this->__('The edited smilies have been saved.'));
 
         $this->redirect(ModUtil::url('BBSmile', 'admin', 'main'));
+    }
+    
+    /**
+     * Helper function to convert old getPassedValue method to Core 1.3.3-standard
+     * 
+     * @param string $variable
+     * @param mixed $defaultValue
+     * @param string $type
+     * @return mixed 
+     */
+    private function getPassedValue($variable, $defaultValue, $type = 'POST')
+    {
+        if ($type == 'POST') {
+            return $this->request->request->get($variable, $defaultValue);
+        } else if ($type == 'GET') {
+            return $this->request->query->get($variable, $defaultValue);
+        } else {
+            // else try GET then POST
+            return $this->request->query->get($variable, $this->request->request->get($variable, $defaultValue));
+        }
     }
 
 }
