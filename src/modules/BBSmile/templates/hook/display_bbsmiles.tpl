@@ -19,7 +19,7 @@
 
         {if $modvars.BBSmile.activate_auto}
         <div class="bb_showhidesmilies z-formnote">
-            <a href="{getbaseurl}ajax.php?module=BBSmile&amp;func=loadsmilies&amp;textfieldid={$textfieldid}" id="smiliemodal">{gt text='More Smilies'}</a>&nbsp;<img class="hidden" id="loadsmilieindicator" src="images/ajax/indicator.white.gif" alt="ajaxindicator" />
+            <a href="{getbaseurl}ajax.php?module=BBSmile&amp;func=loadsmilies" id="smiliemodal">{gt text='More Smilies'}</a>&nbsp;<img class="hidden" id="loadsmilieindicator" src="images/ajax/indicator.white.gif" alt="ajaxindicator" />
         </div>
         {/if}
     </div>
