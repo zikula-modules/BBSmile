@@ -1,11 +1,10 @@
 {bbsmile_smilie_list assign="autosmilies" type="auto"}
 {if $autosmilies_count > 0}
-<p>{gt text="Click outside this window to close it"}</p>
 <table>
     <tr>
         {assign var="col" value="0"}
         {foreach name=element item=smilie from=$autosmilies}
-    {if $col == 5}</tr><tr>{assign var="col" value="0"}{/if}
+        {if $col == 5}</tr><tr>{assign var="col" value="0"}{/if}
         <td>
             <a href="javascript:void(0);" onclick="AddSmilie(' {$smilie.short} ')" title="{$smilie.short}">
                 <img src="{getbaseurl}{$modvars.BBSmile.smiliepath_auto}/{$smilie.imgsrc}" alt="Smilie {$smilie.alt}" />
@@ -19,5 +18,6 @@
         {/section}
     </tr>
 </table>
-
+{else}
+    <p>{gt text='No more smilies to list!'}</p>
 {/if}
