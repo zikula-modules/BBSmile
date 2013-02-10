@@ -7,7 +7,7 @@
         {if $col == 5}</tr><tr>{assign var="col" value="0"}{/if}
         <td>
             <a href="javascript:void(0);" onclick="AddSmilie(' {$smilie.short} ')" title="{$smilie.short}">
-                <img src="{getbaseurl}{$modvars.BBSmile.smiliepath_auto}/{$smilie.imgsrc}" alt="Smilie {$smilie.alt}" />
+                <img src="{$baseurl}{$modvars.BBSmile.smiliepath_auto}/{$smilie.imgsrc}" alt="Smilie {$smilie.alt}" />
             </a>
         </td>
         {assign var="col" value="`$col+1`"}
