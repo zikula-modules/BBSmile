@@ -19,10 +19,15 @@ Event.observe(window, 'load', function() {
     if($('smiliemodal')) {
         new Zikula.UI.Window($('smiliemodal'),{modal: true});
     }
-    // setup onBlur() listener to track which element was last in focus
-    $$('textarea', 'input', 'select').invoke('observe', 'blur', function(event) {
-        bbsmileLastFocus = event.target;
-    });
+    var textareaCount = $$('textarea').size();
+    if (textareaCount > 1) {
+        // setup onBlur() listener to track which element was last in focus
+        $$('textarea', 'input', 'select').invoke('observe', 'blur', function(event) {
+            bbsmileLastFocus = event.target;
+        });
+    } else {
+        bbsmileLastFocus = $$('textarea').first();
+    }
 });
     
     
