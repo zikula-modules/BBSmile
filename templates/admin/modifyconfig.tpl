@@ -14,7 +14,7 @@
         {formtextinput size="40" maxLength="255" id="smiliepath" text=$modvars.BBSmile.smiliepath}
     </div>
     <div class="z-formrow">
-        {formlabel for="activate_auto" __text='Activate auto smilies'}
+        {formlabel for="activate_auto" __text='Show "more smilies" link'}
         {formcheckbox id="activate_auto" checked=$modvars.BBSmile.activate_auto}
     </div>
     <div class="z-formrow">

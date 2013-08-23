@@ -1,7 +1,7 @@
 {adminheader}
 <div class="z-admin-content-pagetitle">
     {icon type="gears" size="small"}
-    <h3>{gt text='Read smilies from filesystem'}</h3>
+    <h3>{gt text='Reload smilies from filesystem'}</h3>
 </div>
 
 <p class="z-informationmsg">{gt text="With confirmation all smilies out of the directory are read. Smilies without a image in the directory will be deleted. Changes on smilie information will be kept."}</p>

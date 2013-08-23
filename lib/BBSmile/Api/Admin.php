@@ -110,7 +110,7 @@ class BBSmile_Api_Admin extends Zikula_AbstractApi
             );
             $links[] = array(
                 'url' => ModUtil::url('BBSmile', 'admin', 'readsmilies'),
-                'text' => $this->__('Read smilies out of the directory'),
+                'text' => $this->__('Reload smilies out of the directory'),
                 'class' => 'z-icon-es-gears'
             );
             $links[] = array(
