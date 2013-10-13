@@ -13,9 +13,6 @@
 var bbsmileLastFocus = '';
 
 Event.observe(window, 'load', function() {
-    $$('.bbsmile_smilies').each(function(el) {
-        el.removeClassName('bbsmile_smilies');
-    });
     if($('smiliemodal')) {
         new Zikula.UI.Window($('smiliemodal'),{modal: true});
     }
@@ -28,8 +25,7 @@ Event.observe(window, 'load', function() {
         });
     }
 });
-    
-    
+
 /**
  * Add smilie text to TEXTAREA
  */
