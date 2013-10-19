@@ -1,4 +1,4 @@
-{ajaxheader modname='BBSmile' ui=true filename='dosmilie.js'}
+{pageaddvar name='javascript' value='modules/BBSmile/javascript/dosmilie.js'}
 {pageaddvar name='stylesheet' value='modules/BBSmile/style/style.css'}
 
 <div id="bbsmile">
@@ -10,14 +10,22 @@
             <img class="bb_smilie" src="{$baseurl}{$modvars.BBSmile.smiliepath}/{$smilie.imgsrc}" alt='Smilie {$smilie.alt}' />
         </a>
         {/foreach}
+        {if $modvars.BBSmile.activate_auto}
+            <a data-target="#bbSmileModal" role='button' data-toggle="modal" class='btn btn-xs btn-success'>{gt text='More Smilies'}</a>
+        {/if}
     </div>
-
-    {if $modvars.BBSmile.activate_auto}
-    <div class="bb_showhidesmilie">
-        <a href="{$baseurl}index.php?module=BBSmile&amp;type=ajax&amp;func=loadsmilies" id="smiliemodal">{gt text='More Smilies'}</a>&nbsp;<img class="hidden" id="loadsmilieindicator" src="images/ajax/indicator.white.gif" alt="ajaxindicator" />
-    </div>
-    {/if}
 </div>
 <noscript>
     <p class="noscript">{gt text='Your browser does not support javascript or you turned it off. The BBSmile interface has been disabled.'}</p>
 </noscript>
+
+<!-- MODAL -->
+<div class="modal" id="bbSmileModal" tabindex="-1" role="dialog" aria-labelledby="bbSmileModalLabel" aria-hidden="true" data-remote="{$baseurl}index.php?module=BBSmile&amp;type=ajax&amp;func=loadsmilies">
+    <!-- entire content replaced after load -->
+    <div class="modal-dialog">
+        <div class="modal-content alert alert-info">
+            <i class="icon-spinner icon-spin icon-large"></i> {gt text='loading'}
+        </div>
+    </div>
+</div>
+<!-- /MODAL -->
