@@ -21,6 +21,7 @@ class BBSmile_Version extends Zikula_AbstractVersion
         $meta = array();
         $meta['oldnames'] = array('bbsmile');
         $meta['version'] = '3.0.0';
+        $meta['core_min'] = '1.3.6';
         $meta['description'] = $this->__('Smilie Hook (Autoincluded)');
         $meta['displayname'] = $this->__('BBSmile Hook');
         $meta['url'] = $this->__('bbsmile');
