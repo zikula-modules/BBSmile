@@ -42,7 +42,7 @@ class BBSmile_Version extends Zikula_AbstractVersion
 
         $bundle = new Zikula_HookManager_ProviderBundle($this->name, self::PROVIDER_FILTERAREANAME, 'filter_hooks', $this->__('BBSmile - Transform Smilies'));
         // filter hook is used to transform the altered text in the hooked object to display the smilies
-        $bundle->addServiceHandler('filter', 'BBSmile_HookHandlers', 'uifilter', 'bbsmile.smilies');
+        $bundle->addServiceHandler('filter', 'BBSmile_HookHandlers', 'uifilter', 'bbsmile.transform');
         $this->registerHookProviderBundle($bundle);
     }
 
