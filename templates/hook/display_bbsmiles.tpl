@@ -24,7 +24,7 @@
     <!-- entire content replaced after load -->
     <div class="modal-dialog">
         <div class="modal-content alert alert-info">
-            <i class="icon-spinner icon-spin icon-large"></i> {gt text='loading'}
+            <i class="fa fa-spinner fa-spin fa-lg"></i> {gt text='loading'}
         </div>
     </div>
 </div>

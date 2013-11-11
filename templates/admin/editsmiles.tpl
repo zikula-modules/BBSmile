@@ -1,6 +1,6 @@
 {adminheader}
 <h3>
-    <span class="icon-edit"></span>&nbsp;{gt text="Currently defined Smilies"}
+    <span class="fa fa-edit"></span>&nbsp;{gt text="Currently defined Smilies"}
 </h3>
 <p class="alert alert-info">{gt text='Aliases are seperated by ",". Please don\'t use spaces.'}</p>
 

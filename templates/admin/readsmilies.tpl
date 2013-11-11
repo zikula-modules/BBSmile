@@ -1,6 +1,6 @@
 {adminheader}
 <h3>
-    <span class="icon-cogs"></span>&nbsp;{gt text="Reload smilies from filesystem"}
+    <span class="fa fa-cogs"></span>&nbsp;{gt text="Reload smilies from filesystem"}
 </h3>
 <p class="alert alert-info">{gt text="With confirmation all smilies out of the directory are read. Smilies without a image in the directory will be deleted. Changes on smilie information will be kept."}</p>
 
