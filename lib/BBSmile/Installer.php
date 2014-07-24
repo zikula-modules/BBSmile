@@ -41,13 +41,15 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
      */
     public function upgrade($oldversion)
     {
-        /*
-          switch($oldversion) {
-
-          default:
-          break;
-          }
-         */
+        switch ($oldversion) {
+            case '2.1':
+                // load the 'auto' smilies
+                ModUtil::loadApi($this->name, 'admin', true);
+                ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array('forcereload' => 1));
+                // create hook
+                HookUtil::registerProviderBundles($this->version->getHookProviderBundles());
+            case '3.0.0': // current version
+        }
         return true;
     }
 
