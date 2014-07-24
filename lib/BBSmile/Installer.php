@@ -27,7 +27,7 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
 
         // load the 'auto' smilies
         ModUtil::loadApi($this->name, 'admin', true);
-        ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array('forcereload' => 1));
+        ModUtil::apiFunc($this->name, 'admin', 'updatesmilies', array('forcereload' => 1));
 
         // Set up module hooks
         HookUtil::registerProviderBundles($this->version->getHookProviderBundles());
@@ -43,9 +43,15 @@ class BBSmile_Installer extends Zikula_AbstractInstaller
     {
         switch ($oldversion) {
             case '2.1':
+                // reset all modvars to default
+                $this->setVar('smiliepath', 'modules/BBSmile/images/smilies');
+                $this->setVar('activate_auto', '1');
+                $this->setVar('remove_inactive', '1');
+                $this->setVar('smiliepath_auto', 'modules/BBSmile/images/smilies_auto');
+                $this->setVar('smilie_array', BBSmile_Util::getDefaultSmilies());
                 // load the 'auto' smilies
                 ModUtil::loadApi($this->name, 'admin', true);
-                ModUtil::apiFunc('BBSmile', 'admin', 'updatesmilies', array('forcereload' => 1));
+                ModUtil::apiFunc($this->name, 'admin', 'updatesmilies', array('forcereload' => 1));
                 // create hook
                 HookUtil::registerProviderBundles($this->version->getHookProviderBundles());
             case '3.0.0': // current version
