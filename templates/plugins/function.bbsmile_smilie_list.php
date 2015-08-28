@@ -19,7 +19,7 @@
  *@param params['type'] if a type is set then only smilies of this type are returned.
  *@return void
  */
-function smarty_function_BBSMILE_smilie_list($params, &$smarty)
+function smarty_function_bbsmile_smilie_list($params, &$smarty)
 {
 	// some initialization stuff
 	$assign = (isset($params['assign']) && !empty($params['assign'])) ? $params['assign'] : 'smilies';
